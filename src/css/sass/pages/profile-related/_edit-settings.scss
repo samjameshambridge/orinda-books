@@ -1,0 +1,29 @@
+.settings-user-form {
+  font-size: 1.25rem;
+  height: 100%;
+  padding-right: 2rem;
+  width: calc(100% - 4rem);
+
+  // flex properties
+  @include displayFlex(stretch, flex-start, column nowrap);
+
+  .label-input-group {
+    margin: 0.5rem 0;
+    width: 50%;
+
+    @include displayFlex(stretch, flex-start);
+
+    input {
+      color: $theme-blue;
+      border: solid 1px #d3d3d3;
+      border-radius: 5px;
+      margin-left: auto;
+      padding: 0.5em;
+      transition: all 0.5s ease;
+    }
+  }
+
+  .save-button {
+    margin-top: auto;
+  }
+}

@@ -1,0 +1,22 @@
+// ========== search group including input and search icon on admin pages ========== //
+
+// ========== THIS DOES NOT INCLUDE SEARCH PAGE ========== //
+
+.search-group {
+  //flex properties
+  @include displayFlex(flex-end, flex-start);
+
+  .search-input {
+    border: solid 2px transparent;
+    margin: 0;
+    width: 0;
+  }
+
+  .active-input {
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    transition: all 0.5s ease;
+  }
+}

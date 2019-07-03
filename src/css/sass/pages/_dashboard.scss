@@ -1,0 +1,175 @@
+// =========== the widgets in the center and on the right of the dashboard ========== //
+.dashboard-widgets-container {
+  background-image: $theme-main-background;
+
+  .dashboard-widget-container {
+    background: $theme-white;
+    border-radius: 10%;
+    cursor: pointer;
+
+    // flex properties
+    @include displayFlex(center, space-evenly, column nowrap);
+
+    h2 {
+      margin: 0;
+
+      @media screen and (max-width: $medium) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .small-widget-pic {
+    max-height: 12vh;
+
+    @media screen and (min-width: $medium) {
+      max-height: 15vh;
+    }
+  }
+
+  .large-widget-pic {
+    max-height: 12vh;
+
+    @media screen and (min-width: $medium) {
+      max-height: 24vh;
+    }
+  }
+
+  // ========== styling for individual widget containers ========== //
+  .dashboard-inventory-widget-container,
+  .dashboard-sales-widget-container,
+  .dashboard-orders-widget-container,
+  .dashboard-search-widget-container,
+  .dashboard-staff-widget-container {
+    img {
+      transition: all 0.5s ease;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+// ========== GRID LAYOUT =========== //
+// ======= everything in the dashboard ====== //
+.dashboard-container {
+  @include displayFlex(stretch, flex-start);
+}
+
+// ========== dashboard grid layout for widgets ========== //
+.dashboard-widgets-container {
+  padding: 2rem;
+
+  //   grid layout
+  display: grid;
+  grid-template-columns: repeat(7, calc((80vw - 4rem) / 7));
+  grid-template-rows: calc(40vh - 3rem) calc(60vh - 1rem);
+
+  @media screen and (max-width: $medium) {
+    padding: 1rem;
+
+    // grid layout on tablet and smaller
+    grid-template-columns: repeat(2, calc(40vw - 1rem));
+    grid-template-rows: repeat(3, calc((100vh - 2rem) / 3));
+  }
+
+  @media screen and (min-width: $xx-large) {
+    padding: 6rem;
+  }
+
+  .dashboard-orders-widget-container {
+    margin-right: 1rem;
+
+    // grid properties
+    grid-column: 1 / 3;
+
+    @media screen and (max-width: $medium) {
+      margin-right: 0.5rem;
+
+      // grid properties
+      grid-column: 1/2;
+    }
+
+    @media screen and (min-width: $xx-large) {
+      margin-right: 3rem;
+    }
+  }
+
+  .dashboard-staff-widget-container {
+    margin: 1rem 0;
+
+    // grid properties
+    grid-column: 3 / 6;
+
+    @media screen and (max-width: $medium) {
+      // grid properties
+      grid-column: 1/3;
+      grid-row-start: 2;
+    }
+
+    @media screen and (min-width: $xx-large) {
+      margin: 0 1rem;
+    }
+  }
+
+  .dashboard-sales-widget-container {
+    margin-left: 1rem;
+
+    // grid properties
+    grid-column: 6 / 8;
+
+    @media screen and (max-width: $medium) {
+      margin-left: 0.5rem;
+
+      // grid properties
+      grid-column: 2/3;
+    }
+
+    @media screen and (min-width: $xx-large) {
+      margin-left: 3rem;
+    }
+  }
+
+  .dashboard-inventory-widget-container {
+    margin: 2rem -3rem 0 0;
+
+    // grid properties
+    grid-column: 1 / 4;
+    grid-row-start: 2;
+
+    @media screen and (max-width: $medium) {
+      margin: 0 0.5rem 0 0;
+
+      // grid properties
+      grid-column: 1/2;
+      grid-row-start: 3;
+    }
+
+    @media screen and (min-width: $xx-large) {
+      margin: 3rem -3rem 6rem 0;
+    }
+  }
+
+  .dashboard-search-widget-container {
+    margin: 2rem 0 0 -3.5rem;
+
+    // grid properties
+    grid-column: 5 / 8;
+    grid-row: 2;
+
+    @media screen and (max-width: $medium) {
+      margin: 0 0 0 0.5rem;
+
+      // gid properties
+      grid-column: 2/3;
+      grid-row-start: 3;
+    }
+
+    @media screen and (min-width: $xx-large) {
+      margin: 3rem 0 6rem -3rem;
+    }
+  }
+}

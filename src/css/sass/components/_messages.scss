@@ -1,0 +1,46 @@
+// ========== full screen overlay ==========//
+.message {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+
+  .X-button {
+    color: grey;
+    margin-left: 73vw;
+    margin-top: 32vh;
+    position: fixed;
+  }
+
+  .message-content {
+    background: $theme-white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    color: $theme-green;
+    min-height: 40vh;
+    margin-top: calc((100vh - 40vh) / 2);
+    margin-left: calc((100vw - 50vw) / 2);
+    padding: 2rem;
+    text-align: center;
+    width: 50vw;
+
+    h2 {
+      margin: 1rem 0;
+    }
+
+    .far {
+      &:hover {
+        cursor: default;
+        opacity: 1;
+      }
+    }
+
+    button {
+      font-size: 1rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.landing-container {
+  position: relative;
+  top: 20vh;
+  width: 100vw;
+
+  // flex properties
+  @include displayFlex(center, flex-start, column nowrap);
+
+  h1 {
+    font-size: 4.5rem;
+    margin: 0;
+  }
+
+  .auth-error-group {
+    h4 {
+      color: $theme-red;
+      margin-top: 0.5rem;
+    }
+  }
+}

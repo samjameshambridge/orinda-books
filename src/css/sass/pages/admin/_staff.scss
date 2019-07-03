@@ -1,0 +1,195 @@
+// ========== each group of elements containing the info of each staff member ========== //
+.staff-table {
+  margin-top: 2em;
+  width: 100%;
+
+  .staff-table-headings {
+    font-size: 1.25rem;
+  }
+
+  tbody {
+    max-height: 45vh;
+  }
+
+  td {
+    min-width: 15.5vw;
+    max-width: 15.5vw;
+  }
+
+  .spinner-row {
+    width: calc(100vw - 12.1rem);
+  }
+}
+
+// ========== "add member" title along with plus icon ========== //
+.add-member-group {
+  left: 75%;
+  margin-top: 2rem;
+  position: absolute;
+  top: 21vh;
+  width: 25%;
+
+  // flex properties
+  @include displayFlex(center, center);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  h2 {
+    margin-right: 0.75rem;
+  }
+
+  .fa-plus {
+    color: $theme-red;
+  }
+}
+
+// ========= staff modals ========= //
+.staff-modal {
+  height: 100%;
+
+  // flex properties
+  @include displayFlex(center, space-between, column nowrap);
+
+  h1 {
+    @media screen and (min-width: $xx-large) {
+      font-size: 3rem;
+    }
+  }
+  h5 {
+    justify-self: flex-start;
+    text-align: center;
+
+    @media screen and (min-width: $xx-large) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .staff-modal-view-content {
+    width: calc(66vw - 4rem);
+
+    // flex properties
+    @include displayFlex(center, space-evenly);
+
+    .modal-view-item-info {
+      height: 100%;
+
+      // flex properties
+      @include displayFlex(stretch, space-evenly, column nowrap);
+
+      p {
+        @media screen and (min-width: $xx-large) {
+          font-size: 1.75rem;
+        }
+      }
+    }
+  }
+
+  .staff-modal-view-button-group {
+    width: 100%;
+
+    // flex properties
+    @include displayFlex(stretch, space-evenly);
+  }
+}
+
+// ========= add member modal ========= //
+.add-staff-form {
+  height: 100%;
+  width: 100%;
+
+  h2 {
+    @media screen and (min-width: $xx-large) {
+      font-size: 3rem;
+    }
+  }
+
+  .staff-input-group {
+    height: 100%;
+
+    // flex properties
+    @include displayFlex(stretch, space-between, column nowrap);
+
+    .staff-form-group {
+      margin: 1rem 0;
+
+      .label-input-group {
+        margin: 1.5rem 0;
+      }
+
+      label {
+        display: inline-block;
+        width: 25%;
+
+        @media screen and (min-width: $xx-large) {
+          font-size: 1.75rem;
+        }
+      }
+
+      .radio-label {
+        width: 10%;
+      }
+
+      input {
+        border: solid 1px #d3d3d3;
+        border-radius: 5px;
+        padding: 0.5em;
+        transition: all 0.5s ease;
+      }
+    }
+
+    .add-button {
+      cursor: pointer;
+      border: solid transparent 2px;
+      border-radius: 20px;
+      padding: 0.5rem 0;
+      transition: all 0.5s ease;
+      width: 20%;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+// =========== edit member modal =========== //
+.edit-member-title {
+  margin-bottom: 3rem;
+
+  span {
+    color: $theme-red;
+  }
+}
+
+.edit-member-form {
+  height: calc(80vh - 9rem);
+
+  // flex properties
+  @include displayFlex(center, space-between, column nowrap);
+
+  .label-input-group {
+    margin-bottom: 1rem;
+    width: 100%;
+
+    // flex properties
+    @include displayFlex(stretch, flex-start);
+
+    input {
+      color: $theme-blue;
+      border: solid 1px #d3d3d3;
+      border-radius: 5px;
+      margin-left: auto;
+      padding: 0.5em;
+      transition: all 0.5s ease;
+    }
+  }
+
+  .edit-member-button-group {
+    width: 100%;
+
+    // flex properties
+    @include displayFlex(stretch, space-between);
+  }
+}

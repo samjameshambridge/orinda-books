@@ -1,0 +1,197 @@
+// ============ content on page not including modal =========== //
+.tasks-page-content-container {
+  overflow-y: auto;
+  padding: 1rem;
+  text-align: center;
+
+  // flex properties
+  @include displayFlex(stretch, flex-start, row wrap);
+
+  .empty-tasks-group {
+    width: 100%;
+
+    .tasks-empty-tasks-title {
+      padding: 4rem 0 2rem 0;
+      text-align: center;
+    }
+
+    .fa-plus {
+      color: $theme-red;
+    }
+  }
+
+  .task-card {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+    box-sizing: border-box;
+    cursor: pointer;
+    max-height: calc(50vh - 8rem);
+    min-height: calc(50vh - 8rem);
+    width: calc((90vw - 14rem) / 3);
+    margin: 1rem;
+    padding: 1rem;
+    transition: all 0.5s ease;
+
+    // flex properties
+    @include displayFlex(stretch, flex-start, column nowrap);
+
+    @media screen and (max-width: $medium) {
+      margin: 0.5rem;
+      width: calc(80vw - 3rem);
+    }
+
+    &:hover {
+      transform: scale(1.025);
+
+      .fa-trash {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    i {
+      color: $theme-red;
+    }
+
+    .pin-group {
+      margin-top: -1.5rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+
+      // flex properties
+      @include displayFlex(stretch, space-between);
+
+      .fa-map-pin {
+        &:hover {
+          opacity: 1;
+        }
+
+        &:first-of-type {
+          transform: rotate(-10deg);
+        }
+
+        &:nth-of-type(2) {
+          transform: rotate(10deg);
+        }
+      }
+    }
+
+    .fa-trash {
+      opacity: 0;
+      transition: opacity 1s ease;
+      visibility: hidden;
+
+      // flex properties
+      align-self: flex-end;
+    }
+
+    h4 {
+      height: 90%;
+      width: 100%;
+
+      // flex properties
+      @include displayFlex(center, center);
+
+      @media screen and (min-width: $xx-large) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .add-task-card {
+    .add-task-card-content {
+      height: 90%;
+
+      // flex properties
+      @include displayFlex(stretch, center, column nowrap);
+
+      h3 {
+        font-weight: 200;
+        margin-bottom: 1rem;
+
+        @media screen and (min-width: $xx-large) {
+          font-size: 2rem;
+        }
+      }
+
+      .fa-plus {
+        color: $theme-blue;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// =========== TASK-SPECIFIC MODALS =========== //
+
+// =========== add task modal =========== //
+.task-modal-content {
+  border-radius: 0px;
+  height: 50vh;
+  margin-top: calc((100vh - 50vh) / 2);
+  margin-left: calc((100vw - 50vw) / 2);
+  width: 50vw;
+
+  // flex properties
+  @include displayFlex(flex-start, flex-start, column nowrap);
+
+  h3 {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  input,
+  textarea {
+    box-sizing: border-box;
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  textarea {
+    height: 70%;
+  }
+
+  .X-button {
+    margin-left: 44vw;
+    margin-top: -2.5vh;
+
+    @media screen and (max-width: $large) {
+      margin-left: 43vw;
+    }
+
+    @media screen and (max-width: $medium) {
+      margin-left: 42vw;
+    }
+
+    @media screen and (max-width: $small) {
+      margin-left: 36vw;
+    }
+  }
+}
+
+// =========== view task modal =========== //
+.view-task-modal-content {
+  width: 100%;
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  h5 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  .empty-notes-title {
+    color: $theme-red;
+  }
+}

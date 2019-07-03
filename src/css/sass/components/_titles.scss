@@ -1,0 +1,23 @@
+.admin-page-title {
+  font-size: 2rem;
+  text-align: center;
+
+  @media screen and (min-width: $xx-large) {
+    font-size: 4rem;
+  }
+}
+
+.profile-page-title {
+  font-size: 3rem;
+  margin-top: 1rem;
+  padding-left: 1.8rem;
+
+  @media screen and (max-width: $medium) {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  @media screen and (min-width: $xx-large) {
+    font-size: 5rem;
+  }
+}

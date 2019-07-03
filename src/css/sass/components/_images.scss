@@ -1,0 +1,42 @@
+// ========== small pic present on all admin related pages on the top left ========= //
+.admin-page-profile-pic {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 10vh;
+
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
+}
+
+// =========== the large profile pic present on the dashboard ========== //
+.dashboard-profile-pic {
+  border-radius: 50%;
+  height: 20vh;
+
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
+
+  @media screen and (max-width: $large) {
+    height: 15vh;
+  }
+}
+
+// =========== search icon underneath inventory table ========== //
+.search-icon {
+  cursor: pointer;
+  height: 5vh;
+  margin-top: 1rem;
+}
+
+// =========== pictures of each staff member in the individuals tr's in the staff page table ========== //
+.staff-list-member-img {
+  border-radius: 50%;
+  height: 7.5vh;
+}
+
+.staff-modal-view-image {
+  border-radius: 50%;
+  height: 25vh;
+}

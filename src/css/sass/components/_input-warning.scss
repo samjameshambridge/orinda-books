@@ -1,0 +1,10 @@
+.warning-input {
+  border: solid $theme-red 2px !important;
+}
+
+.input-warning-message {
+  color: $theme-red;
+  display: none;
+  font-size: 0.75rem;
+  width: 75%;
+}

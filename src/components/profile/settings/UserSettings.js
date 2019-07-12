@@ -1,63 +1,82 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { compose } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { firebaseConnect } from "react-redux-firebase";
 
 import { setEditType } from "actions/editActions";
+import { logOut, resetPassword } from "actions/authActions";
 
 import EditButton from "components/buttons/EditButton";
 import InputSaveButton from "components/buttons/InputSaveButton";
 
-class UserSettings extends Component {
-  editHandler() {
-    const {
-      history: { push },
-      setEditType
-    } = this.props;
+function UserSettings({
+  edit_type,
+  firebase: {
+    auth: { email }
+  },
+  history: { push },
+  logOut,
+  resetPassword,
+  setEditType
+}) {
+  const [password, changePassword] = useState();
 
+  function editHandler() {
     setEditType(true);
     push("/settings/edit");
   }
-  submitHandler(e) {
-    const {
-      history: { push }
-    } = this.props;
-
+  function submitHandler(e) {
     e.preventDefault();
-    push("/settings");
-  }
-  render() {
-    const { edit_type, email } = this.props;
 
-    if (edit_type) {
-      return (
-        <React.Fragment>
-          <form
-            onSubmit={e => this.submitHandler(e)}
-            className="settings-user-form text-theme-blue"
-          >
-            <p>{email}</p>
-            <div className="label-input-group">
-              <label htmlFor="language">Password</label>
-              <input type="text" />
-            </div>
-            <InputSaveButton />
-          </form>
-        </React.Fragment>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <div className="settings-email-password">
-            <p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{email}</p>
-            <p>Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*******</p>
-          </div>
-          {!edit_type && (
-            <EditButton id="userSettings" onClick={() => this.editHandler()} />
-          )}
-        </React.Fragment>
-      );
+    if (!password || password.length < 7) {
+      document.getElementById("passwordInput").classList = "warning-input";
+      document.querySelector(".input-warning-message").style.display = "block";
+
+      return;
     }
+
+    resetPassword(password);
+    logOut();
+  }
+
+  if (edit_type) {
+    return (
+      <React.Fragment>
+        <form
+          onSubmit={e => submitHandler(e)}
+          className="settings-user-form text-theme-blue"
+        >
+          <p>{email}</p>
+          <div className="label-input-group">
+            <label htmlFor="language">Password</label>
+            <input
+              id="passwordInput"
+              type="text"
+              onChange={e => changePassword(e.target.value)}
+            />
+          </div>
+          <p className="input-warning-message">
+            Please check again, you must enter a password 7 characters or
+            longer.
+          </p>
+          <InputSaveButton />
+        </form>
+      </React.Fragment>
+    );
+  } else {
+    return (
+      <React.Fragment>
+        <div className="settings-email-password">
+          <p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{email}</p>
+          <p>Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*******</p>
+        </div>
+        {!edit_type && (
+          <EditButton id="userSettings" onClick={() => editHandler()} />
+        )}
+      </React.Fragment>
+    );
   }
 }
 
@@ -67,22 +86,21 @@ UserSettings.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }),
+  resetPassword: PropTypes.func.isRequired,
   setEditType: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({
-  edit: { edit_type },
-  firebase: {
-    auth: { email }
-  }
-}) => {
+const mapStateToProps = ({ edit: { edit_type }, firebase }) => {
   return {
     edit_type,
-    email
+    firebase
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { setEditType }
+export default compose(
+  firebaseConnect(),
+  connect(
+    mapStateToProps,
+    { logOut, resetPassword, setEditType }
+  )
 )(withRouter(UserSettings));

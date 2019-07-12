@@ -1,4 +1,9 @@
-import { LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "actions/types";
+import {
+  LOGIN_ERROR,
+  LOGIN_SUCCESS,
+  LOGOUT_SUCCESS,
+  PASSWORD_RESET_ERROR
+} from "actions/types";
 
 export const logIn = credentials => {
   return (dispatch, getState, { getFirebase }) => {
@@ -24,5 +29,22 @@ export const logOut = () => {
       .auth()
       .signOut()
       .then(() => dispatch({ type: LOGOUT_SUCCESS }));
+  };
+};
+
+export const resetPassword = password => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+
+    let user = firebase.auth().currentUser;
+
+    user
+      .updatePassword(password)
+      .then(() => {
+        console.log("update successful");
+      })
+      .catch(err => {
+        dispatch({ type: PASSWORD_RESET_ERROR, payload: err });
+      });
   };
 };

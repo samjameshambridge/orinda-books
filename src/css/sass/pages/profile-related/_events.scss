@@ -103,7 +103,7 @@
 
     .events-upcoming-container,
     .event-specific-container {
-      border: solid 1px whitesmoke;
+      border: solid 1px #f5f5f5;
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
         0 4px 10px 0 rgba(0, 0, 0, 0.19);
       box-sizing: border-box;
@@ -135,6 +135,7 @@
       }
     }
 
+    // top box with info on upcoming events
     .events-upcoming-container {
       margin-bottom: 2rem;
 
@@ -147,10 +148,18 @@
         height: 72.5%;
 
         // flex properties
-        @include displayFlex(flex-start, space-evenly, column nowrap);
+        @include displayFlex(flex-start, flex-start, column nowrap);
 
         @media screen and (max-width: $medium) {
           margin-left: 0.5rem;
+        }
+
+        p {
+          margin: 1rem 0;
+
+          &:first-of-type {
+            margin: 0;
+          }
         }
       }
 
@@ -164,26 +173,37 @@
         }
       }
     }
-  }
 
-  .event-specific-container {
-    h3 {
-      @media screen and (max-width: $medium) {
-        font-size: 0.8rem;
-        text-align: center;
-      }
-    }
-
-    .empty-detail-event-group {
-      // flex properties
-      @include displayFlex(stretch, flex-start, column nowrap);
-
-      @media screen and (max-width: $medium) {
-        @include displayFlex(center, center, column nowrap);
-      }
-
-      .empty-detail-event-title {
+    // bottom box with info on date clicked
+    .event-specific-container {
+      h3 {
         font-weight: 300;
+
+        @media screen and (max-width: $medium) {
+          font-size: 0.8rem;
+          text-align: center;
+        }
+      }
+
+      .empty-detail-event-group {
+        // flex properties
+        @include displayFlex(stretch, flex-start, column nowrap);
+
+        @media screen and (max-width: $medium) {
+          @include displayFlex(center, center, column nowrap);
+        }
+      }
+
+      .detail-event-group {
+        margin-top: 1rem;
+
+        p {
+          margin: 0.5rem 0;
+
+          @media screen and (min-width: $xx-large) {
+            font-size: 1.75rem !important;
+          }
+        }
       }
 
       .fa-plus {
@@ -193,18 +213,6 @@
 
         @media screen and (max-width: $medium) {
           margin-left: 0;
-        }
-      }
-    }
-
-    .detail-event-group {
-      margin-top: 2rem;
-
-      p {
-        margin: 0.5rem 0;
-
-        @media screen and (min-width: $xx-large) {
-          font-size: 1.75rem !important;
         }
       }
     }

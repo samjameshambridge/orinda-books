@@ -6,9 +6,8 @@ import { logOut } from "actions/authActions";
 
 function Logout({ logOut }) {
   return (
-    <div className="logout">
-      <span>Logout</span>{" "}
-      <i className="fas fa-power-off" onClick={() => logOut()} />
+    <div className="logout" onClick={() => logOut()}>
+      <span>Logout</span> <i className="fas fa-power-off" />
     </div>
   );
 }

@@ -36,20 +36,40 @@ function ViewFilledModal({
       <div className="orders-view-modal-content">
         <div className="orders-view-modal-book">
           <h3>Info</h3>
-          <p>Author: {author}</p>
-          <p>Title: {title}</p>
-          <p>ISBN: {isbn} </p>
           <p>
-            Genre: {genre} ({subgenre})
+            <span className="order-label">Author:&nbsp;&nbsp;</span>
+            {author}
+          </p>
+          <p>
+            <span className="order-label">Title:&nbsp;&nbsp;</span> {title}
+          </p>
+          <p>
+            <span className="order-label">ISBN:&nbsp;&nbsp;</span> {isbn}{" "}
+          </p>
+          <p>
+            <span className="order-label">Genre:&nbsp;&nbsp;</span>
+            {genre} ({subgenre})
           </p>
         </div>
         <div className="orders-view-modal-receipt">
           <h3>Receipt</h3>
-          <p>Company: {company}</p>
-          <p>ID: {id}</p>
-          <p>Sent: {date}</p>
-          <p>Filled: {filledDate}</p>
-          <p>Quantity: {quantity}</p>
+          <p>
+            <span className="order-label">Company:&nbsp;&nbsp;</span> {company}
+          </p>
+          <p>
+            <span className="order-label">ID:&nbsp;&nbsp;</span> {id}
+          </p>
+          <p>
+            <span className="order-label">Sent:&nbsp;&nbsp;</span> {date}
+          </p>
+          <p>
+            <span className="order-label">Filled:&nbsp;&nbsp;</span>{" "}
+            {filledDate}
+          </p>
+          <p>
+            <span className="order-label">Quantity:&nbsp;&nbsp;</span>
+            {quantity}
+          </p>
         </div>
       </div>
       <div className="orders-view-modal-buttons">

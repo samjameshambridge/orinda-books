@@ -13,7 +13,7 @@
   }
 
   ul {
-    font-size: 1.5rem;
+    font-size: 1.33rem;
     list-style: none;
     margin: 2.25rem 0;
     padding: 0;
@@ -30,7 +30,7 @@
     }
 
     li {
-      margin: 17.5% 0;
+      margin: 12.5% 0;
       text-align: center;
 
       @media screen and (max-width: $medium) {
@@ -79,7 +79,7 @@
     }
   }
 
-  .fa-sign-out-alt {
+  .fa-home {
     color: $theme-red;
   }
 }

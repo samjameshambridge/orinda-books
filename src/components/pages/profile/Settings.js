@@ -24,7 +24,6 @@ function Settings({ setEditType, uid }) {
       <div className="main-section-container">
         <ProfileTitle value="Settings" />
         <div className="settings-container">
-          <h2>Danger Zone</h2>
           <div className="settings-content">
             <UserSettings />
           </div>

@@ -31,6 +31,18 @@
     padding: 1rem;
     transition: all 0.5s ease;
 
+    &:hover {
+      transform: scale(1.025);
+
+      .task-card-icon-group {
+        .fa-trash,
+        .fa-check {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
     // flex properties
     @include displayFlex(stretch, flex-start, column nowrap);
 
@@ -39,20 +51,8 @@
       width: calc(80vw - 3rem);
     }
 
-    &:hover {
-      transform: scale(1.025);
-
-      .fa-trash {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-
-    i {
-      color: $theme-red;
-    }
-
     .pin-group {
+      color: $theme-red;
       margin-top: -1.5rem;
       margin-left: -1rem;
       margin-right: -1rem;
@@ -61,6 +61,7 @@
       @include displayFlex(stretch, space-between);
 
       .fa-map-pin {
+        // prevents default opacity change
         &:hover {
           opacity: 1;
         }
@@ -75,13 +76,33 @@
       }
     }
 
-    .fa-trash {
-      opacity: 0;
-      transition: opacity 1s ease;
-      visibility: hidden;
+    .fa-check {
+      color: $theme-green;
 
-      // flex properties
-      align-self: flex-end;
+      // prevents default opacity change
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .task-card-icon-group {
+      width: 100%;
+
+      @include displayFlex(stretch, flex-start);
+
+      .fa-trash,
+      .fa-check {
+        opacity: 0;
+        transition: opacity 1s ease;
+        visibility: hidden;
+      }
+
+      .fa-trash {
+        color: $theme-red;
+
+        // flex properties
+        margin-left: auto;
+      }
     }
 
     h4 {
@@ -114,7 +135,7 @@
       }
 
       .fa-plus {
-        color: $theme-blue;
+        color: $theme-red;
 
         &:hover {
           opacity: 1;

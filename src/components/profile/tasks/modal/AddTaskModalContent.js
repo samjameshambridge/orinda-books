@@ -27,7 +27,8 @@ function AddTaskModalContent({ firestore, tasks, toggleModal, uid }) {
       tasks.push({
         title,
         deadline,
-        notes: notes ? notes : null
+        notes: notes ? notes : null,
+        checked: false
       });
 
       const tasksUpd = {

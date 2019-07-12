@@ -9,7 +9,7 @@ import "firebase/database";
 import "firebase/auth";
 import "firebase/storage";
 
-import fbConfig from "config/fbConfig";
+import firebaseConfig from "config/firebaseConfig";
 import rootReducer from "reducers";
 
 const rrfConfig = {
@@ -18,7 +18,7 @@ const rrfConfig = {
   useFirestoreForProfile: true
 };
 
-firebase.initializeApp(fbConfig);
+firebase.initializeApp(firebaseConfig);
 firebase.firestore();
 
 const createStoreWithFirebase = compose(

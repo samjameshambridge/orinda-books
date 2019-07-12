@@ -7,12 +7,12 @@ import { logIn } from "actions/authActions";
 import LoginButton from "components/buttons/LoginButton";
 
 function Login({ auth_error, logIn }) {
-  const [email, emailStateFunc] = useState(""),
-    [password, passwordStateFunc] = useState("");
+  const [email, setEmail] = useState(""),
+    [password, setPassword] = useState("");
 
   function handleChange(e) {
-    if (e.target.type === "email") emailStateFunc(e.target.value);
-    else if (e.target.type === "password") passwordStateFunc(e.target.value);
+    if (e.target.type === "email") setEmail(e.target.value);
+    else if (e.target.type === "password") setPassword(e.target.value);
   }
 
   function handleClick(e) {

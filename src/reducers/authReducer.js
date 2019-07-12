@@ -1,4 +1,9 @@
-import { LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "actions/types";
+import {
+  LOGIN_ERROR,
+  LOGIN_SUCCESS,
+  LOGOUT_SUCCESS,
+  PASSWORD_RESET_ERROR
+} from "actions/types";
 
 const initState = {};
 
@@ -7,13 +12,13 @@ const authReducer = (state = initState, action) => {
     case LOGIN_ERROR:
       return {
         ...state,
-        auth_error: action.payload
+        login_error: action.payload
       };
 
     case LOGIN_SUCCESS:
       return {
         ...state,
-        auth_error: null
+        login_error: null
       };
 
     case LOGOUT_SUCCESS:
@@ -21,6 +26,12 @@ const authReducer = (state = initState, action) => {
 
     default:
       return state;
+
+    case PASSWORD_RESET_ERROR:
+      return {
+        ...state,
+        password_error: action.payload
+      };
   }
 };
 

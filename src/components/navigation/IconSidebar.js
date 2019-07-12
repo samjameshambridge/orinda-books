@@ -8,7 +8,7 @@ function IconSidebar() {
     <div className="icon-sidebar-container font-secondary">
       <IconNavigation />
       <Link to="/dashboard">
-        <i className="fas fa-sign-out-alt fa-2x" />
+        <i className="fas fa-home fa-2x" />
       </Link>
     </div>
   );

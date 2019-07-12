@@ -187,6 +187,11 @@
         @media screen and (min-width: $xx-large) {
           font-size: 2rem;
         }
+
+        .item-label {
+          font-size: 0.9rem;
+          font-weight: 600;
+        }
       }
     }
 

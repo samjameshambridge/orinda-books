@@ -41,3 +41,30 @@
     }
   }
 }
+
+// =========== logout button on dashboard navigation =========== //
+.logout {
+  font-size: 1.33rem;
+
+  @media screen and (max-width: $medium) {
+    margin-bottom: 5vh;
+  }
+
+  span {
+    @media screen and (max-width: $medium) {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $xx-large) {
+    font-size: 2rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .fa-power-off {
+    color: $theme-red;
+  }
+}

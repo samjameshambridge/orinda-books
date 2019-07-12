@@ -8,9 +8,10 @@ function SearchResults({
   ordered: {
     filledOrdersFiltered,
     unfilledOrdersFiltered,
-    inventoryAuthorFiltered,
-    inventoryTitleFiltered,
-    staffFiltered
+    authorFiltered,
+    titleFiltered,
+    firstNameFiltered,
+    fullNameFiltered
   },
   search_value
 }) {
@@ -19,9 +20,10 @@ function SearchResults({
   if (
     filledOrdersFiltered ||
     unfilledOrdersFiltered ||
-    inventoryAuthorFiltered ||
-    inventoryTitleFiltered ||
-    staffFiltered
+    authorFiltered ||
+    titleFiltered ||
+    firstNameFiltered ||
+    fullNameFiltered
   ) {
     if (unfilledOrdersFiltered && unfilledOrdersFiltered.length) {
       results = (
@@ -39,26 +41,26 @@ function SearchResults({
           ))}
         </React.Fragment>
       );
-    } else if (inventoryAuthorFiltered && inventoryAuthorFiltered.length) {
+    } else if (authorFiltered && authorFiltered.length) {
       results = (
         <React.Fragment>
-          {inventoryAuthorFiltered.map(item => (
+          {authorFiltered.map(item => (
             <SearchItem key={item.id} item={item} />
           ))}
         </React.Fragment>
       );
-    } else if (inventoryTitleFiltered && inventoryTitleFiltered.length) {
+    } else if (titleFiltered && titleFiltered.length) {
       results = (
         <React.Fragment>
-          {inventoryTitleFiltered.map(item => (
+          {titleFiltered.map(item => (
             <SearchItem key={item.id} item={item} />
           ))}
         </React.Fragment>
       );
-    } else if (staffFiltered && staffFiltered.length) {
+    } else if (firstNameFiltered && firstNameFiltered.length) {
       results = (
         <React.Fragment>
-          {staffFiltered.map(item => (
+          {firstNameFiltered.map(item => (
             <SearchItem key={item.id} item={item} />
           ))}
         </React.Fragment>
@@ -66,6 +68,16 @@ function SearchResults({
     } else if (search_value) {
       results = <h5 className="empty-search-message">No results found!</h5>;
     }
+  } else if (fullNameFiltered && fullNameFiltered.length) {
+    results = (
+      <React.Fragment>
+        {fullNameFiltered.map(item => (
+          <SearchItem key={item.id} item={item} />
+        ))}
+      </React.Fragment>
+    );
+  } else if (search_value) {
+    results = <h5 className="empty-search-message">No results found!</h5>;
   }
   return <React.Fragment>{results}</React.Fragment>;
 }

@@ -19,8 +19,13 @@ function SearchSettings({
     case "staff":
       firestore.get({
         collection: "staff",
+        where: ["firstName", "==", search_value],
+        storeAs: "fullNameFiltered"
+      });
+      firestore.get({
+        collection: "staff",
         where: ["fullName", "==", search_value],
-        storeAs: "staffFiltered"
+        storeAs: "firstNameFiltered"
       });
 
       break;
@@ -29,12 +34,12 @@ function SearchSettings({
       firestore.get({
         collection: "books",
         where: ["title", "==", search_value],
-        storeAs: "inventoryTitleFiltered"
+        storeAs: "titleFiltered"
       });
       firestore.get({
         collection: "books",
         where: ["author", "==", search_value],
-        storeAs: "inventoryAuthorFiltered"
+        storeAs: "authorFiltered"
       });
 
       break;

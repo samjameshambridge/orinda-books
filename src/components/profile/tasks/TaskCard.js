@@ -4,16 +4,17 @@ import { connect } from "react-redux";
 
 import { setViewingItem, toggleModal } from "actions/modalActions";
 
+import CheckTaskIcon from "components/profile/tasks/CheckTaskIcon";
 import DeleteTaskIcon from "components/profile/tasks/DeleteTaskIcon";
 
 function TaskCard({
   setViewingItem,
   task,
-  task: { title, deadline },
+  task: { checked, deadline, title },
   toggleModal
 }) {
   function clickHandler(e) {
-    if (e.target.className !== "fas fa-trash") {
+    if (e.target.contains(document.querySelector(".task-card-icon-group"))) {
       setViewingItem(task);
       toggleModal("view");
     }
@@ -29,7 +30,11 @@ function TaskCard({
         {title} <br />
         <br /> Deadline: {deadline}
       </h4>
-      <DeleteTaskIcon title={title} />
+      {checked && <CheckTaskIcon className="fa-2x" title={title} />}
+      <div className="task-card-icon-group">
+        {checked || <CheckTaskIcon title={title} />}
+        <DeleteTaskIcon title={title} />
+      </div>
     </div>
   );
 }
@@ -37,9 +42,10 @@ function TaskCard({
 TaskCard.propTypes = {
   setViewingItem: PropTypes.func.isRequired,
   task: PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    checked: PropTypes.bool.isRequired,
     deadline: PropTypes.string,
-    notes: PropTypes.string
+    notes: PropTypes.string,
+    title: PropTypes.string.isRequired
   }),
   toggleModal: PropTypes.func.isRequired
 };

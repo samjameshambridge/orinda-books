@@ -1,26 +1,15 @@
 // ============ settings including username and password ========== //
 .settings-container {
   background: $theme-white;
-  border: solid $theme-red 2px;
   border-radius: 10px;
   box-sizing: border-box;
-  height: calc(100vh - 9rem);
-  margin-top: 1rem;
-  padding-left: 2rem;
+  height: calc(100vh - 8rem);
+  padding: 2rem;
   width: calc(90vw - 7rem);
 
   @media screen and (max-width: $medium) {
     height: calc(100vh - 4rem);
     width: calc(80vw - 2rem);
-  }
-
-  h2 {
-    color: $theme-red;
-    margin: 2rem 0;
-
-    @media screen and (max-width: $medium) {
-      text-align: center;
-    }
   }
 
   p {
@@ -44,15 +33,20 @@
   }
 
   .settings-content {
-    height: calc(100% - 8rem);
+    height: 100%;
+
+    // flex properties
+    @include displayFlex(stretch, space-between, column nowrap);
 
     .settings-email-password {
-      height: calc(100% - 2rem);
-
       @media screen and (max-width: $medium) {
         margin-bottom: 1rem;
         width: calc(100% - 2rem);
       }
+    }
+
+    .input-warning-message {
+      font-size: 0.9rem;
     }
   }
 }

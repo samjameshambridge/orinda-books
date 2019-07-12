@@ -1,3 +1,4 @@
+// =========== main title for following pages: inventory, orders, sales, search, staff =========== //
 .admin-page-title {
   font-size: 2rem;
   text-align: center;
@@ -7,10 +8,14 @@
   }
 }
 
+// =========== main title for following pages: events, profile, settings, tasks =========== //
 .profile-page-title {
   font-size: 3rem;
   margin-top: 1rem;
   padding-left: 1.8rem;
+
+  // flex properties
+  @include displayFlex(stretch, flex-start);
 
   @media screen and (max-width: $medium) {
     padding-left: 0;
@@ -19,5 +24,13 @@
 
   @media screen and (min-width: $xx-large) {
     font-size: 5rem;
+  }
+
+  span {
+    font-size: 2rem;
+    margin-left: 2rem;
+
+    // flex properties
+    align-self: center;
   }
 }

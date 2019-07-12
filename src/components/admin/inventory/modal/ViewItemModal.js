@@ -22,13 +22,29 @@ function SummaryModal({
       <div className="modal-view-content">
         <img src={imageLocation} className="modal-view-image" alt="book" />
         <div className="modal-view-item-info text-theme-blue">
-          <p>Title: {title}</p>
-          <p>Author: {author}</p>
-          <p>Genre: {genre}</p>
-          <p>ISBN: {isbn}</p>
-          <p>Sale Price: {salePrice}</p>
-          <p>Publication Date: {publicationDate}</p>
-          <p>In Stock: {quantity}</p>
+          <p>
+            <span className="item-label">Title: </span>&nbsp;&nbsp;{title}
+          </p>
+          <p>
+            <span className="item-label">Author: </span>&nbsp;&nbsp;{author}
+          </p>
+          <p>
+            <span className="item-label">Genre: </span>&nbsp;&nbsp;{genre}
+          </p>
+          <p>
+            <span className="item-label">ISBN: </span>&nbsp;&nbsp;{isbn}
+          </p>
+          <p>
+            <span className="item-label">Sale Price: </span>&nbsp;&nbsp;
+            {salePrice}
+          </p>
+          <p>
+            <span className="item-label">Publication Date: </span>&nbsp;&nbsp;
+            {publicationDate}
+          </p>
+          <p>
+            <span className="item-label">In Stock: </span>&nbsp;&nbsp;{quantity}
+          </p>
         </div>
         <ModalCloseButton />
       </div>

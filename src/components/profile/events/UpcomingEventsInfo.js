@@ -24,36 +24,42 @@ function UpcomingEventsInfo({ events }) {
       return eventReversed >= todayReversed;
     });
 
-    // sort dates in order
-    sortedEvents = noPastDates.sort((a, b) => {
-      var aa = a.dateOf
-        .split("/")
-        .reverse()
-        .join();
+    if (!noPastDates.length) {
+      content = (
+        <h3 className="empty-detail-event-title font-secondary">
+          You currently have no upcoming events!
+        </h3>
+      );
+    } else {
+      // sort dates in order
+      sortedEvents = noPastDates.sort((a, b) => {
+        var aa = a.dateOf
+          .split("/")
+          .reverse()
+          .join();
 
-      var bb = b.dateOf
-        .split("/")
-        .reverse()
-        .join();
-      return aa < bb ? -1 : aa > bb ? 1 : 0;
-    });
+        var bb = b.dateOf
+          .split("/")
+          .reverse()
+          .join();
+        return aa < bb ? -1 : aa > bb ? 1 : 0;
+      });
 
-    content = (
-      <div className="upcoming-events-content">
-        <p>Next 3 events:</p>
-        {sortedEvents.map(event => {
-          const { id, dateOf, title } = event;
+      content = (
+        <div className="upcoming-events-content">
+          <p>Next 3 events:</p>
+          {sortedEvents.map(event => {
+            const { id, dateOf, title } = event;
 
-          return (
-            <div key={id}>
-              <p>
+            return (
+              <p key={id}>
                 {dateOf}: {title}
               </p>
-            </div>
-          );
-        })}
-      </div>
-    );
+            );
+          })}
+        </div>
+      );
+    }
   } else
     content = (
       <div className="spinner-container">

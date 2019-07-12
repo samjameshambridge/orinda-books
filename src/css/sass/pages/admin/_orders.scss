@@ -234,9 +234,7 @@
     height: calc(65% - 2rem);
 
     // flex properties
-    align-items: flex-start;
-    display: flex;
-    justify-content: space-evenly;
+    @include displayFlex(flex-start, space-evenly);
 
     .orders-view-modal-book {
       border-right: solid #d8d8d8 2px;
@@ -273,6 +271,11 @@
           font-size: 2rem;
         }
       }
+    }
+
+    .order-label {
+      font-size: 0.9rem;
+      font-weight: 600;
     }
   }
 

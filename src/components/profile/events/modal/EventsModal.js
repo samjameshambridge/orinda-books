@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from "react-redux";
@@ -13,6 +13,20 @@ import InputAddButton from "components/buttons/InputAddButton";
 function AddEventModal({ firestore, toggleModal }) {
   const [title, setTitle] = useState(),
     [dateOf, setDateOf] = useState();
+
+  useEffect(() => {
+    document.addEventListener("click", function clickFunction(e) {
+      if (e.target.contains(document.querySelector(".modal-overlay"))) {
+        toggleModal("");
+
+        document.removeEventListener("click", clickFunction);
+      }
+
+      return function cleanUp() {
+        document.removeEventListener("click", clickFunction);
+      };
+    });
+  });
 
   function submitHandler(e) {
     e.preventDefault();

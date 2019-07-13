@@ -1,10 +1,11 @@
 .profile-page-content-container {
+  box-sizing: border-box;
   // padding is set to 0 to override generic container padding to allow flex to distribute children easily
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
   // flex properties
-  @include displayFlex(stretch, space-evenly, column nowrap);
+  @include displayFlex(stretch, space-between, column nowrap);
 
   p {
     font-size: 1.25rem;

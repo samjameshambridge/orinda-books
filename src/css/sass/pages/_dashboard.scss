@@ -99,6 +99,8 @@
   }
 
   .dashboard-staff-widget-container {
+    margin: 0 1rem;
+
     // grid properties
     grid-column: 3 / 6;
 
@@ -106,10 +108,6 @@
       // grid properties
       grid-column: 1/3;
       grid-row-start: 2;
-    }
-
-    @media screen and (min-width: $xx-large) {
-      margin: 0 1rem;
     }
   }
 

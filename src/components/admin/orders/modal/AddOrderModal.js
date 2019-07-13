@@ -33,8 +33,8 @@ function AddOrderModal({ firestore, toggleModal }) {
       book: {
         author,
         title,
-        isbn,
-        publicationDate,
+        isbn: parseInt(isbn),
+        publicationDate: parseInt(publicationDate),
         genre,
         subgenre
       },

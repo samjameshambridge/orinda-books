@@ -1,8 +1,9 @@
 .edit-profile-form {
-  height: calc(100vh - 8rem);
+  box-sizing: border-box;
+  min-height: calc(90vh - 8rem);
 
   //   flex properties
-  @include displayFlex(flex-start, space-evenly, column nowrap);
+  @include displayFlex(flex-start, space-between, column nowrap);
 
   .label-input-group {
     width: 33%;
@@ -16,6 +17,10 @@
       border-radius: 5px;
       padding: 0.5em;
       transition: all 0.5s ease;
+    }
+
+    label {
+      font-size: 1.25rem;
     }
   }
 }

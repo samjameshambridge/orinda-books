@@ -20,11 +20,34 @@ function AddOrderModal({ firestore, toggleModal }) {
   function submitHandler(e) {
     e.preventDefault(e);
 
-    let isbnLength = isbn.toString().length;
+    const isbnWarning = document.querySelector(".isbn-warning-message"),
+      isbnLength = isbn.toString().length,
+      isbnInput = document.getElementById("isbnInput"),
+      quantityInput = document.getElementById("quantityInput"),
+      quantityWarning = document.querySelector(".quantity-warning-message");
 
     if (isbnLength !== 13) {
-      document.getElementById("isbnInput").classList = "warning-input";
-      document.querySelector(".input-warning-message").style.display = "block";
+      isbnInput.classList = "warning-input";
+
+      isbnWarning.style.display = "block";
+
+      setTimeout(() => {
+        isbnWarning.style.display = "none";
+        isbnInput.classList = "";
+      }, 3000);
+
+      return;
+    }
+
+    if (!parseInt(quantity)) {
+      quantityInput.classList = "warning-input";
+
+      quantityWarning.style.display = "block";
+
+      setTimeout(() => {
+        quantityWarning.style.display = "none";
+        quantityInput.classList = "";
+      }, 3000);
 
       return;
     }
@@ -81,7 +104,7 @@ function AddOrderModal({ firestore, toggleModal }) {
               onChange={e => setIsbn(e.target.value)}
               required
             />
-            <p className="input-warning-message">
+            <p className="isbn-warning-message">
               Please check again, all ISBNs must be 13 digits in length.
             </p>
           </div>
@@ -136,7 +159,11 @@ function AddOrderModal({ firestore, toggleModal }) {
               min="0"
               name="Quantity"
               onChange={e => setQuantity(e.target.value)}
+              id="quantityInput"
             />
+            <p className="quantity-warning-message">
+              Please check again, this quantity was not accepted.
+            </p>
           </div>
           <div className="label-input-group">
             <label htmlFor="company">Company</label>

@@ -187,7 +187,8 @@ body {
 .warning-input {
   border: solid #d9534f 2px !important; }
 
-.input-warning-message {
+.isbn-warning-message,
+.quantity-warning-message {
   color: #d9534f;
   display: none;
   font-size: 0.75rem;

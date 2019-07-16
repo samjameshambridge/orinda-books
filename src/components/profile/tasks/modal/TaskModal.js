@@ -7,6 +7,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { toggleModal } from "actions/modalActions";
 
 import AddTaskModalContent from "components/profile/tasks/modal/AddTaskModalContent";
+import EditTaskModalContent from "components/profile/tasks/modal/EditTaskModalContent";
 import ViewTaskModalContent from "components/profile/tasks/modal/ViewTaskModalContent";
 import ModalXButton from "components/modal/ModalXButton";
 
@@ -29,6 +30,7 @@ function TaskModal({ modal_type, toggleModal }) {
 
   if (modal_type === "add") modalContent = <AddTaskModalContent />;
   else if (modal_type === "view") modalContent = <ViewTaskModalContent />;
+  else if (modal_type === "edit") modalContent = <EditTaskModalContent />;
 
   return (
     <div className="modal-overlay">

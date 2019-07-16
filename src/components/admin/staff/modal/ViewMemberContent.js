@@ -21,7 +21,7 @@ function ViewMemberContent({
   }
 }) {
   return (
-    <div className="staff-modal">
+    <div className="staff-view-modal-container">
       <div>
         <h1 className="staff-view-modal-title">
           {firstName} {surname}

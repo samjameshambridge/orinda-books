@@ -36,9 +36,6 @@ function WidgetNavigation({ location: { pathname } }) {
           <img className="navigation-widget" src={Search} alt="Search" />
         </Link>
       )}
-      <Link to="/dashboard">
-        <i className="fas fa-sign-out-alt fa-2x" />
-      </Link>
     </div>
   );
 }

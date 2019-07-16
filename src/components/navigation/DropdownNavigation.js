@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { Link, withRouter } from "react-router-dom";
 
-import ProfilePic from "components/general/ProfilePic";
+import HomeLogo from "components/general/HomeLogo";
 
-function DropdownNavigation() {
+function DropdownNavigation({ history: { push } }) {
   const [dropdownState, dropdownStateFunc] = useState(false);
+
+  function clickHandler() {
+    push("/dashboard");
+  }
 
   function dropdownHandler() {
     const menu = document.querySelector("#dropdown-menu");
@@ -28,9 +33,12 @@ function DropdownNavigation() {
 
   return (
     <div className="dropdown-navigation">
-      <div className="dropdown-triggers" onClick={dropdownHandler}>
-        <ProfilePic className="admin-page-profile-pic" />
-        <i className="fas fa-sort-down" />
+      <div className="dropdown-triggers">
+        <div className="home-logo-group">
+          <HomeLogo onClick={clickHandler} />
+          <h4>O Books</h4>
+        </div>
+        <i className="fas fa-sort-down" onClick={dropdownHandler} />
       </div>
       <ul id="dropdown-menu">
         <li>
@@ -50,4 +58,10 @@ function DropdownNavigation() {
   );
 }
 
-export default DropdownNavigation;
+DropdownNavigation.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
+};
+
+export default withRouter(DropdownNavigation);

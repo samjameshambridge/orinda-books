@@ -5,11 +5,11 @@
 
 // ========== this container is a wrapper for the progress bar with the descriptor below it and of the "see inventory summary" on the right hand side ========== //
 .inventory-summary-content-container {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   width: 100%;
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.15rem;
 
     @media screen and (max-width: $medium) {
       font-size: 1rem;
@@ -25,7 +25,7 @@
   }
 
   .inventory-progress-bar-group {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     width: 100%;
 
     // flex properties
@@ -87,7 +87,7 @@
 // ========= inventory table ========== //
 .inventory-table {
   height: 35vh;
-  margin-top: 2em;
+  margin-top: 1rem;
   width: 100%;
 
   @media screen and (min-width: $xx-large) {
@@ -95,7 +95,7 @@
   }
 
   .inventory-table-headings {
-    font-size: 1.25rem;
+    font-size: 1rem;
 
     td {
       @media screen and (max-width: $medium) {
@@ -203,7 +203,7 @@
 
   // content for the inventory "summary" modal
   .inventory-summary-modal-title {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
 
     @media screen and (min-width: $xx-large) {
@@ -241,8 +241,14 @@
         }
 
         p {
+          font-size: 1rem;
           @media screen and (min-width: $xx-large) {
             font-size: 2rem;
+          }
+
+          .item-label {
+            font-size: 0.8rem;
+            font-weight: 600;
           }
         }
       }
@@ -259,7 +265,7 @@
 
     .modal-close-button {
       align-self: center;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
     }
   }
 }

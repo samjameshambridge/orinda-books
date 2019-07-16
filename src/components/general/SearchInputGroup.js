@@ -49,8 +49,9 @@ function SearchInputGroup({
       }
     });
   }
-  function onChangeHandler(e) {
+  function onChangeHandler(e, bool) {
     setSearchValue(e.target.value);
+    if (bool) setSecondarySearchValue();
 
     switch (type) {
       case "inventory":
@@ -102,10 +103,7 @@ function SearchInputGroup({
       ) : (
         <input
           className="search-input"
-          onChange={e => {
-            onChangeHandler(e);
-            setSecondarySearchValue(e.target.value);
-          }}
+          onChange={e => onChangeHandler(e, true)}
           placeholder={placeholder}
           type="text"
         />

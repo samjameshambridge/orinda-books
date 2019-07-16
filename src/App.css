@@ -187,12 +187,29 @@ body {
 .warning-input {
   border: solid #d9534f 2px !important; }
 
-.isbn-warning-message,
-.quantity-warning-message {
+.input-warning-message {
   color: #d9534f;
   display: none;
   font-size: 0.75rem;
+  margin-top: -1.5rem;
+  margin-bottom: 0.6rem;
   width: 75%; }
+
+.home-logo-group {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center; }
+  .home-logo-group .home-logo {
+    border-radius: 50%;
+    cursor: pointer;
+    height: 10vh; }
+    @media screen and (max-width: 768px) {
+      .home-logo-group .home-logo {
+        display: none; } }
+
+.dashboard-home-logo {
+  height: 15vh; }
 
 .message {
   background: rgba(0, 0, 0, 0.5);
@@ -301,6 +318,8 @@ body {
       @media screen and (max-width: 768px) {
         .dashboard-sidebar-container ul li span {
           display: none; } }
+  .dashboard-sidebar-container h4 {
+    font-family: "Montserrat"; }
 
 .icon-sidebar-container {
   background: #fff;
@@ -719,14 +738,14 @@ table {
   .staff-table tbody {
     max-height: 45vh; }
   .staff-table td {
-    min-width: 15.5vw;
-    max-width: 15.5vw; }
+    min-width: 17vw;
+    max-width: 17vw; }
   .staff-table .spinner-row {
     width: calc(100vw - 12.1rem); }
 
 .add-member-group {
-  left: 75%;
-  margin-top: 2rem;
+  left: 72.5%;
+  margin-top: 3rem;
   position: absolute;
   top: 21vh;
   width: 25%;
@@ -737,41 +756,41 @@ table {
   .add-member-group:hover {
     cursor: pointer; }
   .add-member-group h2 {
-    margin-right: 0.75rem; }
+    margin-right: 0.5rem; }
   .add-member-group .fa-plus {
     color: #d9534f; }
 
-.staff-modal {
+.staff-view-modal-container {
   height: 100%;
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between; }
   @media screen and (min-width: 1400px) {
-    .staff-modal h1 {
+    .staff-view-modal-container h1 {
       font-size: 3rem; } }
-  .staff-modal h5 {
+  .staff-view-modal-container h5 {
     justify-self: flex-start;
     text-align: center; }
     @media screen and (min-width: 1400px) {
-      .staff-modal h5 {
+      .staff-view-modal-container h5 {
         font-size: 1.5rem; } }
-  .staff-modal .staff-modal-view-content {
+  .staff-view-modal-container .staff-modal-view-content {
     width: calc(66vw - 4rem);
     align-items: center;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly; }
-    .staff-modal .staff-modal-view-content .modal-view-item-info {
+    .staff-view-modal-container .staff-modal-view-content .modal-view-item-info {
       height: 100%;
       align-items: stretch;
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-evenly; }
       @media screen and (min-width: 1400px) {
-        .staff-modal .staff-modal-view-content .modal-view-item-info p {
+        .staff-view-modal-container .staff-modal-view-content .modal-view-item-info p {
           font-size: 1.75rem; } }
-  .staff-modal .staff-modal-view-button-group {
+  .staff-view-modal-container .staff-modal-view-button-group {
     width: 100%;
     align-items: stretch;
     display: flex;
@@ -779,7 +798,9 @@ table {
     justify-content: space-evenly; }
 
 .add-staff-form {
+  box-sizing: border-box;
   height: 100%;
+  padding: 0 2rem;
   width: 100%; }
   @media screen and (min-width: 1400px) {
     .add-staff-form h2 {
@@ -792,21 +813,53 @@ table {
     justify-content: space-between; }
     .add-staff-form .staff-input-group .staff-form-group {
       margin: 1rem 0; }
-      .add-staff-form .staff-input-group .staff-form-group .label-input-group {
-        margin: 1.5rem 0; }
       .add-staff-form .staff-input-group .staff-form-group label {
         display: inline-block;
-        width: 25%; }
+        font-size: 0.8rem;
+        font-weight: 600; }
         @media screen and (min-width: 1400px) {
           .add-staff-form .staff-input-group .staff-form-group label {
             font-size: 1.75rem; } }
-      .add-staff-form .staff-input-group .staff-form-group .radio-label {
-        width: 10%; }
       .add-staff-form .staff-input-group .staff-form-group input {
         border: solid 1px #d3d3d3;
         border-radius: 5px;
         padding: 0.5em;
-        transition: all 0.5s ease; }
+        transition: all 0.5s ease;
+        width: 50%; }
+      .add-staff-form .staff-input-group .staff-form-group .label-input-group {
+        margin: 1.5rem 0;
+        width: 40%; }
+    .add-staff-form .staff-input-group .member-names-group,
+    .add-staff-form .staff-input-group .member-email-dob-group,
+    .add-staff-form .staff-input-group .member-permissions-position-group,
+    .add-staff-form .staff-input-group .member-photo {
+      align-items: stretch;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between; }
+      .add-staff-form .staff-input-group .member-names-group label,
+      .add-staff-form .staff-input-group .member-email-dob-group label,
+      .add-staff-form .staff-input-group .member-permissions-position-group label,
+      .add-staff-form .staff-input-group .member-photo label {
+        width: 40%; }
+    .add-staff-form .staff-input-group .member-permissions-position-group .permissions-label-input-group {
+      width: 40%;
+      align-items: stretch;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start; }
+    .add-staff-form .staff-input-group .member-permissions-position-group .permissions-inputs-labels {
+      width: 50%;
+      align-items: flex-start;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start; }
+      .add-staff-form .staff-input-group .member-permissions-position-group .permissions-inputs-labels .radio-input-label-group {
+        width: 40%; }
+        .add-staff-form .staff-input-group .member-permissions-position-group .permissions-inputs-labels .radio-input-label-group input {
+          width: auto; }
+        .add-staff-form .staff-input-group .member-permissions-position-group .permissions-inputs-labels .radio-input-label-group label {
+          width: 25%; }
     .add-staff-form .staff-input-group .add-button {
       cursor: pointer;
       border: solid transparent 2px;
@@ -818,19 +871,20 @@ table {
         opacity: 0.7; }
 
 .edit-member-title {
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  text-align: center; }
   .edit-member-title span {
     color: #d9534f; }
 
 .edit-member-form {
-  height: calc(80vh - 9rem);
+  height: calc(80vh - 9.5rem);
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between; }
   .edit-member-form .label-input-group {
     margin-bottom: 1rem;
-    width: 100%;
+    width: 50%;
     align-items: stretch;
     display: flex;
     flex-flow: row nowrap;
@@ -847,7 +901,7 @@ table {
     align-items: stretch;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between; }
+    justify-content: space-evenly; }
 
 .inventory-content-container {
   align-items: center;
@@ -856,10 +910,10 @@ table {
   justify-content: center; }
 
 .inventory-summary-content-container {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   width: 100%; }
   .inventory-summary-content-container h3 {
-    font-size: 1.75rem; }
+    font-size: 1.15rem; }
     @media screen and (max-width: 768px) {
       .inventory-summary-content-container h3 {
         font-size: 1rem; } }
@@ -868,7 +922,7 @@ table {
     display: grid;
     grid-template-columns: repeat(2, 1fr); }
   .inventory-summary-content-container .inventory-progress-bar-group {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     width: 100%;
     display: flex; }
     .inventory-summary-content-container .inventory-progress-bar-group .inventory-progress-bar {
@@ -906,13 +960,13 @@ table {
 
 .inventory-table {
   height: 35vh;
-  margin-top: 2em;
+  margin-top: 1rem;
   width: 100%; }
   @media screen and (min-width: 1400px) {
     .inventory-table {
       height: 45vh; } }
   .inventory-table .inventory-table-headings {
-    font-size: 1.25rem; }
+    font-size: 1rem; }
     @media screen and (max-width: 768px) {
       .inventory-table .inventory-table-headings td {
         font-size: 0.75rem; } }
@@ -979,7 +1033,7 @@ table {
       grid-column: 1 / span 2;
       justify-self: center; }
   .inventory-modal .inventory-summary-modal-title {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center; }
     @media screen and (min-width: 1400px) {
       .inventory-modal .inventory-summary-modal-title {
@@ -1010,9 +1064,14 @@ table {
         @media screen and (min-width: 1400px) {
           .inventory-modal .modal-summary-content .modal-summary-group-container .modal-summary-info h3 {
             font-size: 2.75rem; } }
-        @media screen and (min-width: 1400px) {
-          .inventory-modal .modal-summary-content .modal-summary-group-container .modal-summary-info p {
-            font-size: 2rem; } }
+        .inventory-modal .modal-summary-content .modal-summary-group-container .modal-summary-info p {
+          font-size: 1rem; }
+          @media screen and (min-width: 1400px) {
+            .inventory-modal .modal-summary-content .modal-summary-group-container .modal-summary-info p {
+              font-size: 2rem; } }
+          .inventory-modal .modal-summary-content .modal-summary-group-container .modal-summary-info p .item-label {
+            font-size: 0.8rem;
+            font-weight: 600; }
       .inventory-modal .modal-summary-content .modal-summary-group-container .chart-container {
         height: 100%;
         position: relative;
@@ -1023,7 +1082,7 @@ table {
         justify-content: flex-start; }
     .inventory-modal .modal-summary-content .modal-close-button {
       align-self: center;
-      margin-top: 1rem; }
+      margin-top: 0.5rem; }
 
 .orders-content-container .add-order-group {
   left: 75%;
@@ -1114,17 +1173,17 @@ table {
 .add-order-form {
   box-sizing: border-box;
   height: calc(80vh - 4rem);
-  padding: 2rem;
+  padding: 0 2rem;
   width: calc(66vw - 4rem); }
   @media screen and (min-width: 1400px) {
     .add-order-form h2 {
       font-size: 2.5rem; } }
   .add-order-form .book-input-group .order-form-group,
   .add-order-form .order-input-group .order-form-group {
-    margin: 1rem 0; }
+    margin: 0.5rem 0; }
     .add-order-form .book-input-group .order-form-group .label-input-group,
     .add-order-form .order-input-group .order-form-group .label-input-group {
-      margin: 1rem 0; }
+      margin: 0.75rem 0; }
     .add-order-form .book-input-group .order-form-group label,
     .add-order-form .order-input-group .order-form-group label {
       display: inline-block;
@@ -1165,7 +1224,7 @@ table {
     .add-order-form .order-input-group .last-group {
       width: 100%; }
       .add-order-form .order-input-group .last-group .label-input-group {
-        width: 46%; }
+        width: 50%; }
   .add-order-form .last-group {
     align-items: stretch;
     display: flex;
@@ -1519,9 +1578,12 @@ table {
           .events-content-container .event-info-container .events-upcoming-container .upcoming-events-content {
             margin-left: 0.5rem; } }
         .events-content-container .event-info-container .events-upcoming-container .upcoming-events-content p {
-          margin: 1rem 0; }
+          margin: 0.5rem 0; }
           .events-content-container .event-info-container .events-upcoming-container .upcoming-events-content p:first-of-type {
             margin: 0; }
+          .events-content-container .event-info-container .events-upcoming-container .upcoming-events-content p span {
+            font-size: 0.8rem;
+            font-weight: 600; }
       @media screen and (max-width: 768px) {
         .events-content-container .event-info-container .events-upcoming-container p {
           font-size: 0.8rem; } }
@@ -1545,13 +1607,27 @@ table {
           display: flex;
           flex-flow: column nowrap;
           justify-content: center; } }
-    .events-content-container .event-info-container .event-specific-container .detail-event-group {
-      margin-top: 1rem; }
-      .events-content-container .event-info-container .event-specific-container .detail-event-group p {
-        margin: 0.5rem 0; }
-        @media screen and (min-width: 1400px) {
-          .events-content-container .event-info-container .event-specific-container .detail-event-group p {
-            font-size: 1.75rem !important; } }
+    .events-content-container .event-info-container .event-specific-container .detail-event-container {
+      align-items: stretch;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between; }
+      .events-content-container .event-info-container .event-specific-container .detail-event-container .detail-event-group {
+        cursor: pointer;
+        margin-top: 1rem; }
+        .events-content-container .event-info-container .event-specific-container .detail-event-container .detail-event-group .event-date-label {
+          font-size: 0.8rem;
+          font-weight: 600; }
+        .events-content-container .event-info-container .event-specific-container .detail-event-container .detail-event-group p {
+          margin: 0.5rem 0; }
+          @media screen and (min-width: 1400px) {
+            .events-content-container .event-info-container .event-specific-container .detail-event-container .detail-event-group p {
+              font-size: 1.75rem !important; } }
+          .events-content-container .event-info-container .event-specific-container .detail-event-container .detail-event-group p span {
+            font-size: 0.8rem;
+            font-weight: 600; }
+      .events-content-container .event-info-container .event-specific-container .detail-event-container .fa-plus {
+        margin-right: 2rem; }
     .events-content-container .event-info-container .event-specific-container .fa-plus {
       color: #d9534f;
       margin-top: 1rem;
@@ -1569,10 +1645,10 @@ table {
 
 .event-add-modal-content {
   border-radius: 0px;
-  height: 50vh;
-  margin-top: calc((100vh - 50vh) / 2);
-  margin-left: calc((100vw - 50vw) / 2);
-  width: 50vw;
+  height: 60vh;
+  margin-top: calc(50vh - 30vh);
+  margin-left: calc(50vw - 30vw);
+  width: 60vw;
   align-items: flex-start;
   display: flex;
   flex-flow: column nowrap;
@@ -1591,8 +1667,8 @@ table {
   .event-add-modal-content textarea {
     height: 50%; }
   .event-add-modal-content .X-button {
-    margin-left: 44vw;
-    margin-top: -2.5vh; }
+    margin-left: 49vw;
+    margin-top: -7.5vh; }
     @media screen and (max-width: 992px) {
       .event-add-modal-content .X-button {
         margin-left: 43vw; } }
@@ -1617,22 +1693,47 @@ table {
   .event-add-modal-form textarea {
     margin: 0.5rem 0; }
 
+.view-event-modal-content {
+  height: 100%;
+  width: 100%; }
+  .view-event-modal-content p {
+    margin: 1rem 0; }
+    .view-event-modal-content p span {
+      font-size: 0.8rem;
+      font-weight: 600; }
+  .view-event-modal-content h4 {
+    margin: 2rem 0 1rem 0; }
+
 .profile-page-content-container {
   box-sizing: border-box;
   padding-top: 2rem;
-  padding-bottom: 2rem;
-  align-items: stretch;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between; }
-  .profile-page-content-container p {
-    font-size: 1.25rem; }
-    @media screen and (max-width: 768px) {
-      .profile-page-content-container p {
-        font-size: 1rem; } }
-    @media screen and (min-width: 1400px) {
-      .profile-page-content-container p {
-        font-size: 2.5rem; } }
+  padding-bottom: 2rem; }
+  .profile-page-content-container .profile-details-container {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start; }
+    .profile-page-content-container .profile-details-container .profile-info {
+      min-height: 63.5vh;
+      width: 60%;
+      align-items: stretch;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-evenly; }
+      .profile-page-content-container .profile-details-container .profile-info p {
+        font-size: 1rem; }
+        @media screen and (max-width: 768px) {
+          .profile-page-content-container .profile-details-container .profile-info p {
+            font-size: 1rem; } }
+        @media screen and (min-width: 1400px) {
+          .profile-page-content-container .profile-details-container .profile-info p {
+            font-size: 2.5rem; } }
+        .profile-page-content-container .profile-details-container .profile-info p span {
+          font-size: 0.8rem;
+          font-weight: 600; }
+    .profile-page-content-container .profile-details-container .profile-page-img {
+      border-radius: 50%;
+      height: 33vh; }
 
 .edit-profile-form {
   box-sizing: border-box;
@@ -1654,7 +1755,8 @@ table {
       padding: 0.5em;
       transition: all 0.5s ease; }
     .edit-profile-form .label-input-group label {
-      font-size: 1.25rem; }
+      font-size: 0.8rem;
+      font-weight: 600; }
 
 .settings-container {
   background: #fff;
@@ -1751,6 +1853,7 @@ table {
     .tasks-page-content-container .task-card:hover {
       transform: scale(1.025); }
       .tasks-page-content-container .task-card:hover .task-card-icon-group .fa-trash,
+      .tasks-page-content-container .task-card:hover .task-card-icon-group .fa-pen,
       .tasks-page-content-container .task-card:hover .task-card-icon-group .fa-check {
         opacity: 1;
         visibility: visible; }
@@ -1782,15 +1885,17 @@ table {
       align-items: stretch;
       display: flex;
       flex-flow: row nowrap;
-      justify-content: flex-start; }
+      justify-content: space-between; }
       .tasks-page-content-container .task-card .task-card-icon-group .fa-trash,
+      .tasks-page-content-container .task-card .task-card-icon-group .fa-pen,
       .tasks-page-content-container .task-card .task-card-icon-group .fa-check {
         opacity: 0;
         transition: opacity 1s ease;
         visibility: hidden; }
+      .tasks-page-content-container .task-card .task-card-icon-group .fa-pen {
+        color: #f0ad4e; }
       .tasks-page-content-container .task-card .task-card-icon-group .fa-trash {
-        color: #d9534f;
-        margin-left: auto; }
+        color: #d9534f; }
     .tasks-page-content-container .task-card h4 {
       height: 90%;
       width: 100%;
@@ -1820,10 +1925,10 @@ table {
 
 .task-modal-content {
   border-radius: 0px;
-  height: 50vh;
-  margin-top: calc((100vh - 50vh) / 2);
-  margin-left: calc((100vw - 50vw) / 2);
-  width: 50vw;
+  height: 60vh;
+  margin-top: calc(50vh - 30vh);
+  margin-left: calc(50vw - 30vw);
+  width: 60vw;
   align-items: flex-start;
   display: flex;
   flex-flow: column nowrap;
@@ -1842,8 +1947,8 @@ table {
   .task-modal-content textarea {
     height: 70%; }
   .task-modal-content .X-button {
-    margin-left: 44vw;
-    margin-top: -2.5vh; }
+    margin-left: 49vw;
+    margin-top: -7.5vh; }
     @media screen and (max-width: 992px) {
       .task-modal-content .X-button {
         margin-left: 43vw; } }

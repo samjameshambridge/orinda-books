@@ -52,12 +52,25 @@ function SummaryModal({ books }) {
         <div className="modal-summary-group-container">
           <div className="modal-summary-info">
             <h3>Info</h3>
-            <p>Quantity: {totalInventory} books</p>
-            <p>Titles: {totalTitles}</p>
-            <p>Sale Value: £{totalSaleValue}</p>
-            <p>Average Price: {(totalSaleValue / totalInventory).toFixed(2)}</p>
             <p>
-              Most Stocked: {mostStocked.title}, {mostStocked.author}
+              <span className="item-label">Quantity:&nbsp;&nbsp;</span>{" "}
+              {totalInventory} books
+            </p>
+            <p>
+              <span className="item-label">Total Titles:&nbsp;&nbsp;</span>{" "}
+              {totalTitles}
+            </p>
+            <p>
+              <span className="item-label">Sale Value:&nbsp;&nbsp;</span> £
+              {totalSaleValue}
+            </p>
+            <p>
+              <span className="item-label">Average Price:&nbsp;&nbsp;</span>{" "}
+              {(totalSaleValue / totalInventory).toFixed(2)}
+            </p>
+            <p>
+              <span className="item-label">Most Stocked:&nbsp;&nbsp;</span>{" "}
+              {mostStocked.title}, {mostStocked.author}
             </p>
           </div>
           <DoughnutChart books={books} />

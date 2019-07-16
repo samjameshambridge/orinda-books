@@ -155,10 +155,15 @@
         }
 
         p {
-          margin: 1rem 0;
+          margin: 0.5rem 0;
 
           &:first-of-type {
             margin: 0;
+          }
+
+          span {
+            font-size: 0.8rem;
+            font-weight: 600;
           }
         }
       }
@@ -194,15 +199,34 @@
         }
       }
 
-      .detail-event-group {
-        margin-top: 1rem;
+      .detail-event-container {
+        @include displayFlex(stretch, space-between);
 
-        p {
-          margin: 0.5rem 0;
+        .detail-event-group {
+          cursor: pointer;
+          margin-top: 1rem;
 
-          @media screen and (min-width: $xx-large) {
-            font-size: 1.75rem !important;
+          .event-date-label {
+            font-size: 0.8rem;
+            font-weight: 600;
           }
+
+          p {
+            margin: 0.5rem 0;
+
+            @media screen and (min-width: $xx-large) {
+              font-size: 1.75rem !important;
+            }
+
+            span {
+              font-size: 0.8rem;
+              font-weight: 600;
+            }
+          }
+        }
+
+        .fa-plus {
+          margin-right: 2rem;
         }
       }
 
@@ -230,10 +254,10 @@
 // ========== add event modal ========== //
 .event-add-modal-content {
   border-radius: 0px;
-  height: 50vh;
-  margin-top: calc((100vh - 50vh) / 2);
-  margin-left: calc((100vw - 50vw) / 2);
-  width: 50vw;
+  height: 60vh;
+  margin-top: calc(50vh - 30vh);
+  margin-left: calc(50vw - 30vw);
+  width: 60vw;
 
   // flex properties
   @include displayFlex(flex-start, flex-start, column nowrap);
@@ -258,8 +282,8 @@
   }
 
   .X-button {
-    margin-left: 44vw;
-    margin-top: -2.5vh;
+    margin-left: 49vw;
+    margin-top: -7.5vh;
 
     @media screen and (max-width: $large) {
       margin-left: 43vw;
@@ -290,5 +314,24 @@
   input,
   textarea {
     margin: 0.5rem 0;
+  }
+}
+
+// =========== view event modal =========== //
+.view-event-modal-content {
+  height: 100%;
+  width: 100%;
+
+  p {
+    margin: 1rem 0;
+
+    span {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+  }
+
+  h4 {
+    margin: 2rem 0 1rem 0;
   }
 }

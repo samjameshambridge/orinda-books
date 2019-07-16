@@ -36,6 +36,7 @@
 
       .task-card-icon-group {
         .fa-trash,
+        .fa-pen,
         .fa-check {
           opacity: 1;
           visibility: visible;
@@ -88,20 +89,22 @@
     .task-card-icon-group {
       width: 100%;
 
-      @include displayFlex(stretch, flex-start);
+      @include displayFlex(stretch, space-between);
 
       .fa-trash,
+      .fa-pen,
       .fa-check {
         opacity: 0;
         transition: opacity 1s ease;
         visibility: hidden;
       }
 
+      .fa-pen {
+        color: $theme-orange;
+      }
+
       .fa-trash {
         color: $theme-red;
-
-        // flex properties
-        margin-left: auto;
       }
     }
 
@@ -150,10 +153,10 @@
 // =========== add task modal =========== //
 .task-modal-content {
   border-radius: 0px;
-  height: 50vh;
-  margin-top: calc((100vh - 50vh) / 2);
-  margin-left: calc((100vw - 50vw) / 2);
-  width: 50vw;
+  height: 60vh;
+  margin-top: calc(50vh - 30vh);
+  margin-left: calc(50vw - 30vw);
+  width: 60vw;
 
   // flex properties
   @include displayFlex(flex-start, flex-start, column nowrap);
@@ -178,8 +181,8 @@
   }
 
   .X-button {
-    margin-left: 44vw;
-    margin-top: -2.5vh;
+    margin-left: 49vw;
+    margin-top: -7.5vh;
 
     @media screen and (max-width: $large) {
       margin-left: 43vw;

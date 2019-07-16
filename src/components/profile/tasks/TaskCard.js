@@ -6,6 +6,7 @@ import { setViewingItem, toggleModal } from "actions/modalActions";
 
 import CheckTaskIcon from "components/profile/tasks/CheckTaskIcon";
 import DeleteTaskIcon from "components/profile/tasks/DeleteTaskIcon";
+import EditTaskIcon from "components/profile/tasks/EditTaskIcon";
 
 function TaskCard({
   setViewingItem,
@@ -14,7 +15,10 @@ function TaskCard({
   toggleModal
 }) {
   function clickHandler(e) {
-    if (e.target.contains(document.querySelector(".task-card-icon-group"))) {
+    if (
+      e.target !== document.querySelector(".fa-trash") &&
+      e.target !== document.querySelector(".fa-check")
+    ) {
       setViewingItem(task);
       toggleModal("view");
     }
@@ -33,6 +37,7 @@ function TaskCard({
       {checked && <CheckTaskIcon className="fa-2x" title={title} />}
       <div className="task-card-icon-group">
         {checked || <CheckTaskIcon title={title} />}
+        <EditTaskIcon task={task} />
         <DeleteTaskIcon title={title} />
       </div>
     </div>

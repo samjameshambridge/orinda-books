@@ -11,30 +11,22 @@ function SearchOptions({ setSearchType }) {
     };
   });
 
+  function clickHandler(e) {
+    setSearchType(e.target.name);
+  }
+
   return (
     <React.Fragment>
       <div className="input-label-group">
-        <input
-          type="radio"
-          name="search"
-          onClick={() => setSearchType("orders")}
-        />
+        <input type="radio" name="orders" onClick={e => clickHandler(e)} />
         <label htmlFor="orders">Orders</label>
       </div>
       <div className="input-label-group">
-        <input
-          type="radio"
-          name="search"
-          onClick={() => setSearchType("staff")}
-        />
+        <input type="radio" name="staff" onClick={e => clickHandler(e)} />
         <label htmlFor="staff">Staff</label>
       </div>
       <div className="input-label-group">
-        <input
-          type="radio"
-          name="search"
-          onClick={() => setSearchType("inventory")}
-        />
+        <input type="radio" name="inventory" onClick={e => clickHandler(e)} />
         <label htmlFor="search">Inventory</label>
       </div>
     </React.Fragment>

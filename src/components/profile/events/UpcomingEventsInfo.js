@@ -53,7 +53,7 @@ function UpcomingEventsInfo({ events }) {
 
             return (
               <p key={id}>
-                {dateOf}: {title}
+                <span>{dateOf}</span>: {title}
               </p>
             );
           })}

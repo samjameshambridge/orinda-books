@@ -4,18 +4,38 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 
-  // flex properties
-  @include displayFlex(stretch, space-between, column nowrap);
+  .profile-details-container {
+    // flex properties
+    @include displayFlex(center, flex-start);
 
-  p {
-    font-size: 1.25rem;
+    .profile-info {
+      min-height: 63.5vh;
+      width: 60%;
 
-    @media screen and (max-width: $medium) {
-      font-size: 1rem;
+      // flex properties
+      @include displayFlex(stretch, space-evenly, column nowrap);
+
+      p {
+        font-size: 1rem;
+
+        @media screen and (max-width: $medium) {
+          font-size: 1rem;
+        }
+
+        @media screen and (min-width: $xx-large) {
+          font-size: 2.5rem;
+        }
+
+        span {
+          font-size: 0.8rem;
+          font-weight: 600;
+        }
+      }
     }
 
-    @media screen and (min-width: $xx-large) {
-      font-size: 2.5rem;
+    .profile-page-img {
+      border-radius: 50%;
+      height: 33vh;
     }
   }
 }

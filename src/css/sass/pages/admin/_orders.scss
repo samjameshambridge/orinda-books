@@ -109,7 +109,7 @@
 .add-order-form {
   box-sizing: border-box;
   height: calc(80vh - 4rem);
-  padding: 2rem;
+  padding: 0 2rem;
   width: calc(66vw - 4rem);
 
   h2 {
@@ -121,10 +121,10 @@
   .book-input-group,
   .order-input-group {
     .order-form-group {
-      margin: 1rem 0;
+      margin: 0.5rem 0;
 
       .label-input-group {
-        margin: 1rem 0;
+        margin: 0.75rem 0;
       }
 
       label {
@@ -180,7 +180,7 @@
       width: 100%;
 
       .label-input-group {
-        width: 46%;
+        width: 50%;
       }
     }
   }

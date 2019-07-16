@@ -1,16 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import ProfilePic from "components/general/ProfilePic";
+import HomeLogo from "components/general/HomeLogo";
 import DashboardNavigation from "components/navigation/DashboardNavigation";
 import Logout from "components/auth/Logout";
 
 function Sidebar() {
   return (
     <div className="dashboard-sidebar-container font-secondary">
-      <Link to="/profile">
-        <ProfilePic className="dashboard-profile-pic" />
-      </Link>
+      <h4>Orinda Books</h4>
+      <HomeLogo className="dashboard-home-logo" />
       <DashboardNavigation />
       <Logout />
     </div>

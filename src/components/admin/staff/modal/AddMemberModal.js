@@ -19,6 +19,8 @@ function AddMemberModal({ firebase, firestore, toggleModal }) {
   function submitHandler(e) {
     e.preventDefault(e);
 
+    toggleModal();
+
     var storageRef = firebase
       .storage()
       .ref(`images/${image.name}`)
@@ -44,8 +46,6 @@ function AddMemberModal({ firebase, firestore, toggleModal }) {
             surname
           };
 
-          toggleModal();
-
           firestore.add({ collection: "staff" }, newMember);
         });
       }
@@ -58,71 +58,79 @@ function AddMemberModal({ firebase, firestore, toggleModal }) {
         <h2>New Staff Member</h2>
         <div className="staff-form-group">
           <div className="member-info">
-            <div className="label-input-group">
-              <label htmlFor="firstName">First Name:</label>
-              <input
-                type="text"
-                name="First Name"
-                onChange={e => setFirst(e.target.value)}
-                required
-              />
+            <div className="member-names-group">
+              <div className="label-input-group">
+                <label htmlFor="firstName">First Name:</label>
+                <input
+                  type="text"
+                  name="First Name"
+                  onChange={e => setFirst(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="label-input-group">
+                <label htmlFor="surname">Surname:</label>
+                <input
+                  type="text"
+                  name="surname"
+                  onChange={e => setSurname(e.target.value)}
+                  required
+                />
+              </div>{" "}
             </div>
-            <div className="label-input-group">
-              <label htmlFor="surname">Surname:</label>
-              <input
-                type="text"
-                name="surname"
-                onChange={e => setSurname(e.target.value)}
-                required
-              />
-            </div>{" "}
-            <div className="label-input-group">
-              <label htmlFor="email">Email:</label>
-              <input
-                type="text"
-                name="email"
-                onChange={e => setEmail(e.target.value)}
-                required
-              />
+            <div className="member-email-dob-group">
+              <div className="label-input-group">
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="text"
+                  name="email"
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="label-input-group">
+                <label htmlFor="dob">Date of Birth:</label>
+                <input
+                  type="date"
+                  name="dob"
+                  onChange={e => setDob(e.target.value)}
+                  required
+                />
+              </div>
             </div>
-            <div className="label-input-group">
-              <label htmlFor="dob">Date of Birth:</label>
-              <input
-                type="date"
-                name="dob"
-                onChange={e => setDob(e.target.value)}
-                required
-              />
-            </div>
-            <div className="label-input-group">
-              <label htmlFor="position">Position:</label>
-              <input
-                type="text"
-                name="position"
-                onChange={e => setPosition(e.target.value)}
-                required
-              />
-            </div>
-            <div className="label-input-group">
-              <label htmlFor="permissions">Permissions:</label>
-              <input
-                type="radio"
-                name="permissions"
-                onChange={e => setPermissions(e.target.value)}
-                required
-              />
-              <label htmlFor="permissions" className="radio-label">
-                All
-              </label>
-              <input
-                type="radio"
-                name="permissions"
-                onChange={e => setPermissions(e.target.value)}
-                required
-              />
-              <label htmlFor="permissions" className="radio-label">
-                Regular
-              </label>
+            <div className="member-permissions-position-group">
+              <div className="label-input-group">
+                <label htmlFor="position">Position:</label>
+                <input
+                  type="text"
+                  name="position"
+                  onChange={e => setPosition(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="permissions-label-input-group">
+                <label htmlFor="permissions">Permissions:</label>
+                <div className="permissions-inputs-labels">
+                  <div className="radio-input-label-group">
+                    <input
+                      type="radio"
+                      name="permissions"
+                      onChange={e => setPermissions(e.target.value)}
+                      required
+                    />
+                    <label htmlFor="permissions">All</label>
+                  </div>
+                  <div className="radio-input-label-group">
+                    <input
+                      type="radio"
+                      name="permissions"
+                      onChange={e => setPermissions(e.target.value)}
+                      required
+                    />
+                    <label htmlFor="permissions">Regular</label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="member-photo">

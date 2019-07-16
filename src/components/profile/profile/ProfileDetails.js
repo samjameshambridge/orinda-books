@@ -2,18 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+import ProfilePic from "components/general/ProfilePic";
+
 function ProfileDetails({
   profile: { firstName, lastName, email, phone, position }
 }) {
   return (
-    <React.Fragment>
-      <p>
-        Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{firstName} {lastName}
-      </p>
-      <p>Position:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{position}</p>
-      <p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {email}</p>
-      <p>Mobile:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {phone}</p>
-    </React.Fragment>
+    <div className="profile-details-container">
+      <div className="profile-info">
+        <p>
+          <span>Name:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{firstName} {lastName}
+        </p>
+        <p>
+          <span>Position:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{position}
+        </p>
+        <p>
+          <span>Email:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {email}
+        </p>
+        <p>
+          <span>Phone:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {phone}
+        </p>
+      </div>
+      <ProfilePic className="profile-page-img" />
+    </div>
   );
 }
 

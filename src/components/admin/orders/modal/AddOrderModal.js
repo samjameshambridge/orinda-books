@@ -20,36 +20,38 @@ function AddOrderModal({ firestore, toggleModal }) {
   function submitHandler(e) {
     e.preventDefault(e);
 
-    const isbnWarning = document.querySelector(".isbn-warning-message"),
+    const inputWarning = document.querySelector(".input-warning-message"),
       isbnLength = isbn.toString().length,
       isbnInput = document.getElementById("isbnInput"),
-      quantityInput = document.getElementById("quantityInput"),
-      quantityWarning = document.querySelector(".quantity-warning-message");
+      quantityInput = document.getElementById("quantityInput");
 
-    if (isbnLength !== 13) {
-      isbnInput.classList = "warning-input";
+    if (isbnLength !== 13 || !parseInt(quantity)) {
+      inputWarning.style.display = "block";
 
-      isbnWarning.style.display = "block";
+      if (isbnLength !== 13) {
+        inputWarning.innerHTML =
+          "Please check again, all ISBNs must be 13 digits.";
+        isbnInput.classList = "warning-input";
 
-      setTimeout(() => {
-        isbnWarning.style.display = "none";
-        isbnInput.classList = "";
-      }, 3000);
+        setTimeout(() => {
+          inputWarning.style.display = "none";
+          isbnInput.classList = "";
+        }, 3000);
 
-      return;
-    }
+        return;
+      } else {
+        console.log("quantity");
+        quantityInput.classList = "warning-input";
+        inputWarning.innerHTML =
+          "Please check again, the quantity should be greater than zero.";
 
-    if (!parseInt(quantity)) {
-      quantityInput.classList = "warning-input";
+        setTimeout(() => {
+          inputWarning.style.display = "none";
+          quantityInput.classList = "";
+        }, 3000);
 
-      quantityWarning.style.display = "block";
-
-      setTimeout(() => {
-        quantityWarning.style.display = "none";
-        quantityInput.classList = "";
-      }, 3000);
-
-      return;
+        return;
+      }
     }
 
     const order = {
@@ -104,9 +106,6 @@ function AddOrderModal({ firestore, toggleModal }) {
               onChange={e => setIsbn(e.target.value)}
               required
             />
-            <p className="isbn-warning-message">
-              Please check again, all ISBNs must be 13 digits in length.
-            </p>
           </div>
           <div className="label-input-group">
             <label htmlFor="Publication Date">Published</label>
@@ -161,9 +160,6 @@ function AddOrderModal({ firestore, toggleModal }) {
               onChange={e => setQuantity(e.target.value)}
               id="quantityInput"
             />
-            <p className="quantity-warning-message">
-              Please check again, this quantity was not accepted.
-            </p>
           </div>
           <div className="label-input-group">
             <label htmlFor="company">Company</label>
@@ -176,6 +172,7 @@ function AddOrderModal({ firestore, toggleModal }) {
           </div>
         </div>
       </div>
+      <p className="input-warning-message" />
       <input className="add-button" type="submit" value="Add" />
     </form>
   );

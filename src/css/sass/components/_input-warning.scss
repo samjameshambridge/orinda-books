@@ -2,10 +2,11 @@
   border: solid $theme-red 2px !important;
 }
 
-.isbn-warning-message,
-.quantity-warning-message {
+.input-warning-message {
   color: $theme-red;
   display: none;
   font-size: 0.75rem;
+  margin-top: -1.5rem;
+  margin-bottom: 0.6rem;
   width: 75%;
 }

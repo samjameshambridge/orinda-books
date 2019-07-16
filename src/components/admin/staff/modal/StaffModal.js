@@ -21,7 +21,7 @@ function StaffModal({ modal_type }) {
       return <div />;
   }
 
-  return <div className="staff-modal">{staffModal}</div>;
+  return <React.Fragment>{staffModal}</React.Fragment>;
 }
 
 StaffModal.propTypes = {

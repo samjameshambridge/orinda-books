@@ -2,12 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { toggleModal } from "actions/modalActions";
+import { toggleModal, setViewingItem } from "actions/modalActions";
 
 import PlusIcon from "components/general/PlusIcon";
 
-function DetailEventInfo({ detail_event, toggleModal }) {
+function DetailEventInfo({ detail_event, setViewingItem, toggleModal }) {
   let content;
+
+  function clickHandler(e, event) {
+    e.preventDefault();
+
+    setViewingItem(event);
+    toggleModal("view");
+  }
 
   !detail_event
     ? (content = (
@@ -19,16 +26,28 @@ function DetailEventInfo({ detail_event, toggleModal }) {
         </React.Fragment>
       ))
     : detail_event.length
-    ? (content = detail_event.map(event => {
-        const { dateOf, title } = event;
+    ? (content = (
+        <div className="detail-event-container">
+          {detail_event.map(item => {
+            const { dateOf, title, time } = item;
 
-        return (
-          <div className="detail-event-group" key={event.id}>
-            <p>{dateOf}</p>
-            <p>{title}</p>
-          </div>
-        );
-      }))
+            return (
+              <div
+                className="detail-event-group"
+                onClick={e => clickHandler(e, item)}
+                key={item.id}
+              >
+                <p className="event-date-label">{dateOf}</p>
+                <p>{title}</p>
+                <p>
+                  <span>Starts at:</span> {time}
+                </p>
+              </div>
+            );
+          })}
+          <PlusIcon onClick={() => toggleModal("add")} />
+        </div>
+      ))
     : (content = (
         <div className="empty-detail-event-group">
           <h3 className="empty-detail-event-title font-secondary">
@@ -48,6 +67,7 @@ function DetailEventInfo({ detail_event, toggleModal }) {
 
 DetailEventInfo.propTypes = {
   detail_event: PropTypes.arrayOf(PropTypes.object),
+  setViewingItem: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired
 };
 
@@ -60,6 +80,7 @@ const mapStateToProps = ({ events: { detail_event } }) => {
 export default connect(
   mapStateToProps,
   {
+    setViewingItem,
     toggleModal
   }
 )(DetailEventInfo);

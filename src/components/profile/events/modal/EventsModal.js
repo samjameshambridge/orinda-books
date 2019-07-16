@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { compose } from "redux";
 import { connect } from "react-redux";
-import { firestoreConnect } from "react-redux-firebase";
 
 import { toggleModal } from "actions/modalActions";
-import { validateFormat } from "helpers/dateFuncs";
 
+import AddEventContent from "components/profile/events/modal/AddEventContent";
 import ModalXButton from "components/modal/ModalXButton";
-import InputAddButton from "components/buttons/InputAddButton";
+import ViewEventContent from "components/profile/events/modal/ViewEventContent";
 
-function AddEventModal({ firestore, toggleModal }) {
-  const [title, setTitle] = useState(),
-    [dateOf, setDateOf] = useState();
-
+function EventsModal({ modal_type, toggleModal }) {
   useEffect(() => {
     document.addEventListener("click", function clickFunction(e) {
       if (e.target.contains(document.querySelector(".modal-overlay"))) {
-        toggleModal("");
+        toggleModal();
 
         document.removeEventListener("click", clickFunction);
       }
@@ -28,70 +23,38 @@ function AddEventModal({ firestore, toggleModal }) {
     });
   });
 
-  function submitHandler(e) {
-    e.preventDefault();
+  let modalContent;
 
-    let validate = validateFormat(dateOf);
-
-    if (!validate) {
-      document.getElementById("dateOfInput").classList = "warning-input";
-      document.querySelector(".input-warning-message").style.display = "block";
-
-      return;
-    } else {
-      const newEvent = {
-        title,
-        dateOf
-      };
-
-      firestore.add({ collection: "events" }, newEvent);
-
-      toggleModal();
-    }
+  if (modal_type === "add") {
+    modalContent = <AddEventContent />;
+  } else if (modal_type === "view") {
+    modalContent = <ViewEventContent />;
   }
+
   return (
     <div className="modal-overlay">
       <div className="profile-modal-content event-add-modal-content">
         <ModalXButton />
-        <h3>New Event</h3>
-        <form onSubmit={e => submitHandler(e)} className="event-add-modal-form">
-          <input
-            type="text"
-            name="title"
-            onChange={e => setTitle(e.target.value)}
-            placeholder="Title"
-            required
-          />
-          <input
-            type="text"
-            name="dateOf"
-            id="dateOfInput"
-            onChange={e => setDateOf(e.target.value)}
-            placeholder="dd / mm / yyyy"
-            required
-          />
-          <p className="input-warning-message">
-            Please check again, your current date format is incorrect.
-          </p>
-          <textarea name="notes" cols="30" rows="10" placeholder="Notes" />
-          <InputAddButton />
-        </form>
+        {modalContent}
       </div>
     </div>
   );
 }
 
-AddEventModal.propTypes = {
-  firestore: PropTypes.object,
+EventsModal.propTypes = {
+  modal_type: PropTypes.string,
   toggleModal: PropTypes.func.isRequired
 };
 
-export default compose(
-  firestoreConnect(),
-  connect(
-    null,
-    {
-      toggleModal
-    }
-  )
-)(AddEventModal);
+const mapStateToProps = ({ modal: { modal_type } }) => {
+  return {
+    modal_type
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    toggleModal
+  }
+)(EventsModal);

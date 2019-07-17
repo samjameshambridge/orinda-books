@@ -8,7 +8,7 @@ import { toggleModal } from "actions/modalActions";
 import { getDate } from "helpers/dateFuncs";
 
 function AddMemberModal({ firebase, firestore, toggleModal }) {
-  const [firstName, setFirst] = useState(),
+  const [firstName, setFirstName] = useState(),
     [surname, setSurname] = useState(),
     [email, setEmail] = useState(),
     [dob, setDob] = useState(),
@@ -64,7 +64,7 @@ function AddMemberModal({ firebase, firestore, toggleModal }) {
                 <input
                   type="text"
                   name="First Name"
-                  onChange={e => setFirst(e.target.value)}
+                  onChange={e => setFirstName(e.target.value)}
                   required
                 />
               </div>

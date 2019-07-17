@@ -30,7 +30,7 @@ function SearchInputGroup({
 
     second
       ? (input = document.querySelectorAll(".search-input")[1])
-      : (input = document.querySelector(".search-input"));
+      : (input = document.querySelectorAll(".search-input"));
 
     if (input) input.className = "active-input";
 
@@ -50,8 +50,9 @@ function SearchInputGroup({
     });
   }
   function onChangeHandler(e, bool) {
-    setSearchValue(e.target.value);
-    if (bool) setSecondarySearchValue();
+    bool
+      ? setSecondarySearchValue(e.target.value)
+      : setSearchValue(e.target.value);
 
     switch (type) {
       case "inventory":

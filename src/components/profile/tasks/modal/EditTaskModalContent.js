@@ -1,111 +1,134 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 
+import uuid from "uuid";
 import { validateFormat } from "helpers/dateFuncs";
 import { toggleModal } from "actions/modalActions";
 
-import InputAddButton from "components/buttons/InputAddButton";
+import InputSaveButton from "components/buttons/InputSaveButton";
 
-function AddTaskModalContent({ firestore, tasks, toggleModal, uid }) {
-  const [title, setTitle] = useState(),
-    [deadline, setDeadline] = useState(),
-    [notes, setNotes] = useState();
+class EditTaskModalContent extends Component {
+  constructor(props) {
+    super(props);
 
-  function onSubmitHandler(e) {
+    this.titleInput = React.createRef();
+    this.deadlineInput = React.createRef();
+    this.notesInput = React.createRef();
+  }
+
+  onSubmitHandler(e) {
     e.preventDefault();
 
-    const validate = validateFormat(deadline);
+    const { firestore, tasks, toggleModal, uid } = this.props,
+      validate = validateFormat(this.deadlineInput.current.value);
 
     if (!validate) {
       document.getElementById("deadlineInput").classList = "warning-input";
       document.querySelector(".input-warning-message").style.display = "block";
       return;
     } else {
-      tasks.push({
-        title,
-        deadline,
-        notes: notes ? notes : null,
-        checked: false
-      });
+      toggleModal();
 
-      const tasksUpd = {
-        tasks
+      let tasksUpd = {
+        tasks: tasks.map(task =>
+          task.id === this.props.view_item.id
+            ? {
+                title: this.titleInput.current.value,
+                deadline: this.deadlineInput.current.value,
+                notes: this.notesInput.current.value
+                  ? this.notesInput.current.value
+                  : null,
+                checked: false,
+                id: uuid()
+              }
+            : task
+        )
       };
 
       firestore.update({ collection: "users", doc: uid }, tasksUpd);
-      toggleModal();
     }
   }
 
-  return (
-    <React.Fragment>
-      <h3>New Task</h3>
-      <form onSubmit={e => onSubmitHandler(e)}>
-        <input
-          type="text"
-          name="title"
-          className="title-input"
-          placeholder="Title"
-          required
-          onChange={e => setTitle(e.target.value)}
-        />
-        <input
-          id="deadlineInput"
-          type="text"
-          name="deadline"
-          className="deadline-input"
-          placeholder="Deadline: dd/mm/yyyy"
-          required
-          onChange={e => setDeadline(e.target.value)}
-        />
-        <p className="input-warning-message">
-          Please check again, your current date format is incorrect.
-        </p>
-        <textarea
-          maxLength="100"
-          name="notes"
-          className="notes-input"
-          placeholder="Notes"
-          onChange={e => setNotes(e.target.value)}
-        />
-        <InputAddButton id="inputAddButton" />
-      </form>
-    </React.Fragment>
-  );
+  render() {
+    const { title, deadline, notes } = this.props.view_item;
+
+    return (
+      <React.Fragment>
+        <h3>New Task</h3>
+        <form onSubmit={e => this.onSubmitHandler(e)}>
+          <input
+            type="text"
+            name="title"
+            className="title-input"
+            defaultValue={title}
+            ref={this.titleInput}
+          />
+          <input
+            id="deadlineInput"
+            type="text"
+            name="deadline"
+            className="deadline-input"
+            defaultValue={deadline}
+            ref={this.deadlineInput}
+          />
+          <p className="input-warning-message">
+            Please check again, your current date format is incorrect.
+          </p>
+          <textarea
+            maxLength="100"
+            name="notes"
+            className="notes-input"
+            defaultValue={notes}
+            ref={this.notesInput}
+          />
+          <InputSaveButton />
+        </form>
+      </React.Fragment>
+    );
+  }
 }
 
-AddTaskModalContent.propTypes = {
+EditTaskModalContent.propTypes = {
   firestore: PropTypes.object,
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       deadline: PropTypes.string.isRequired,
-      notes: PropTypes.string
+      notes: PropTypes.string,
+      id: PropTypes.string.isRequired
     })
   ),
   toggleModal: PropTypes.func.isRequired,
-  uid: PropTypes.string.isRequired
+  uid: PropTypes.string.isRequired,
+  view_item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    deadline: PropTypes.string.isRequired,
+    notes: PropTypes.string,
+    id: PropTypes.string.isRequired
+  })
 };
 
 const mapStateToProps = ({
   firebase: {
     auth: { uid },
     profile: { tasks }
-  }
+  },
+  modal: { view_item }
 }) => {
   return {
     tasks,
-    uid
+    uid,
+    view_item
   };
 };
 
 export default compose(
+  firestoreConnect(),
   connect(
     mapStateToProps,
     { toggleModal }
-  ),
-  firestoreConnect()
-)(AddTaskModalContent);
+  )
+)(EditTaskModalContent);

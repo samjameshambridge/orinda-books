@@ -17,7 +17,8 @@ function TaskCard({
   function clickHandler(e) {
     if (
       e.target !== document.querySelector(".fa-trash") &&
-      e.target !== document.querySelector(".fa-check")
+      e.target !== document.querySelector(".fa-check") &&
+      e.target !== document.querySelector(".fa-pen")
     ) {
       setViewingItem(task);
       toggleModal("view");

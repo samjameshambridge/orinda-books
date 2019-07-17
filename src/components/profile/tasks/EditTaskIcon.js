@@ -26,4 +26,4 @@ EditTaskIcon.propTypes = {
 export default connect(
   null,
   { toggleModal, setViewingItem }
-);
+)(EditTaskIcon);

@@ -766,9 +766,18 @@ table {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between; }
-  @media screen and (min-width: 1400px) {
-    .staff-view-modal-container h1 {
-      font-size: 3rem; } }
+  .staff-view-modal-container .staff-view-modal-title {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start; }
+    @media screen and (min-width: 1400px) {
+      .staff-view-modal-container .staff-view-modal-title {
+        font-size: 3rem; } }
+    .staff-view-modal-container .staff-view-modal-title span {
+      color: #d9534f;
+      font-size: 1rem;
+      margin-left: 5rem; }
   .staff-view-modal-container h5 {
     justify-self: flex-start;
     text-align: center; }
@@ -1608,7 +1617,7 @@ table {
           flex-flow: column nowrap;
           justify-content: center; } }
     .events-content-container .event-info-container .event-specific-container .detail-event-container {
-      align-items: stretch;
+      align-items: center;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between; }
@@ -1691,7 +1700,7 @@ table {
     text-align: center; }
   .event-add-modal-form input,
   .event-add-modal-form textarea {
-    margin: 0.5rem 0; }
+    margin: 0.25rem 0; }
 
 .view-event-modal-content {
   height: 100%;

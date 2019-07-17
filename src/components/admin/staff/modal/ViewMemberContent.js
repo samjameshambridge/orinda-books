@@ -2,13 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 
-import ModalCloseButton from "components/modal/ModalCloseButton";
-import LinkButton from "components/buttons/LinkButton";
 import { setEditType } from "actions/editActions";
+
+import DeleteMemberIcon from "components/admin/staff/modal/DeleteMemberIcon";
+import LinkButton from "components/buttons/LinkButton";
+import ModalCloseButton from "components/modal/ModalCloseButton";
 
 function ViewMemberContent({
   permissions,
   setEditType,
+  view_item,
   view_item: {
     id,
     dateAdded,
@@ -24,7 +27,10 @@ function ViewMemberContent({
     <div className="staff-view-modal-container">
       <div>
         <h1 className="staff-view-modal-title">
-          {firstName} {surname}
+          {firstName} {surname}{" "}
+          <span>
+            <DeleteMemberIcon member={view_item} />
+          </span>
         </h1>
         <h5>{id}</h5>
       </div>

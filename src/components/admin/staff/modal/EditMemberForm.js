@@ -20,13 +20,13 @@ class EditMemberForm extends Component {
     this.positionInput = React.createRef();
   }
 
-  clickHandler = e => {
+  clickHandler(e) {
     e.preventDefault();
 
     this.props.setEditType("");
-  };
+  }
 
-  onSubmitHandler = e => {
+  onSubmitHandler(e) {
     e.preventDefault();
 
     const {
@@ -61,7 +61,7 @@ class EditMemberForm extends Component {
     firestore
       .add({ collection: "staff" }, updMember)
       .then(() => setEditType(""));
-  };
+  }
 
   render() {
     const { email, firstName, surname, dob, position } = this.props.view_item;
@@ -136,6 +136,7 @@ EditMemberForm.propTypes = {
   setEditType: PropTypes.func.isRequired,
   view_item: PropTypes.shape({
     dob: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
     firstName: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,

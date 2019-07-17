@@ -52,9 +52,18 @@
   // flex properties
   @include displayFlex(center, space-between, column nowrap);
 
-  h1 {
+  .staff-view-modal-title {
+    // flex properties
+    @include displayFlex(center, flex-start);
+
     @media screen and (min-width: $xx-large) {
       font-size: 3rem;
+    }
+
+    span {
+      color: $theme-red;
+      font-size: 1rem;
+      margin-left: 5rem;
     }
   }
   h5 {

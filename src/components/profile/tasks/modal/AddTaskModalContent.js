@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 
+import uuid from "uuid";
 import { validateFormat } from "helpers/dateFuncs";
 import { toggleModal } from "actions/modalActions";
 
@@ -28,7 +29,8 @@ function AddTaskModalContent({ firestore, tasks, toggleModal, uid }) {
         title,
         deadline,
         notes: notes ? notes : null,
-        checked: false
+        checked: false,
+        id: uuid()
       });
 
       const tasksUpd = {

@@ -1,6 +1,6 @@
 # Orinda Books
 
-![Logo](./src/img/orinda-books-logo.png)
+![Logo](./src/img/orinda-books-logo.png | height=150)
 
 ## Table of contents
 

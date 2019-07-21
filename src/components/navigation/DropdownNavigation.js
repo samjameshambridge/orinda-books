@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link, withRouter } from "react-router-dom";
 
 import HomeLogo from "components/general/HomeLogo";
 
 function DropdownNavigation({ history: { push } }) {
-  const [dropdownState, dropdownStateFunc] = useState(false);
+  const [dropdownState, setDropdownState] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      setDropdownState(false);
+    };
+  });
 
   function clickHandler() {
     push("/dashboard");
@@ -16,14 +22,14 @@ function DropdownNavigation({ history: { push } }) {
 
     if (!dropdownState) {
       menu.style.display = "inherit";
-      dropdownStateFunc(true);
+      setDropdownState(true);
 
       document.addEventListener("click", function clickFunc(e) {
         e.preventDefault();
 
         if (e.target.tagName.toLowerCase() !== "a") {
           menu.style.display = "none";
-          dropdownStateFunc(false);
+          setDropdownState(false);
         }
 
         document.removeEventListener("click", clickFunc);
@@ -35,10 +41,10 @@ function DropdownNavigation({ history: { push } }) {
     <div className="dropdown-navigation">
       <div className="dropdown-triggers">
         <div className="home-logo-group">
-          <HomeLogo onClick={clickHandler} />
-          <h4>O Books</h4>
+          <HomeLogo onClick={() => clickHandler()} />
+          <h5 className="home-logo-title">Orinda Books</h5>
         </div>
-        <i className="fas fa-sort-down" onClick={dropdownHandler} />
+        <i className="fas fa-sort-down" onClick={() => dropdownHandler()} />
       </div>
       <ul id="dropdown-menu">
         <li>

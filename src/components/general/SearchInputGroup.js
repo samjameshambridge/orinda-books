@@ -30,7 +30,7 @@ function SearchInputGroup({
 
     second
       ? (input = document.querySelectorAll(".search-input")[1])
-      : (input = document.querySelectorAll(".search-input"));
+      : (input = document.querySelectorAll(".search-input")[0]);
 
     if (input) input.className = "active-input";
 

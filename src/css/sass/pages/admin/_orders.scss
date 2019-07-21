@@ -127,7 +127,14 @@
         margin: 0.75rem 0;
       }
 
+      .radio-group {
+        // flex properties
+        @include displayFlex(flex-start, flex-start);
+      }
+
       label {
+        font-size: 0.8rem;
+        font-weight: 600;
         display: inline-block;
         width: 25%;
       }

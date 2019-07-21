@@ -40,7 +40,6 @@ function AddOrderModal({ firestore, toggleModal }) {
 
         return;
       } else {
-        console.log("quantity");
         quantityInput.classList = "warning-input";
         inputWarning.innerHTML =
           "Please check again, the quantity should be greater than zero.";
@@ -80,7 +79,7 @@ function AddOrderModal({ firestore, toggleModal }) {
         <h2>Book</h2>
         <div className="order-form-group">
           <div className="label-input-group">
-            <label htmlFor="Author">Author</label>
+            <label htmlFor="Author">Author:</label>
             <input
               type="text"
               name="Author"
@@ -89,7 +88,7 @@ function AddOrderModal({ firestore, toggleModal }) {
             />
           </div>
           <div className="label-input-group">
-            <label htmlFor="Title">Title</label>
+            <label htmlFor="Title">Title:</label>
             <input
               type="text"
               name="Title"
@@ -98,7 +97,7 @@ function AddOrderModal({ firestore, toggleModal }) {
             />
           </div>
           <div className="label-input-group">
-            <label htmlFor="ISBN">ISBN</label>
+            <label htmlFor="ISBN">ISBN:</label>
             <input
               type="number"
               name="ISBN"
@@ -108,7 +107,7 @@ function AddOrderModal({ firestore, toggleModal }) {
             />
           </div>
           <div className="label-input-group">
-            <label htmlFor="Publication Date">Published</label>
+            <label htmlFor="Publication Date">Published:</label>
             <input
               type="number"
               min="1000"
@@ -121,7 +120,7 @@ function AddOrderModal({ firestore, toggleModal }) {
         </div>
 
         <div className="order-form-group">
-          <div className="label-input-group">
+          <div className="label-input-group radio-group">
             <input
               type="radio"
               name="genre"
@@ -131,12 +130,12 @@ function AddOrderModal({ firestore, toggleModal }) {
             />
             <label htmlFor="fiction">Fiction</label>
           </div>
-          <div className="label-input-group">
+          <div className="label-input-group radio-group">
             <input type="radio" name="genre" value="non-fiction" required />
             <label htmlFor="fiction">Non-Fiction</label>
           </div>
           <div className="label-input-group">
-            <label htmlFor="Sub Genre">Sub Genre</label>
+            <label htmlFor="Sub Genre">Sub Genre:</label>
             <input
               type="text"
               name="Sub Genre"
@@ -151,7 +150,7 @@ function AddOrderModal({ firestore, toggleModal }) {
         <h2>Order</h2>
         <div className="order-form-group last-group">
           <div className="label-input-group">
-            <label htmlFor="quantity">Quantity</label>
+            <label htmlFor="quantity">Quantity:</label>
             <input
               type="number"
               max="100"
@@ -162,7 +161,7 @@ function AddOrderModal({ firestore, toggleModal }) {
             />
           </div>
           <div className="label-input-group">
-            <label htmlFor="company">Company</label>
+            <label htmlFor="company">Company:</label>
             <input
               type="text"
               name="company"

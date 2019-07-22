@@ -11,11 +11,31 @@
 - [Inspiration](#inspiration)
 - [Contact](#contact)
 
-##Screenshots
+## Screenshots
 
 ![landing-page](https://github.com/samjameshambridge/orinda-books/blob/screenshots/login.png)
 
-Landing page on load
+Landing page on load.
+
+![landing-page](https://github.com/samjameshambridge/orinda-books/blob/screenshots/dashboard.png)
+
+Dashboard page on login.
+
+![landing-page](https://github.com/samjameshambridge/orinda-books/blob/screenshots/inventory.png)
+
+Orinda Books current inventory fetched from Firebase storage.
+
+![landing-page](https://github.com/samjameshambridge/orinda-books/blob/screenshots/orders.png)
+
+Orinda Books current inventory fetched from Firebase storage.
+
+![landing-page](https://github.com/samjameshambridge/orinda-books/blob/screenshots/profile.png)
+
+Current user's profile.
+
+![landing-page](https://github.com/samjameshambridge/orinda-books/blob/screenshots/tasks.png)
+
+Current user's tasks.
 
 ## Introduction
 

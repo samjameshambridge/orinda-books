@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 
 import EditButton from "components/buttons/EditButton";
 import IconSidebar from "components/navigation/IconSidebar";
-import ProfileTitle from "components/general/ProfileTitle";
+import ProfileTitle from "components/titles/ProfileTitle";
 import ProfileDetails from "components/profile/profile/ProfileDetails";
 
 function Profile({ history: { push }, uid }) {

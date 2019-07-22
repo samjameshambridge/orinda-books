@@ -182,14 +182,14 @@
       grid-column: 2 / span 1;
 
       p {
-        font-size: 1.25rem;
+        font-size: 1rem;
 
         @media screen and (min-width: $xx-large) {
           font-size: 2rem;
         }
 
         .item-label {
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           font-weight: 600;
         }
       }

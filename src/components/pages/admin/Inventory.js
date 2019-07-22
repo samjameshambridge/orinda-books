@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 
 import { setSearchValue } from "actions/searchActions";
 
-import AdminTitle from "components/general/AdminTitle";
+import AdminTitle from "components/titles/AdminTitle";
 import DropdownNavigation from "components/navigation/DropdownNavigation";
 import InventoryTable from "components/admin/inventory/table/InventoryTable";
 import Modal from "components/modal/Modal";

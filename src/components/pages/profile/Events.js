@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 import EventsContent from "components/profile/events/EventsContent";
 import EventsModal from "components/profile/events/modal/EventsModal";
 import IconSidebar from "components/navigation/IconSidebar";
-import ProfileTitle from "components/general/ProfileTitle";
+import ProfileTitle from "components/titles/ProfileTitle";
 
 function Events({ modal_open, uid }) {
   if (!uid) return <Redirect to="/" />;

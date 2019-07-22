@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-import AdminTitle from "components/general/AdminTitle";
+import AdminTitle from "components/titles/AdminTitle";
 import AddOrderGroup from "components/admin/orders/AddOrderGroup";
 import DropdownNavigation from "components/navigation/DropdownNavigation";
 import FilledTable from "components/admin/orders/table/filled/FilledTable";

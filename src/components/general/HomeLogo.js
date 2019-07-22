@@ -15,6 +15,7 @@ function HomeLogo({ className, onClick }) {
 }
 
 HomeLogo.propTypes = {
+  className: PropTypes.string,
   onClick: PropTypes.func
 };
 

@@ -1,9 +1,15 @@
-import { TOGGLE_MODAL, VIEW_ITEM } from "actions/types";
+import { SET_MODAL_TYPE, TOGGLE_MODAL, VIEW_ITEM } from "actions/types";
 
 const initialState = { modal_open: false };
 
 const modalReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_MODAL_TYPE:
+      return {
+        ...state,
+        modal_type: action.payload
+      };
+
     case TOGGLE_MODAL:
       return {
         ...state,

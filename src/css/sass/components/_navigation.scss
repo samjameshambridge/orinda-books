@@ -12,6 +12,12 @@
     padding: 0;
   }
 
+  .dashboard-logo-group {
+    cursor: pointer;
+
+    @include displayFlex(center, center, column nowrap);
+  }
+
   h3 {
     font-size: 1.33rem;
     font-weight: normal;

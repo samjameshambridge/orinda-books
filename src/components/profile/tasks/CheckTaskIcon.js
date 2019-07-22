@@ -4,8 +4,20 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 
-function CheckTaskIcon({ className, firestore, tasks, title, uid }) {
+import { toggleModal } from "actions/modalActions";
+
+function CheckTaskIcon({
+  className,
+  firestore,
+  modal,
+  tasks,
+  title,
+  toggleModal,
+  uid
+}) {
   function clickHandler() {
+    if (modal) toggleModal();
+
     const tasksUpd = {
       tasks: tasks.map(task => {
         if (task.title === title) task.checked = !task.checked;
@@ -28,6 +40,7 @@ function CheckTaskIcon({ className, firestore, tasks, title, uid }) {
 CheckTaskIcon.propTypes = {
   className: PropTypes.string,
   firestore: PropTypes.object,
+  modal: PropTypes.bool,
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -36,6 +49,7 @@ CheckTaskIcon.propTypes = {
     })
   ),
   title: PropTypes.string.isRequired,
+  toggleModal: PropTypes.func.isRequired,
   uid: PropTypes.string.isRequired
 };
 
@@ -55,5 +69,8 @@ const mapStateToProps = ({
 
 export default compose(
   firestoreConnect(),
-  connect(mapStateToProps)
+  connect(
+    mapStateToProps,
+    { toggleModal }
+  )
 )(CheckTaskIcon);

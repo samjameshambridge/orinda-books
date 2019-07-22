@@ -16,5 +16,6 @@ export const SEARCH_VALUE = "SEARCH_VALUE";
 export const SECONDARY_SEARCH_VALUE = "SECONDARY_SEARCH_VALUE";
 
 // modal actions
+export const SET_MODAL_TYPE = "SET_MODAL_TYPE";
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
 export const VIEW_ITEM = "VIEW_ITEM";

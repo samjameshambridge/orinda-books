@@ -161,16 +161,6 @@ body {
     .admin-page-profile-pic {
       display: none; } }
 
-.dashboard-profile-pic {
-  border-radius: 50%;
-  height: 20vh; }
-  @media screen and (max-width: 768px) {
-    .dashboard-profile-pic {
-      display: none; } }
-  @media screen and (max-width: 992px) {
-    .dashboard-profile-pic {
-      height: 15vh; } }
-
 .search-icon {
   cursor: pointer;
   height: 5vh;
@@ -295,6 +285,12 @@ body {
   @media screen and (max-width: 768px) {
     .dashboard-sidebar-container {
       padding: 0; } }
+  .dashboard-sidebar-container .dashboard-logo-group {
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center; }
   .dashboard-sidebar-container h3 {
     font-size: 1.33rem;
     font-weight: normal; }
@@ -1989,7 +1985,12 @@ table {
         margin-left: 36vw; } }
 
 .view-task-modal-content {
-  width: 100%; }
+  height: 100%;
+  width: 100%;
+  align-items: stretch;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between; }
   .view-task-modal-content h3 {
     margin-bottom: 0.5rem; }
   .view-task-modal-content h5 {
@@ -1999,5 +2000,18 @@ table {
     margin-bottom: 1rem; }
   .view-task-modal-content .empty-notes-title {
     color: #d9534f; }
+  .view-task-modal-content .task-card-icon-group {
+    margin-bottom: 1rem;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between; }
+    .view-task-modal-content .task-card-icon-group .fa-check {
+      color: #5cb85c; }
+    .view-task-modal-content .task-card-icon-group .fa-pen {
+      color: #f0ad4e; }
+    .view-task-modal-content .task-card-icon-group .fa-trash {
+      color: #d9534f; }
 
 /*# sourceMappingURL=App.css.map */

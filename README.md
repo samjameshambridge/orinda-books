@@ -4,11 +4,18 @@
 
 ## Table of contents
 
+- [Screenshots](#screenshots)
 - [Introduction](#introduction)
 - [Technologies](#technologies)
 - [Status](#status)
 - [Inspiration](#inspiration)
 - [Contact](#contact)
+
+##Screenshots
+
+![landing-page](https://github.com/samjameshambridge/orinda-books/blob/screenshots/login.png)
+
+Landing page on load
 
 ## Introduction
 

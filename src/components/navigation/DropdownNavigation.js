@@ -36,7 +36,7 @@ function DropdownNavigation({ history: { push } }) {
       <div className="dropdown-triggers">
         <div className="home-logo-group">
           <HomeLogo onClick={clickHandler} />
-          <h4>O Books</h4>
+          <h4>Orinda Books</h4>
         </div>
         <i className="fas fa-sort-down" onClick={dropdownHandler} />
       </div>

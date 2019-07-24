@@ -102,6 +102,23 @@
     @include displayFlex(center, center);
   }
 
+  a {
+    // flex properties
+    @include displayFlex(center, center, column nowrap);
+
+    &:hover {
+      h4 {
+        opacity: 1;
+      }
+    }
+
+    h4 {
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: all 0.75s ease;
+    }
+  }
+
   // navigation widgets
   .navigation-widget {
     height: 10vh;
@@ -135,8 +152,21 @@
     // flex properties
     @include displayFlex(center, flex-start);
 
+    &:hover {
+      h4 {
+        opacity: 1;
+      }
+    }
+
+    h4 {
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: all 0.75s ease;
+    }
+
     .fa-sort-down {
-      margin-left: 0.25rem;
+      margin-left: -1.25rem;
+      margin-top: -1rem;
 
       @media screen and (min-width: $xx-large) {
         font-size: 2rem;

@@ -200,7 +200,11 @@
 
 // =========== view task modal =========== //
 .view-task-modal-content {
+  height: 100%;
   width: 100%;
+
+  // flex properties
+  @include displayFlex(stretch, flex-start, column nowrap);
 
   h3 {
     margin-bottom: 0.5rem;
@@ -217,5 +221,26 @@
 
   .empty-notes-title {
     color: $theme-red;
+  }
+
+  .view-task-icon-group {
+    margin-bottom: 1rem;
+    width: 100%;
+
+    // flex properties
+    margin-top: auto;
+    @include displayFlex(stretch, space-between);
+
+    .fa-check {
+      color: $theme-green;
+    }
+
+    .fa-pen {
+      color: $theme-orange;
+    }
+
+    .fa-trash {
+      color: $theme-red;
+    }
   }
 }

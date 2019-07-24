@@ -48,9 +48,12 @@ function UserSettings({
           onSubmit={e => submitHandler(e)}
           className="settings-user-form text-theme-blue"
         >
-          <p>{email}</p>
+          <p>
+            <span>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            {email}
+          </p>
           <div className="label-input-group">
-            <label htmlFor="language">Password</label>
+            <label htmlFor="language">Password:</label>
             <input
               id="passwordInput"
               type="text"
@@ -69,8 +72,12 @@ function UserSettings({
     return (
       <React.Fragment>
         <div className="settings-email-password">
-          <p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{email}</p>
-          <p>Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*******</p>
+          <p>
+            <span>Email:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{email}
+          </p>
+          <p>
+            <span>Password:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*******
+          </p>
         </div>
         {!edit_type && (
           <EditButton id="userSettings" onClick={() => editHandler()} />

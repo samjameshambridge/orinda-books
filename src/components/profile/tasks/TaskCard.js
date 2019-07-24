@@ -18,7 +18,8 @@ function TaskCard({
     if (
       e.target !== document.querySelector(".fa-trash") &&
       e.target !== document.querySelector(".fa-check") &&
-      e.target !== document.querySelector(".fa-pen")
+      e.target !== document.querySelector(".fa-pen") &&
+      e.target !== document.querySelector(".task-card-icon-group")
     ) {
       setViewingItem(task);
       toggleModal("view");

@@ -8,7 +8,7 @@ import EditProfile from "components/pages/profile/EditProfile";
 import Tasks from "components/pages/profile/Tasks";
 import Events from "components/pages/profile/Events";
 import Settings from "components/pages/profile/Settings";
-import EditSettings from "components/pages/profile/EditSettings";
+import EditSettings from "./components/pages/profile/EditSettings";
 import Orders from "components/pages/admin/Orders";
 import Sales from "components/pages/admin/Sales";
 import Staff from "components/pages/admin/Staff";

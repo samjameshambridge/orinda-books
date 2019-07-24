@@ -2,7 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-function ViewTaskModalContent({ view_item: { deadline, notes, title } }) {
+import CheckTaskIcon from "components/profile/tasks/CheckTaskIcon";
+import DeleteTaskIcon from "components/profile/tasks/DeleteTaskIcon";
+import EditTaskIcon from "components/profile/tasks/EditTaskIcon";
+
+function ViewTaskModalContent({
+  view_item,
+  view_item: { checked, deadline, notes, title }
+}) {
   return (
     <div className="view-task-modal-content">
       <h3>{title}</h3>
@@ -13,6 +20,11 @@ function ViewTaskModalContent({ view_item: { deadline, notes, title } }) {
       ) : (
         <p className="empty-notes-title">This task currently has no notes</p>
       )}
+      <div className="view-task-icon-group">
+        {checked || <CheckTaskIcon title={title} modal />}
+        <EditTaskIcon task={view_item} modal />
+        <DeleteTaskIcon title={title} modal />
+      </div>
     </div>
   );
 }

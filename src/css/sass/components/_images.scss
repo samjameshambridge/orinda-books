@@ -1,28 +1,3 @@
-// ========== small pic present on all admin related pages on the top left ========= //
-.admin-page-profile-pic {
-  border-radius: 50%;
-  cursor: pointer;
-  height: 10vh;
-
-  @media screen and (max-width: $medium) {
-    display: none;
-  }
-}
-
-// =========== the large profile pic present on the dashboard ========== //
-.dashboard-profile-pic {
-  border-radius: 50%;
-  height: 20vh;
-
-  @media screen and (max-width: $medium) {
-    display: none;
-  }
-
-  @media screen and (max-width: $large) {
-    height: 15vh;
-  }
-}
-
 // =========== search icon underneath inventory table ========== //
 .search-icon {
   cursor: pointer;

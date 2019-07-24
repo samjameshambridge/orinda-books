@@ -4,8 +4,12 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 
-function DeleteTaskIcon({ firestore, tasks, title, uid }) {
+import { toggleModal } from "actions/modalActions";
+
+function DeleteTaskIcon({ firestore, modal, tasks, title, toggleModal, uid }) {
   function clickHandler() {
+    if (modal) toggleModal();
+
     const tasksUpd = {
       tasks: tasks.filter(item => item.title !== title)
     };
@@ -17,6 +21,8 @@ function DeleteTaskIcon({ firestore, tasks, title, uid }) {
 }
 
 DeleteTaskIcon.propTypes = {
+  firestore: PropTypes.object,
+  modal: PropTypes.bool,
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -24,8 +30,8 @@ DeleteTaskIcon.propTypes = {
       notes: PropTypes.string
     })
   ),
-  firestore: PropTypes.object,
   title: PropTypes.string.isRequired,
+  toggleModal: PropTypes.func.isRequired,
   uid: PropTypes.string.isRequired
 };
 
@@ -45,5 +51,8 @@ const mapStateToProps = ({
 
 export default compose(
   firestoreConnect(),
-  connect(mapStateToProps)
+  connect(
+    mapStateToProps,
+    { toggleModal }
+  )
 )(DeleteTaskIcon);

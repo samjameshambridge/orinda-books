@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import IconSidebar from "components/navigation/IconSidebar";
-import ProfileTitle from "components/general/ProfileTitle";
+import ProfileTitle from "components/titles/ProfileTitle";
 import TaskModal from "components/profile/tasks/modal/TaskModal";
 import TasksContent from "components/profile/tasks/TasksContent";
 

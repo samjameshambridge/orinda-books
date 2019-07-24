@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 import { setEditType } from "actions/editActions";
 
 import IconSidebar from "components/navigation/IconSidebar";
-import ProfileTitle from "components/general/ProfileTitle";
+import ProfileTitle from "components/titles/ProfileTitle";
 import UserSettings from "components/profile/settings/UserSettings";
 
 function Settings({ setEditType, uid }) {

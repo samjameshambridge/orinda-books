@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import AddMemberGroup from "components/admin/staff/AddMemberGroup";
-import AdminTitle from "components/general/AdminTitle";
+import AdminTitle from "components/titles/AdminTitle";
 import DropdownNavigation from "components/navigation/DropdownNavigation";
 import StaffTable from "components/admin/staff/table/StaffTable";
 import Modal from "components/modal/Modal";

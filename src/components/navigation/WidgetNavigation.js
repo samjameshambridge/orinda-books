@@ -14,26 +14,31 @@ function WidgetNavigation({ location: { pathname } }) {
       {pathname === "/orders" || (
         <Link to="/orders">
           <img className="navigation-widget" src={Orders} alt="Orders" />
+          <h4>Orders</h4>
         </Link>
       )}
       {pathname === "/staff" || (
         <Link to="/staff">
           <img className="navigation-widget" src={Staff} alt="Staff" />
+          <h4>Staff</h4>
         </Link>
       )}
       {pathname === "/sales" || (
         <Link to="/sales">
           <img className="navigation-widget" src={Sales} alt="Sales" />
+          <h4>Sales</h4>
         </Link>
       )}
       {pathname === "/inventory" || (
         <Link to="/inventory">
           <img className="navigation-widget" src={Inventory} alt="Inventory" />
+          <h4>Inventory</h4>
         </Link>
       )}
       {pathname === "/search" || (
         <Link to="/search">
           <img className="navigation-widget" src={Search} alt="Search" />
+          <h4>Search</h4>
         </Link>
       )}
     </div>

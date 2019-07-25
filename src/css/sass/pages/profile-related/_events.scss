@@ -162,8 +162,7 @@
           }
 
           span {
-            font-size: 0.8rem;
-            font-weight: 600;
+            @include heavyFont;
           }
         }
       }
@@ -207,8 +206,7 @@
           margin-top: 1rem;
 
           .event-date-label {
-            font-size: 0.8rem;
-            font-weight: 600;
+            @include heavyFont;
           }
 
           p {
@@ -219,8 +217,7 @@
             }
 
             span {
-              font-size: 0.8rem;
-              font-weight: 600;
+              @include heavyFont;
             }
           }
         }
@@ -326,8 +323,7 @@
     margin: 1rem 0;
 
     span {
-      font-size: 0.8rem;
-      font-weight: 600;
+      @include heavyFont;
     }
   }
 

@@ -128,9 +128,9 @@
       }
 
       label {
+        @include heavyFont;
+
         display: inline-block;
-        font-size: 0.8rem;
-        font-weight: 600;
         width: 25%;
       }
 
@@ -276,8 +276,7 @@
     }
 
     .order-label {
-      font-size: 0.9rem;
-      font-weight: 600;
+      @include heavyFont;
     }
   }
 

@@ -1,9 +1,13 @@
-// =========== flex mixins ========== //
-
 // mixin for flex properties
 @mixin displayFlex($align-items, $justify-content, $flex-flow: row nowrap) {
   align-items: $align-items;
   display: flex;
   flex-flow: $flex-flow;
   justify-content: $justify-content;
+}
+
+// mixin for heavier font
+@mixin heavyFont {
+  font-size: 0.8rem;
+  font-weight: 600;
 }

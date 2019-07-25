@@ -126,9 +126,8 @@
       margin: 1rem 0;
 
       label {
+        @include heavyFont;
         display: inline-block;
-        font-size: 0.8rem;
-        font-weight: 600;
 
         @media screen and (min-width: $xx-large) {
           font-size: 1.75rem;

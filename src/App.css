@@ -824,9 +824,9 @@ table {
     .add-staff-form .staff-input-group .staff-form-group {
       margin: 1rem 0; }
       .add-staff-form .staff-input-group .staff-form-group label {
-        display: inline-block;
         font-size: 0.8rem;
-        font-weight: 600; }
+        font-weight: 600;
+        display: inline-block; }
         @media screen and (min-width: 1400px) {
           .add-staff-form .staff-input-group .staff-form-group label {
             font-size: 1.75rem; } }
@@ -1196,9 +1196,9 @@ table {
       margin: 0.75rem 0; }
     .add-order-form .book-input-group .order-form-group label,
     .add-order-form .order-input-group .order-form-group label {
-      display: inline-block;
       font-size: 0.8rem;
       font-weight: 600;
+      display: inline-block;
       width: 25%; }
     .add-order-form .book-input-group .order-form-group input,
     .add-order-form .order-input-group .order-form-group input {
@@ -1301,7 +1301,7 @@ table {
           .orders-view-modal .orders-view-modal-content .orders-view-modal-receipt p {
             font-size: 2rem; } }
     .orders-view-modal .orders-view-modal-content .order-label {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 600; }
   .orders-view-modal .orders-view-modal-buttons {
     padding-top: 2rem;

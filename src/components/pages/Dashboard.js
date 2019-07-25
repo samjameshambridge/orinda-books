@@ -3,14 +3,20 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
+import LogoutModal from "components/auth/LogoutModal";
 import Sidebar from "components/navigation/Sidebar";
 import Widgets from "components/widgets/Widgets";
 
-function Dashboard({ auth: { uid } }) {
+function Dashboard({ auth: { uid }, modal_open }) {
   if (!uid) return <Redirect to="/" />;
+
+  let content;
+
+  if (modal_open) content = <LogoutModal />;
 
   return (
     <div className="full-page-container dashboard-container">
+      {content}
       <Sidebar />
       <Widgets />
     </div>
@@ -18,11 +24,12 @@ function Dashboard({ auth: { uid } }) {
 }
 
 Dashboard.propTypes = {
-  auth: PropTypes.object
+  auth: PropTypes.object,
+  modal_open: PropTypes.bool
 };
 
-const mapStateToProps = ({ firebase: { auth } }) => {
-  return { auth };
+const mapStateToProps = ({ firebase: { auth }, modal: { modal_open } }) => {
+  return { auth, modal_open };
 };
 
 export default connect(

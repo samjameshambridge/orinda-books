@@ -2,21 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { logOut } from "actions/authActions";
+import { toggleModal } from "actions/modalActions";
 
-function Logout({ logOut }) {
+function Logout({ toggleModal }) {
   return (
-    <div className="logout" onClick={() => logOut()}>
+    <div className="logout" onClick={() => toggleModal()}>
       <span>Logout</span> <i className="fas fa-power-off" />
     </div>
   );
 }
 
 Logout.propTypes = {
-  logOut: PropTypes.func.isRequired
+  toggleModal: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { logOut }
+  { toggleModal }
 )(Logout);

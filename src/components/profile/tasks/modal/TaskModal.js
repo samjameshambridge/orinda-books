@@ -4,14 +4,14 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 
-import { toggleModal } from "actions/modalActions";
+import { setViewingItem, toggleModal } from "actions/modalActions";
 
 import AddTaskModalContent from "components/profile/tasks/modal/AddTaskModalContent";
 import EditTaskModalContent from "components/profile/tasks/modal/EditTaskModalContent";
 import ViewTaskModalContent from "components/profile/tasks/modal/ViewTaskModalContent";
 import ModalXButton from "components/modal/ModalXButton";
 
-function TaskModal({ modal_type, toggleModal }) {
+function TaskModal({ modal_type, setViewingItem, toggleModal }) {
   useEffect(() => {
     document.addEventListener("click", function clickFunction(e) {
       if (e.target.contains(document.querySelector(".modal-overlay"))) {
@@ -24,6 +24,10 @@ function TaskModal({ modal_type, toggleModal }) {
         document.removeEventListener("click", clickFunction);
       };
     });
+
+    return () => {
+      setViewingItem("");
+    };
   });
 
   let modalContent;
@@ -44,6 +48,7 @@ function TaskModal({ modal_type, toggleModal }) {
 
 TaskModal.propTypes = {
   modal_type: PropTypes.string.isRequired,
+  setViewingItem: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired
 };
 
@@ -57,6 +62,6 @@ export default compose(
   firestoreConnect(),
   connect(
     mapStateToProps,
-    { toggleModal }
+    { setViewingItem, toggleModal }
   )
 )(TaskModal);

@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { toggleModal } from "actions/modalActions";
+import { toggleModal, setViewingItem } from "actions/modalActions";
 
 import AddEventContent from "components/profile/events/modal/AddEventContent";
 import ModalXButton from "components/modal/ModalXButton";
 import ViewEventContent from "components/profile/events/modal/ViewEventContent";
 
-function EventsModal({ modal_type, toggleModal }) {
+function EventsModal({ modal_type, setViewingItem, toggleModal }) {
   useEffect(() => {
     document.addEventListener("click", function clickFunction(e) {
       if (e.target.contains(document.querySelector(".modal-overlay"))) {
@@ -21,6 +21,10 @@ function EventsModal({ modal_type, toggleModal }) {
         document.removeEventListener("click", clickFunction);
       };
     });
+
+    return () => {
+      setViewingItem("");
+    };
   });
 
   let modalContent;
@@ -43,6 +47,7 @@ function EventsModal({ modal_type, toggleModal }) {
 
 EventsModal.propTypes = {
   modal_type: PropTypes.string,
+  setViewingItem: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired
 };
 
@@ -55,6 +60,7 @@ const mapStateToProps = ({ modal: { modal_type } }) => {
 export default connect(
   mapStateToProps,
   {
+    setViewingItem,
     toggleModal
   }
 )(EventsModal);

@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import { firebaseConnect } from "react-redux-firebase";
 
 import { setEditType } from "actions/editActions";
-import { logOut, resetPassword } from "actions/authActions";
+import { setViewingItem, toggleModal } from "actions/modalActions";
 
 import EditButton from "components/buttons/EditButton";
 import InputSaveButton from "components/buttons/InputSaveButton";
@@ -17,9 +17,9 @@ function UserSettings({
     auth: { email }
   },
   history: { push },
-  logOut,
-  resetPassword,
-  setEditType
+  setEditType,
+  setViewingItem,
+  toggleModal
 }) {
   const [password, changePassword] = useState();
 
@@ -34,11 +34,16 @@ function UserSettings({
       document.getElementById("passwordInput").classList = "warning-input";
       document.querySelector(".input-warning-message").style.display = "block";
 
+      setTimeout(() => {
+        document.getElementById("passwordInput").classList = "";
+        document.querySelector(".input-warning-message").style.display = "none";
+      }, 3000);
+
       return;
     }
 
-    resetPassword(password);
-    logOut();
+    setViewingItem(password);
+    toggleModal();
   }
 
   if (edit_type) {
@@ -89,12 +94,13 @@ function UserSettings({
 
 UserSettings.propTypes = {
   edit_type: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  email: PropTypes.string.isRequired,
+  email: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }),
-  resetPassword: PropTypes.func.isRequired,
-  setEditType: PropTypes.func.isRequired
+  setEditType: PropTypes.func.isRequired,
+  setViewingItem: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ edit: { edit_type }, firebase }) => {
@@ -108,6 +114,6 @@ export default compose(
   firebaseConnect(),
   connect(
     mapStateToProps,
-    { logOut, resetPassword, setEditType }
+    { setEditType, setViewingItem, toggleModal }
   )
 )(withRouter(UserSettings));

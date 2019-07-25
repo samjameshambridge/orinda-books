@@ -1,7 +1,8 @@
 .edit-button,
 .save-button,
 .view-details-button,
-.modal-close-button {
+.modal-close-button,
+.logout-continue-button {
   border: none;
   border-radius: 20px;
   padding: 0.5rem;
@@ -13,7 +14,8 @@
   }
 }
 
-.view-details-button {
+.view-details-button,
+.logout-continue-button {
   background: $theme-yellow;
   color: $theme-blue;
   font-size: 1rem;

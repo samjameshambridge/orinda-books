@@ -95,8 +95,6 @@
   }
 
   .inventory-table-headings {
-    font-size: 1rem;
-
     td {
       @media screen and (max-width: $medium) {
         font-size: 0.75rem;
@@ -182,8 +180,6 @@
       grid-column: 2 / span 1;
 
       p {
-        font-size: 1rem;
-
         @media screen and (min-width: $xx-large) {
           font-size: 2rem;
         }

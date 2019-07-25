@@ -2,7 +2,7 @@
 .dashboard-sidebar-container {
   background: $theme-white;
   height: 100vh;
-  padding: 4.75rem 0;
+  padding: 4rem 0;
   width: 20vw;
 
   //   flex properties
@@ -160,7 +160,6 @@
 
     h4 {
       opacity: 0;
-      transform: translateY(1rem);
       transition: all 0.75s ease;
     }
 

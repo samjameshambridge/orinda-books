@@ -5,21 +5,15 @@ import { connect } from "react-redux";
 import { logOut, resetPassword } from "actions/authActions";
 import { setViewingItem, toggleModal } from "actions/modalActions";
 
-function LogoutModalContent({
-  logOut,
-  resetPassword,
-  setViewingItem,
-  toggleModal,
-  view_item
-}) {
+function LogoutModalContent({ logOut, resetPassword, toggleModal, view_item }) {
   function cancelHandler() {
-    setViewingItem("");
-    toggleModal();
+    toggleModal("");
   }
 
   function clickHandler() {
     if (view_item) resetPassword(view_item);
     logOut();
+    toggleModal("");
   }
 
   return (

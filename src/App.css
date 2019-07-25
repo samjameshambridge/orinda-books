@@ -102,6 +102,44 @@ body {
   .logout .fa-power-off {
     color: #d9534f; }
 
+.logout-modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+  z-index: 10; }
+  .logout-modal-overlay .logout-modal-container {
+    background: #fff;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 40vh;
+    margin-top: 30vh;
+    margin-left: 17vw;
+    padding: 2rem;
+    width: 66vw; }
+    .logout-modal-overlay .logout-modal-container .X-button {
+      left: 81vw;
+      position: fixed;
+      top: 32vh; }
+    .logout-modal-overlay .logout-modal-container .logout-modal-content {
+      height: 100%;
+      text-align: center;
+      align-items: stretch;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between; }
+      .logout-modal-overlay .logout-modal-container .logout-modal-content h4 {
+        color: #d9534f;
+        margin-bottom: 2rem; }
+      .logout-modal-overlay .logout-modal-container .logout-modal-content p {
+        margin-bottom: 2rem; }
+      .logout-modal-overlay .logout-modal-container .logout-modal-content .logout-modal-button-group i {
+        margin: 0 2rem; }
+      .logout-modal-overlay .logout-modal-container .logout-modal-content .logout-modal-button-group .fa-check {
+        color: #5cb85c; }
+      .logout-modal-overlay .logout-modal-container .logout-modal-content .logout-modal-button-group .fa-times {
+        color: #d9534f; }
+
 .edit-button,
 .save-button,
 .view-details-button,
@@ -209,7 +247,7 @@ body {
     box-sizing: border-box;
     height: 80vh;
     margin-top: 10vh;
-    margin-left: 34vw;
+    margin-left: 17vw;
     padding: 2rem;
     width: 66vw; }
     .modal-overlay .modal-content .X-button {
@@ -1799,42 +1837,6 @@ table {
       font-weight: 600; }
   .settings-user-form .save-button {
     margin-top: auto; }
-
-.logout-modal-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  position: fixed;
-  width: 100vw;
-  z-index: 10; }
-  .logout-modal-overlay .logout-modal-container {
-    background: #fff;
-    border-radius: 20px;
-    box-sizing: border-box;
-    height: 40vh;
-    margin-top: 30vh;
-    margin-left: 17vw;
-    padding: 2rem;
-    width: 66vw; }
-    .logout-modal-overlay .logout-modal-container .X-button {
-      left: 81vw;
-      position: fixed;
-      top: 32vh; }
-    .logout-modal-overlay .logout-modal-container .logout-modal-content {
-      height: 100%;
-      text-align: center;
-      align-items: stretch;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-between; }
-      .logout-modal-overlay .logout-modal-container .logout-modal-content h4 {
-        color: #d9534f;
-        margin-bottom: 2rem; }
-      .logout-modal-overlay .logout-modal-container .logout-modal-content .logout-modal-button-group i {
-        margin: 0 2rem; }
-      .logout-modal-overlay .logout-modal-container .logout-modal-content .logout-modal-button-group .fa-check {
-        color: #5cb85c; }
-      .logout-modal-overlay .logout-modal-container .logout-modal-content .logout-modal-button-group .fa-times {
-        color: #d9534f; }
 
 .tasks-page-content-container {
   overflow-y: auto;

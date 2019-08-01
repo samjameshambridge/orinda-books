@@ -16,10 +16,9 @@ function TaskCard({
 }) {
   function clickHandler(e) {
     if (
-      e.target !== document.querySelector(".fa-trash") &&
-      e.target !== document.querySelector(".fa-check") &&
-      e.target !== document.querySelector(".fa-pen") &&
-      e.target !== document.querySelector(".task-card-icon-group")
+      e.target.classList === ".task-card" ||
+      e.target.classList === ".pin-group" ||
+      e.target.nodeName === "H4"
     ) {
       setViewingItem(task);
       toggleModal("view");

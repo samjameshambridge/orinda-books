@@ -95,10 +95,11 @@
     margin-left: 2rem;
 
     @media screen and (max-width: $medium) {
+      height: 43vh;
       margin-left: 0;
 
       // flex properties
-      @include displayFlex(stretch, flex-start);
+      @include displayFlex(stretch, flex-start, column nowrap);
     }
 
     .events-upcoming-container,
@@ -112,9 +113,9 @@
       width: calc(40vw - 3rem);
 
       @media screen and (max-width: $medium) {
-        height: calc(33vh - 1rem);
+        height: 21.5vh;
         margin-top: 1rem;
-        width: 50%;
+        width: 100%;
       }
 
       @media screen and (min-width: $xx-large) {

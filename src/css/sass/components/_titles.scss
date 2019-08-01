@@ -3,6 +3,10 @@
   font-size: 2rem;
   text-align: center;
 
+  @media screen and (max-width: $medium) {
+    font-size: 1.5rem;
+  }
+
   @media screen and (min-width: $xx-large) {
     font-size: 4rem;
   }

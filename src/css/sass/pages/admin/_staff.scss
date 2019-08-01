@@ -23,8 +23,8 @@
 
 // ========== "add member" title along with plus icon ========== //
 .add-member-group {
-  left: 72.5%;
-  margin-top: 3rem;
+  left: 70%;
+  margin-top: 2rem;
   position: absolute;
   top: 21vh;
   width: 25%;
@@ -32,12 +32,20 @@
   // flex properties
   @include displayFlex(center, center);
 
+  @media screen and (max-width: $medium) {
+    top: 12vh;
+  }
+
   &:hover {
     cursor: pointer;
   }
 
   h2 {
     margin-right: 0.5rem;
+
+    @media screen and (max-width: $medium) {
+      display: none;
+    }
   }
 
   .fa-plus {

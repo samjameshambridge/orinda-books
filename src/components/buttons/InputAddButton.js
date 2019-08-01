@@ -9,4 +9,8 @@ InputAddButton.propTypes = {
   id: PropTypes.string
 };
 
+InputAddButton.defaultProps = {
+  id: ""
+};
+
 export default InputAddButton;

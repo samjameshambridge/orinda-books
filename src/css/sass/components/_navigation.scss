@@ -1,32 +1,32 @@
 // ========== the navigation and profile picture on the left of the dashboard ========== //
 .dashboard-sidebar-container {
   background: $theme-white;
+  box-sizing: border-box;
   height: 100vh;
   padding: 4rem 0;
   width: 20vw;
 
   //   flex properties
-  @include displayFlex(center, flex-start, column nowrap);
+  @include displayFlex(center, space-between, column nowrap);
 
   @media screen and (max-width: $medium) {
-    padding: 0;
+    padding-top: 0;
+    width: 33vw;
   }
 
   ul {
     font-size: 1.33rem;
     list-style: none;
-    margin: 2.25rem 0;
+    margin: 0;
     padding: 0;
     width: 100%;
 
     @media screen and (max-width: $medium) {
       margin: auto 0 auto 0;
-      padding-top: 10vh;
     }
 
     @media screen and (min-width: $xx-large) {
       font-size: 2rem;
-      margin: 7.75rem;
     }
 
     li {
@@ -126,7 +126,7 @@
     transition: all 0.5s ease;
 
     @media screen and (max-width: $medium) {
-      height: 7.5vh;
+      height: 6vh;
     }
 
     &:hover {
@@ -144,10 +144,6 @@
 .dropdown-navigation {
   z-index: 2;
 
-  @media screen and (max-width: $medium) {
-    display: none;
-  }
-
   .dropdown-triggers {
     // flex properties
     @include displayFlex(center, flex-start);
@@ -161,11 +157,19 @@
     h4 {
       opacity: 0;
       transition: all 0.75s ease;
+
+      @media screen and (max-width: $medium) {
+        white-space: nowrap;
+      }
     }
 
     .fa-sort-down {
       margin-left: -1.25rem;
       margin-top: -1rem;
+
+      @media screen and (max-width: $medium) {
+        display: none;
+      }
 
       @media screen and (min-width: $xx-large) {
         font-size: 2rem;

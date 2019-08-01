@@ -131,7 +131,13 @@ function AddOrderModal({ firestore, toggleModal }) {
             <label htmlFor="fiction">Fiction</label>
           </div>
           <div className="label-input-group">
-            <input type="radio" name="genre" value="non-fiction" required />
+            <input
+              type="radio"
+              name="genre"
+              value="non-fiction"
+              onChange={e => setGenre(e.target.value)}
+              required
+            />
             <label htmlFor="fiction">Non-Fiction</label>
           </div>
           <div className="label-input-group">

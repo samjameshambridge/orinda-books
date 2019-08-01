@@ -46,10 +46,6 @@
 .logout {
   font-size: 1.33rem;
 
-  @media screen and (max-width: $medium) {
-    margin-bottom: 5vh;
-  }
-
   span {
     @media screen and (max-width: $medium) {
       display: none;

@@ -30,7 +30,7 @@ function AddEventContent({ firestore, toggleModal }) {
         title,
         time,
         dateOf,
-        notes
+        notes: notes ? notes : ""
       };
 
       firestore.add({ collection: "events" }, newEvent);

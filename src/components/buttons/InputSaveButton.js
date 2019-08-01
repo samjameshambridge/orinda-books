@@ -11,4 +11,8 @@ InputSaveButton.propTypes = {
   className: PropTypes.string
 };
 
+InputSaveButton.defaultProps = {
+  className: ""
+};
+
 export default InputSaveButton;

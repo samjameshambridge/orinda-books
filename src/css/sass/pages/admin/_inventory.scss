@@ -1,6 +1,11 @@
 .inventory-content-container {
   // flex properties
   @include displayFlex(center, center, column nowrap);
+
+  @media screen and (max-width: $medium) {
+    // flex properties
+    @include displayFlex(center, flex-start, column nowrap);
+  }
 }
 
 // ========== this container is a wrapper for the progress bar with the descriptor below it and of the "see inventory summary" on the right hand side ========== //
@@ -47,7 +52,7 @@
   }
 
   .see-inventory-button {
-    margin-right: -2em;
+    margin-right: -2rem;
 
     // flex properties
     justify-self: center;

@@ -9,6 +9,10 @@ body {
   overflow: hidden;
   padding: 0;
 
+  @media screen and (max-width: $medium) {
+    overflow-y: scroll;
+  }
+
   a {
     color: inherit;
     text-decoration: none;

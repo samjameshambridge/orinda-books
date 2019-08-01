@@ -15,11 +15,15 @@
     }
 
     @media screen and (max-width: $medium) {
-      top: 14vh;
+      top: 13vh;
     }
 
     h2 {
       margin-right: 0.75rem;
+
+      @media screen and (max-width: $medium) {
+        display: none;
+      }
     }
 
     .fa-plus {
@@ -49,6 +53,12 @@
 
       // flex properties
       @include displayFlex(center, center, column nowrap);
+
+      h2 {
+        @media screen and (max-width: $medium) {
+          font-size: 1.25rem;
+        }
+      }
 
       table {
         @media screen and (max-width: $medium) {

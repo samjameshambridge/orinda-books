@@ -7,6 +7,11 @@
   // flex properties
   @include displayFlex(stretch, flex-start, row wrap);
 
+  @media screen and (max-width: $medium) {
+    // flex properties
+    @include displayFlex(flex-start, flex-start, column nowrap);
+  }
+
   .empty-tasks-group {
     width: 100%;
 
@@ -31,6 +36,16 @@
     padding: 1rem;
     transition: all 0.5s ease;
 
+    // flex properties
+    @include displayFlex(stretch, flex-start, column nowrap);
+
+    @media screen and (max-width: $medium) {
+      margin: 1 0.5rem;
+      max-height: 15vh;
+      min-height: 15vh;
+      width: calc(100% - 1rem);
+    }
+
     &:hover {
       transform: scale(1.025);
 
@@ -42,14 +57,6 @@
           visibility: visible;
         }
       }
-    }
-
-    // flex properties
-    @include displayFlex(stretch, flex-start, column nowrap);
-
-    @media screen and (max-width: $medium) {
-      margin: 0.5rem;
-      width: calc(80vw - 3rem);
     }
 
     .pin-group {
@@ -168,16 +175,24 @@
     width: 100%;
   }
 
-  input,
-  textarea {
-    box-sizing: border-box;
-    margin: 0.25rem 0;
-    padding: 0.5rem;
-    width: 100%;
-  }
-
-  textarea {
+  form {
     height: 70%;
+
+    input,
+    textarea {
+      box-sizing: border-box;
+      margin: 0.25rem 0;
+      padding: 0.5rem;
+      width: 100%;
+    }
+
+    textarea {
+      height: 70%;
+    }
+
+    .save-button {
+      border-radius: 0;
+    }
   }
 
   .X-button {

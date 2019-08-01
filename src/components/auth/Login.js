@@ -26,7 +26,7 @@ function Login({ auth_error, logIn }) {
         <input
           className="landing-input-username"
           type="email"
-          placeholder="email..."
+          placeholder="use: example@example.com"
           name="usn"
           required
           onChange={e => handleChange(e)}
@@ -34,7 +34,7 @@ function Login({ auth_error, logIn }) {
         <input
           className="landing-input-password"
           type="password"
-          placeholder="password..."
+          placeholder="use: password"
           name="psw"
           required
           onChange={e => handleChange(e)}

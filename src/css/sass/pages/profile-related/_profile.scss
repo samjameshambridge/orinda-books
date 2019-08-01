@@ -8,12 +8,21 @@
     // flex properties
     @include displayFlex(center, flex-start);
 
+    @media screen and (max-width: $medium) {
+      @include displayFlex(flex-start, flex-start, column nowrap);
+    }
+
     .profile-info {
       min-height: 63.5vh;
       width: 60%;
 
       // flex properties
       @include displayFlex(stretch, space-evenly, column nowrap);
+
+      @media screen and (max-width: $medium) {
+        min-height: 50vh;
+        width: 100%;
+      }
 
       p {
         @media screen and (max-width: $medium) {
@@ -33,6 +42,10 @@
     .profile-page-img {
       border-radius: 50%;
       height: 33vh;
+
+      @media screen and (max-width: $medium) {
+        height: 16.5vh;
+      }
     }
   }
 }

@@ -22,7 +22,7 @@ class EditTaskModalContent extends Component {
   onSubmitHandler(e) {
     e.preventDefault();
 
-    const { firestore, tasks, toggleModal, uid } = this.props,
+    const { firestore, tasks, toggleModal, uid, view_item } = this.props,
       validate = validateFormat(this.deadlineInput.current.value);
 
     if (!validate) {
@@ -30,23 +30,21 @@ class EditTaskModalContent extends Component {
       document.querySelector(".input-warning-message").style.display = "block";
       return;
     } else {
-      toggleModal();
-
       let tasksUpd = {
-        tasks: tasks.map(task =>
-          task.id === this.props.view_item.id
+        tasks: tasks.map(task => {
+          return task.id === view_item.id
             ? {
                 title: this.titleInput.current.value,
                 deadline: this.deadlineInput.current.value,
-                notes: this.notesInput.current.value
-                  ? this.notesInput.current.value
-                  : null,
+                notes: this.notesInput.current.value,
                 checked: false,
                 id: uuid()
               }
-            : task
-        )
+            : task;
+        })
       };
+
+      toggleModal();
 
       firestore.update({ collection: "users", doc: uid }, tasksUpd);
     }
@@ -95,10 +93,10 @@ EditTaskModalContent.propTypes = {
   firestore: PropTypes.object,
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      deadline: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      deadline: PropTypes.string,
       notes: PropTypes.string,
-      id: PropTypes.string.isRequired
+      id: PropTypes.string
     })
   ),
   toggleModal: PropTypes.func.isRequired,

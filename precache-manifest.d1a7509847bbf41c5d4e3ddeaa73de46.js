@@ -1,0 +1,58 @@
+self.__precacheManifest = (self.__precacheManifest || []).concat([
+  {
+    "revision": "d8d631c631fdea1bdf6178a4def2c180",
+    "url": "./index.html"
+  },
+  {
+    "revision": "f25e75546062da136d67",
+    "url": "./static/css/2.c51b6406.chunk.css"
+  },
+  {
+    "revision": "1318abd1befa28fdb0a3",
+    "url": "./static/css/main.e47f443f.chunk.css"
+  },
+  {
+    "revision": "f25e75546062da136d67",
+    "url": "./static/js/2.e524b887.chunk.js"
+  },
+  {
+    "revision": "1318abd1befa28fdb0a3",
+    "url": "./static/js/main.086fcccc.chunk.js"
+  },
+  {
+    "revision": "8c97409f0ee389fe75da",
+    "url": "./static/js/runtime~main.d653cc00.js"
+  },
+  {
+    "revision": "e6dbe74b84bc8155ef262ce8b5741592",
+    "url": "./static/media/Montserrat-Regular.e6dbe74b.ttf"
+  },
+  {
+    "revision": "9eec37f0efbc0f8044645476e284e741",
+    "url": "./static/media/inventory.9eec37f0.png"
+  },
+  {
+    "revision": "8bfeacd2fee6af7c3d4b49686857d814",
+    "url": "./static/media/mvboli.8bfeacd2.ttf"
+  },
+  {
+    "revision": "4304f43275086daecc81676128b651f5",
+    "url": "./static/media/orders.4304f432.png"
+  },
+  {
+    "revision": "8a02731f0874957d3052e52f7ba36f14",
+    "url": "./static/media/orinda-books-logo.8a02731f.png"
+  },
+  {
+    "revision": "0bc27cf2780a9b72093f2073df031c76",
+    "url": "./static/media/sales.0bc27cf2.png"
+  },
+  {
+    "revision": "8817ca0eb43556ee45d78d2d2c309926",
+    "url": "./static/media/search.8817ca0e.png"
+  },
+  {
+    "revision": "49153feb60983e9f6e6c6ccd9ed52e86",
+    "url": "./static/media/staff.49153feb.png"
+  }
+]);

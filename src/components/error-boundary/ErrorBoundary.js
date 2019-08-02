@@ -11,27 +11,22 @@ class ErrorBoundary extends Component {
     };
   }
 
-  componentDidCatch(error, errorInfo) {
-    this.setState({ error, errorInfo });
+  static getDerivedStateFromError(error) {
+    return { error };
   }
 
   render() {
-    console.log("rendering");
-    const { error, errorInfo } = this.state,
+    const { error } = this.state,
       { children } = this.props;
-    console.log("rendering", error);
+
     if (error) {
-      console.log("returning error boundary");
       return (
         <div>
           <h2>{"Oh-no! Something went wrong"}</h2>
           <p className="red">{error && error.toString()}</p>
-          <div>{"Component Stack Error Details: "}</div>
-          <p className="red">{errorInfo.componentStack}</p>
         </div>
       );
     }
-
     return children;
   }
 }

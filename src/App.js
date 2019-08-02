@@ -19,7 +19,7 @@ import "./App.css";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/orinda-books">
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/dashboard" component={Dashboard} />

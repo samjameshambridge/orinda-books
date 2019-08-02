@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/orinda-books/precache-manifest.70896b7d0b160a0bb679274bd5609aeb.js"
+  "/orinda-books/precache-manifest.a28abb274198438c770c5f36e0c497c3.js"
 );
 
 self.addEventListener('message', (event) => {

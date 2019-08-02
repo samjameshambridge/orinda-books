@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 
 import AdminTitle from "components/titles/AdminTitle";
 import DropdownNavigation from "components/navigation/DropdownNavigation";
+import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import SearchResults from "components/admin/search/SearchResults";
 import SearchSettings from "components/admin/search/SearchSettings";
 import WidgetNavigation from "components/navigation/WidgetNavigation";
@@ -19,11 +20,13 @@ function Search({ uid }) {
         <WidgetNavigation />
       </div>
       <div className="admin-content-container">
-        <AdminTitle value="Search" />
-        <SearchSettings />
-        <div className="search-results-group">
-          <SearchResults />
-        </div>
+        <ErrorBoundary>
+          <AdminTitle value="Search" />
+          <SearchSettings />
+          <div className="search-results-group">
+            <SearchResults />
+          </div>
+        </ErrorBoundary>
       </div>
     </div>
   );

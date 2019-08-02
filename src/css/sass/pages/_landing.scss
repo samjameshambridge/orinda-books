@@ -9,6 +9,10 @@
   h1 {
     font-size: 4.5rem;
     margin: 0;
+
+    @media screen and (max-width: $medium) {
+      font-size: 3rem;
+    }
   }
 
   .auth-error-group {

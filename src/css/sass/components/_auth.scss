@@ -9,6 +9,10 @@
     display: block;
     padding: 1.15em 0.5em;
     width: 25vw;
+
+    @media screen and (max-width: $medium) {
+      width: 50vw;
+    }
   }
 
   // password input

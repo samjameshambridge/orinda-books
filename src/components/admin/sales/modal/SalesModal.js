@@ -21,8 +21,11 @@ function SalesModal({
   toggleModal
 }) {
   function clickHandler() {
+    // delete from the NoSql Sales collection using the specific item id
+    // to determine which collection to delete
     firestore.delete({ collection: "sales", doc: id });
 
+    // hide the modal
     toggleModal();
   }
   return (

@@ -8,6 +8,7 @@ import TableHeadings from "components/admin/inventory/table/TableHeadings";
 
 // eslint-disable-next-line react/prop-types
 function InventoryTable({ search_value }) {
+  // if there is a a search value then return a filtered version of the table
   if (search_value) {
     return (
       <table className="inventory-table">
@@ -16,6 +17,7 @@ function InventoryTable({ search_value }) {
       </table>
     );
   } else {
+    // else return the unfiltered version of the table
     return (
       <table className="inventory-table">
         <TableHeadings />

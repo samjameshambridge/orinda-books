@@ -8,6 +8,7 @@ import ViewItemModal from "components/admin/inventory/modal/ViewItemModal";
 function InventoryModalBody({ modal_type }) {
   let inventoryModalBody;
 
+  // modal_type determines whether to display the inventory summary or an view item modal
   switch (modal_type) {
     case "summary":
       inventoryModalBody = <SummaryModal />;

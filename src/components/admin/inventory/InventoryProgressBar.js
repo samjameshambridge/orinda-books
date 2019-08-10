@@ -15,13 +15,16 @@ function InventoryProgressBar({ books }) {
         ),
         totalBooks = books.length;
 
+      // array of fiction books
       const fictionBookArr = books.filter(
           book => book.genre === "fiction" || book.genre === "Fiction"
         ),
+        // array of non fiction books
         nonFictionBookArr = books.filter(
           book => book.genre === "non-fiction" || book.genre === "Non-Fiction"
         );
 
+      // work out the proportion of fiction books and proportion of non fiction books
       fictionBar.style.width = `${(fictionBookArr.length / totalBooks) * 100}%`;
       nonFictionBar.style.width = `${(nonFictionBookArr.length / totalBooks) *
         100}%`;

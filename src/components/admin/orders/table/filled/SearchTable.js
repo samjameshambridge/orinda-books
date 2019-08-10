@@ -8,6 +8,11 @@ import Spinner from "components/general/Spinner";
 
 // eslint-disable-next-line react/prop-types
 function SearchTable({ filledFiltered, searchVal }) {
+  // isLoaded determines if the fetch firebase request is being processed
+  // is empty determines if the fetch firebase request has returned empty
+  // if the request is loading, display the spinner
+  // if the request is empty, display a title saying so
+  // else iterate over the data and display it
   return (
     <tbody>
       {!isLoaded(filledFiltered) ? (

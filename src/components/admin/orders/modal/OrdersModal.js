@@ -9,6 +9,8 @@ import AddOrderModal from "components/admin/orders/modal/AddOrderModal";
 function OrdersModal({ modal_type }) {
   let ordersModal;
 
+  // depending on the button clicked and the modal_type action payload,
+  // the orders modal maybe relating to a filled order, an unfilled order or an add order event
   switch (modal_type) {
     case "filled-view":
       ordersModal = <ViewFilledModal />;

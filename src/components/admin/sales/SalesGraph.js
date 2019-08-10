@@ -2,7 +2,10 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 
 function Chart() {
+  // the data that will be passed into the LineChart
   const data = {
+    // an array of dates
+    // in the future, this will be fed dates by various date getters
     labels: ["04/06", "05/06", "06/06", "07/06", "08/06", "09/06", "10/06"],
     datasets: [
       {
@@ -24,6 +27,8 @@ function Chart() {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
+        // current data for the sales
+        // in the future this will be retrieved by a data request to firebase
         data: [93.54, 103.45, 82.34, 132.93, 110.38, 190.43, 78.23]
       }
     ]
@@ -33,6 +38,7 @@ function Chart() {
     scales: {
       yAxes: [
         {
+          // display an axis title
           scaleLabel: {
             display: true,
             fontSize: 16,
@@ -42,6 +48,7 @@ function Chart() {
       ],
       xAxes: [
         {
+          // display an axis title
           scaleLabel: {
             display: true,
             fontSize: 16,

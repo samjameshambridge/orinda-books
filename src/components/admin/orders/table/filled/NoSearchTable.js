@@ -9,6 +9,11 @@ import Spinner from "components/general/Spinner";
 
 function NoSearchTable({ filledOrders }) {
   return (
+    // isLoaded determines if the fetch firebase request is being processed
+    // is empty determines if the fetch firebase request has returned empty
+    // if the request is loading, display the spinner
+    // if the request is empty, display a title saying so
+    // else iterate over the data and display it
     <tbody>
       {!isLoaded(filledOrders) ? (
         <tr className="spinner-row">

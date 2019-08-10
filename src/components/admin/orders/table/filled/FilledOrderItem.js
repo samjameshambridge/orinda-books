@@ -13,7 +13,9 @@ function FilledOrderItem({
   toggleModal
 }) {
   function clickHandler() {
+    // set modal item data
     setViewingItem(item);
+    // the modal should be to view a filled order, hence 'filled-view'
     toggleModal("filled-view");
   }
 

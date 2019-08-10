@@ -8,6 +8,8 @@ import Spinner from "components/general/Spinner";
 
 // eslint-disable-next-line react/prop-types
 function SearchTable({ authorFiltered, titleFiltered, searchVal }) {
+  // isLoaded function determines if the fetch request is processing
+  // isEmpty determines if the fetch request has returned empty
   return (
     <tbody>
       {!isLoaded(authorFiltered) && !isLoaded(titleFiltered) ? (

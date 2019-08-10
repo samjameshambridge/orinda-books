@@ -23,6 +23,8 @@ function ViewUnfilledModal({
   toggleModal
 }) {
   function clickHandler() {
+    // the data package to be sent along with the firebase queries
+    // is extracted from the view_item state in the redux store
     const filledOrder = {
       book: {
         author,
@@ -34,14 +36,18 @@ function ViewUnfilledModal({
       },
       company,
       date,
+      // getDate is a helper function which return the current date in an appropriate format
       filledDate: getDate(),
       quantity
     };
 
+    // hide the modal
     toggleModal();
 
     firestore
+      // delete the order from the unfilled orders NoSql collection
       .delete({ collection: "unfilledOrders", doc: id })
+      // mark the order as filled by adding it to the filledOrders NoSQL collection
       .then(firestore.add({ collection: "filledOrders" }, filledOrder));
   }
   return (

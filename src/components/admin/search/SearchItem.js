@@ -21,6 +21,7 @@ function SearchItem({
   },
   search_type
 }) {
+  // else if statements extracting the search type and return the appropriate seach value
   if (search_type === "inventory") {
     return (
       <div className="search-item">

@@ -9,6 +9,11 @@ import SalesTableItem from "components/admin/sales/SalesTableItem";
 import Spinner from "components/general/Spinner";
 
 function SalesTable({ sales }) {
+  // isLoaded determines if the fetch firebase request is being processed
+  // isEmpty determines if the fetch firebase request has returned empty
+  // if the request is loading, display the spinner
+  // if the request is empty, display a title saying so
+  // else iterate over the data and display it
   return (
     <table>
       <TableHeading />

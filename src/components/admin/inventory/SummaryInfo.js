@@ -14,6 +14,8 @@ function SummaryInfo({ books, toggleModal }) {
     toggleModal("summary");
 
     document.addEventListener("click", function clickFunction(e) {
+      // if you've clicked outside of the white modal box then toggle modal
+      // and remove click listener
       if (e.target.contains(document.querySelector(".modal-overlay"))) {
         toggleModal("");
 

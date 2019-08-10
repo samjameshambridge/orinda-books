@@ -8,6 +8,9 @@ import Spinner from "components/general/Spinner";
 
 // eslint-disable-next-line react/prop-types
 function NoSearchTable({ books }) {
+  // this is the unfiltered version of the inventory table
+  // isLoaded function determines if the fetch request is processing
+  // isEmpty determines if the fetch request has returned empty
   return (
     <tbody>
       {!isLoaded(books) ? (

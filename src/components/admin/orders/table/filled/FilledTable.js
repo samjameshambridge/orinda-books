@@ -7,7 +7,13 @@ import SearchTable from "components/admin/orders/table/filled/SearchTable";
 import TableHeading from "components/admin/orders/table/TableHeading";
 
 function FilledTable({ secondary_search_value }) {
+  // because there is a filed and unfilled table, there are two search components
+  // one for each table
+  // secondary_search_value allows the redux store to distinguish between the two values
+  // in turn allowing each table to filter itself by subscribing to the correct state slice
   if (secondary_search_value) {
+    // secondary_search_value is associated with filled orders
+    // the original search_vlue is associated with unfilled orders
     return (
       <table>
         <TableHeading />

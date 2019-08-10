@@ -13,7 +13,9 @@ function InventoryItem({
   toggleModal
 }) {
   function clickHandler(item) {
+    // sync item data to redux store
     setViewingItem(item);
+    // toggle the modal
     toggleModal("view");
   }
 

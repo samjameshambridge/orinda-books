@@ -13,7 +13,9 @@ function SalesTableItem({
   toggleModal
 }) {
   function clickHandler() {
+    // sync the data of the specific item to the redux store
     setViewingItem(item);
+    // hide the modal
     toggleModal("view");
   }
 

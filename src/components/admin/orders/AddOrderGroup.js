@@ -8,6 +8,7 @@ import PlusIcon from "components/general/PlusIcon";
 
 function AddOrderGroup({ toggleModal }) {
   function clickHandler() {
+    // display modal and set modal type
     toggleModal("add");
   }
   return (

@@ -12,10 +12,11 @@ export const logIn = credentials => {
     firebase
       .auth()
       .signInWithEmailAndPassword(credentials.email, credentials.password)
-      .then(() => {
-        dispatch({ type: LOGIN_SUCCESS });
-      })
+      // .then(() => {
+      //   dispatch({ type: LOGIN_SUCCESS });
+      // })
       .catch(err => {
+        // else if error
         dispatch({ type: LOGIN_ERROR, payload: err });
       });
   };
@@ -38,13 +39,8 @@ export const resetPassword = password => {
 
     let user = firebase.auth().currentUser;
 
-    user
-      .updatePassword(password)
-      .then(() => {
-        console.log("update successful");
-      })
-      .catch(err => {
-        dispatch({ type: PASSWORD_RESET_ERROR, payload: err });
-      });
+    user.updatePassword(password).catch(err => {
+      dispatch({ type: PASSWORD_RESET_ERROR, payload: err });
+    });
   };
 };

@@ -22,8 +22,11 @@ function ViewFilledModal({
   toggleModal
 }) {
   function clickHandler() {
+    // hide modal
     toggleModal();
 
+    // send a delete request to the firebase filledOrders collection with a reference
+    // to the ID of the filledOrder which is retreived from the view_item in the redux store
     firestore.delete({ collection: "filledOrders", doc: id });
   }
   return (

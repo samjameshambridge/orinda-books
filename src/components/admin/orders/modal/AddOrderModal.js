@@ -8,6 +8,7 @@ import { toggleModal } from "actions/modalActions";
 import { getDate } from "helpers/dateFuncs";
 
 function AddOrderModal({ firestore, toggleModal }) {
+  // all current values for the fields are stored as state using react hooks
   const [author, setAuthor] = useState(),
     [title, setTitle] = useState(),
     [isbn, setIsbn] = useState(),
@@ -25,14 +26,17 @@ function AddOrderModal({ firestore, toggleModal }) {
       isbnInput = document.getElementById("isbnInput"),
       quantityInput = document.getElementById("quantityInput");
 
+    // if you have entered an invalid isbn or quantity, display warning message
     if (isbnLength !== 13 || !parseInt(quantity)) {
       inputWarning.style.display = "block";
 
+      // if the isbn is incorrect, set the warning message text
       if (isbnLength !== 13) {
         inputWarning.innerHTML =
           "Please check again, all ISBNs must be 13 digits.";
         isbnInput.classList = "warning-input";
 
+        // after three seconds, hide the warning message
         setTimeout(() => {
           inputWarning.style.display = "none";
           isbnInput.classList = "";
@@ -40,10 +44,12 @@ function AddOrderModal({ firestore, toggleModal }) {
 
         return;
       } else {
+        // else set the quantity message text
         quantityInput.classList = "warning-input";
         inputWarning.innerHTML =
           "Please check again, the quantity should be greater than zero.";
 
+        // after three seconds hide the warning message
         setTimeout(() => {
           inputWarning.style.display = "none";
           quantityInput.classList = "";
@@ -53,6 +59,8 @@ function AddOrderModal({ firestore, toggleModal }) {
       }
     }
 
+    // assemble the data from the state which will be added to firebase
+    // for date and toBeFilled, call the date helper functions which will return a date in an appropriate format
     const order = {
       book: {
         author,
@@ -68,8 +76,10 @@ function AddOrderModal({ firestore, toggleModal }) {
       toBeFilled: getDate("filled")
     };
 
+    // add document (order object) to the collection of unfilledOrders on firebase
     firestore.add({ collection: "unfilledOrders" }, order);
 
+    // hide the modal
     toggleModal();
   }
 

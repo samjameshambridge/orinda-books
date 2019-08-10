@@ -10,6 +10,8 @@ function DoughnutChart({ books }) {
 
   useEffect(() => {
     if (books) {
+      // this function return an array of objects with all the subgenres in the inventory
+      // and total number of books for each subgenre
       determineSubgenres(
         books.reduce((acc, curr) => {
           if (acc.filter(item => item.subgenre === curr.subgenre).length) {
@@ -46,6 +48,7 @@ function DoughnutChart({ books }) {
       return acc;
     }, []);
 
+    // object to pass into doughtnut chart
     const data = {
         datasets: [
           {

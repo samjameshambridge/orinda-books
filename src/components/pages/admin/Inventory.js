@@ -7,6 +7,7 @@ import { setSearchValue } from "actions/searchActions";
 
 import AdminTitle from "components/titles/AdminTitle";
 import DropdownNavigation from "components/navigation/DropdownNavigation";
+import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import InventoryTable from "components/admin/inventory/table/InventoryTable";
 import Modal from "components/modal/Modal";
 import SearchInputGroup from "components/general/SearchInputGroup";
@@ -27,13 +28,15 @@ function Inventory({ uid, modal_open }) {
         <WidgetNavigation />
       </div>
       <div className="admin-content-container inventory-content-container">
-        <AdminTitle value="Inventory" />
-        <SummaryInfo />
-        <InventoryTable />
-        <SearchInputGroup
-          placeholder="Search by Author or Title"
-          type="inventory"
-        />
+        <ErrorBoundary>
+          <AdminTitle value="Inventory" />
+          <SummaryInfo />
+          <InventoryTable />
+          <SearchInputGroup
+            placeholder="Search by Author or Title"
+            type="inventory"
+          />
+        </ErrorBoundary>
       </div>
     </div>
   );

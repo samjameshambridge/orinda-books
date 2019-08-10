@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
+import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import Login from "components/auth/Login";
 
 function Landing({ auth: { uid } }) {
@@ -10,8 +11,10 @@ function Landing({ auth: { uid } }) {
 
   return (
     <div className="landing-container">
-      <h1>Orinda Books</h1>
-      <Login />
+      <ErrorBoundary>
+        <h1>Orinda Books</h1>
+        <Login />
+      </ErrorBoundary>
     </div>
   );
 }

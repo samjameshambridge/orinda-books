@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import AddMemberGroup from "components/admin/staff/AddMemberGroup";
 import AdminTitle from "components/titles/AdminTitle";
 import DropdownNavigation from "components/navigation/DropdownNavigation";
+import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import StaffTable from "components/admin/staff/table/StaffTable";
 import Modal from "components/modal/Modal";
 import WidgetNavigation from "components/navigation/WidgetNavigation";
@@ -24,9 +25,11 @@ function Staff({ modal_open, permissions, uid }) {
         <WidgetNavigation />
       </div>
       <div className="admin-content-container">
-        <AdminTitle value="Staff" />
-        {permissions === "all" && <AddMemberGroup />}
-        <StaffTable />
+        <ErrorBoundary>
+          <AdminTitle value="Staff" />
+          {permissions === "all" && <AddMemberGroup />}
+          <StaffTable />
+        </ErrorBoundary>
       </div>
     </div>
   );

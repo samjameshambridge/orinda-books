@@ -6,8 +6,7 @@ class ErrorBoundary extends Component {
     super(props);
 
     this.state = {
-      error: null,
-      errorInfo: null
+      error: null
     };
   }
 
@@ -19,14 +18,17 @@ class ErrorBoundary extends Component {
     const { error } = this.state,
       { children } = this.props;
 
+    // if error, return alternative component
     if (error) {
       return (
-        <div>
-          <h2>{"Oh-no! Something went wrong"}</h2>
-          <p className="red">{error && error.toString()}</p>
+        <div className="error-boundary">
+          <h2>Oh-no! Something went wrong</h2>
+          <p>Give this page a refresh!</p>
         </div>
       );
     }
+
+    // if no error, return child components
     return children;
   }
 }

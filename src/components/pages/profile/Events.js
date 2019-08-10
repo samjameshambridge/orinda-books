@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
+import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import EventsContent from "components/profile/events/EventsContent";
 import EventsModal from "components/profile/events/modal/EventsModal";
 import IconSidebar from "components/navigation/IconSidebar";
@@ -19,8 +20,10 @@ function Events({ modal_open, uid }) {
       {modal}
       <IconSidebar />
       <div className="main-section-container">
-        <ProfileTitle value="Events" />
-        <EventsContent />
+        <ErrorBoundary>
+          <ProfileTitle value="Events" />
+          <EventsContent />
+        </ErrorBoundary>
       </div>
     </div>
   );

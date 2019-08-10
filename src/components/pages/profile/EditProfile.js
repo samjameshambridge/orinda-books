@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
+import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import IconSidebar from "components/navigation/IconSidebar";
 import ProfileTitle from "components/titles/ProfileTitle";
 import ProfileInputDetails from "components/profile/profile/ProfileInputDetails";
@@ -14,10 +15,12 @@ function EditProfile({ profile, uid }) {
     <div className="full-page-container">
       <IconSidebar pathname="/profile" />
       <div className="main-section-container">
-        <ProfileTitle value="Edit Profile" />
-        <div className="profile-related-content-container profile-page-content-container">
-          <ProfileInputDetails profile={profile} />
-        </div>
+        <ErrorBoundary>
+          <ProfileTitle value="Edit Profile" />
+          <div className="profile-related-content-container profile-page-content-container">
+            <ProfileInputDetails profile={profile} />
+          </div>
+        </ErrorBoundary>
       </div>
     </div>
   );

@@ -56,7 +56,9 @@ This project uses:
 
 Project is: \_inDevelopment.
 
-This app is currently being worked on and has not hosted yet. Development is expected to finish in July/August 2019
+This project is not finished. There is a lot of structural reorganisation that I would like to happen, a lot of features I would like to implement and a general improvement of the UX.
+
+This app has been hosted (https://samjameshambridge.github.io/orinda-books/).
 
 ## Inspiration
 

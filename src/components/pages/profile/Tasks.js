@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
+import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import IconSidebar from "components/navigation/IconSidebar";
 import ProfileTitle from "components/titles/ProfileTitle";
 import TaskModal from "components/profile/tasks/modal/TaskModal";
@@ -19,8 +20,10 @@ function Tasks({ modal_open, uid }) {
       {modal}
       <IconSidebar />
       <div className="main-section-container">
-        <ProfileTitle value="Tasks" />
-        <TasksContent />
+        <ErrorBoundary>
+          <ProfileTitle value="Tasks" />
+          <TasksContent />
+        </ErrorBoundary>
       </div>
     </div>
   );

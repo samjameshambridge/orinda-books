@@ -194,6 +194,12 @@ body {
   color: #45546c;
   cursor: pointer; }
 
+.error-boundary {
+  text-align: center;
+  width: 100%; }
+  .error-boundary p {
+    margin-top: 1rem; }
+
 .search-icon {
   cursor: pointer;
   height: 5vh;

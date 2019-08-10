@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 
 import AdminTitle from "components/titles/AdminTitle";
 import DropdownNavigation from "components/navigation/DropdownNavigation";
+import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import Modal from "components/modal/Modal";
 import SalesTable from "components/admin/sales/SalesTable";
 import SalesGraph from "components/admin/sales/SalesGraph";
@@ -24,17 +25,19 @@ function Sales({ modal_open, uid }) {
         <WidgetNavigation />
       </div>
       <div className="admin-content-container">
-        <AdminTitle value="Sales" />
-        <div className="sales-page-content">
-          <div className="recent-sales-table-container">
-            <h2>Recent</h2>
-            <SalesTable />
+        <ErrorBoundary>
+          <AdminTitle value="Sales" />
+          <div className="sales-page-content">
+            <div className="recent-sales-table-container">
+              <h2>Recent</h2>
+              <SalesTable />
+            </div>
+            <div className="sales-graph-container">
+              <h2>Weekly Sales</h2>
+              <SalesGraph />
+            </div>
           </div>
-          <div className="sales-graph-container">
-            <h2>Weekly Sales</h2>
-            <SalesGraph />
-          </div>
-        </div>
+        </ErrorBoundary>
       </div>
     </div>
   );

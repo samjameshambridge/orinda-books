@@ -5,9 +5,11 @@ import { Link, withRouter } from "react-router-dom";
 import HomeLogo from "components/general/HomeLogo";
 
 function DropdownNavigation({ history: { push } }) {
+  // set initial dropdown state to false. ie: the dropdown menu is hidden
   const [dropdownState, dropdownStateFunc] = useState(false);
 
   function clickHandler() {
+    // navigate to the dashboard page
     push("/dashboard");
   }
 

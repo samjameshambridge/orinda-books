@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
+import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import IconSidebar from "components/navigation/IconSidebar";
 import LogoutModal from "components/auth/LogoutModal";
 import ProfileTitle from "components/titles/ProfileTitle";
@@ -20,12 +21,14 @@ function EditSettings({ modal_open, uid }) {
       {content}
       <IconSidebar />
       <div className="main-section-container">
-        <ProfileTitle value="Edit Settings" />
-        <div className="settings-content-container settings-container">
-          <div className="settings-content">
-            <UserSettings uid={uid} />
+        <ErrorBoundary>
+          <ProfileTitle value="Edit Settings" />
+          <div className="settings-content-container settings-container">
+            <div className="settings-content">
+              <UserSettings uid={uid} />
+            </div>
           </div>
-        </div>
+        </ErrorBoundary>
       </div>
     </div>
   );

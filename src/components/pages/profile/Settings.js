@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 
 import { setEditType } from "actions/editActions";
 
+import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import IconSidebar from "components/navigation/IconSidebar";
 import ProfileTitle from "components/titles/ProfileTitle";
 import UserSettings from "components/profile/settings/UserSettings";
@@ -22,12 +23,14 @@ function Settings({ setEditType, uid }) {
     <div className="full-page-container">
       <IconSidebar />
       <div className="main-section-container">
-        <ProfileTitle value="Settings" />
-        <div className="settings-container">
-          <div className="settings-content">
-            <UserSettings />
+        <ErrorBoundary>
+          <ProfileTitle value="Settings" />
+          <div className="settings-container">
+            <div className="settings-content">
+              <UserSettings />
+            </div>
           </div>
-        </div>
+        </ErrorBoundary>
       </div>
     </div>
   );

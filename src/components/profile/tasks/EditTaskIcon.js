@@ -17,6 +17,8 @@ function EditTaskIcon({
 }) {
   function clickHandler() {
     setViewingItem(task);
+
+    // don't toggle the modal whilst passing in the type because clicking edit shouldnt cause the modal to close
     modal ? setModalType("edit") : toggleModal("edit");
   }
 

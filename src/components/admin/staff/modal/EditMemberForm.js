@@ -13,6 +13,9 @@ class EditMemberForm extends Component {
   constructor(props) {
     super(props);
 
+    // theres properties are all references to the dom input elements
+    // this process allows you to set default values for the inputs
+    // which helps user experience in editing them
     this.firstNameInput = React.createRef();
     this.surnameInput = React.createRef();
     this.emailInput = React.createRef();
@@ -20,13 +23,15 @@ class EditMemberForm extends Component {
     this.positionInput = React.createRef();
   }
 
-  clickHandler(e) {
+  clickHandler = e => {
+    // prevent default browser behaviour
     e.preventDefault();
 
+    // reset edit type
     this.props.setEditType("");
-  }
+  };
 
-  onSubmitHandler(e) {
+  onSubmitHandler = e => {
     e.preventDefault();
 
     const {
@@ -45,8 +50,11 @@ class EditMemberForm extends Component {
       }
     } = this.props;
 
+    // first delete the original document that the user is editing
     firestore.delete({ collection: "staff", doc: id });
 
+    // create an object representing the updated staff member
+    // if the ref does not have a current value then return the original value
     const updMember = {
       dateAdded,
       dob: this.dobInput.current.value || dob,
@@ -59,11 +67,15 @@ class EditMemberForm extends Component {
     };
 
     firestore
+      // add the updated member to the staff collection
       .add({ collection: "staff" }, updMember)
+      // reset the edit type
       .then(() => setEditType(""));
-  }
+  };
 
   render() {
+    // all of these props are accessed through the redux store
+    // this is to allow them to be set as default values to the inputs on the form
     const { email, firstName, surname, dob, position } = this.props.view_item;
 
     return (

@@ -10,6 +10,7 @@ import ProfileTitle from "components/titles/ProfileTitle";
 import ProfileDetails from "components/profile/profile/ProfileDetails";
 
 function Profile({ history: { push }, uid }) {
+  // if the user is not authenticated, redirect them to the login page
   if (!uid) return <Redirect to="/" />;
 
   return (

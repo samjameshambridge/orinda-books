@@ -16,11 +16,14 @@ function DropdownNavigation({ history: { push } }) {
   function dropdownHandler() {
     const menu = document.querySelector("#dropdown-menu");
 
+    // if the dropdown menu is hidden
     if (!dropdownState) {
+      // then display the dropdown menu
       menu.style.display = "inherit";
       dropdownStateFunc(true);
 
       document.addEventListener("click", function clickFunc(e) {
+        // prevent default browser behaviour
         e.preventDefault();
 
         if (e.target.tagName.toLowerCase() !== "a") {

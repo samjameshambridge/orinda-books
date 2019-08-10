@@ -14,23 +14,28 @@ class EditTaskModalContent extends Component {
   constructor(props) {
     super(props);
 
+    // references to inputs within the dom allow default values of inputs to be set
+    // this lends a better user experience when the users is editing
     this.titleInput = React.createRef();
     this.deadlineInput = React.createRef();
     this.notesInput = React.createRef();
   }
 
-  onSubmitHandler(e) {
+  onSubmitHandler = e => {
     e.preventDefault();
 
-    const { firestore, tasks, toggleModal, uid, view_item } = this.props,
-      validate = validateFormat(this.deadlineInput.current.value);
+    const { firestore, tasks, toggleModal, uid, view_item } = this.props;
 
-    if (!validate) {
+    // check if the deadline input is a valid date format
+    if (!validateFormat(this.deadlineInput.current.value)) {
+      // if it is not a valid date format, display warning message
       document.getElementById("deadlineInput").classList = "warning-input";
       document.querySelector(".input-warning-message").style.display = "block";
       return;
     } else {
       let tasksUpd = {
+        // iterate over each of the tasks, when you reach the original task that the user is editing
+        // swap that original task with the updated task
         tasks: tasks.map(task => {
           return task.id === view_item.id
             ? {
@@ -38,17 +43,20 @@ class EditTaskModalContent extends Component {
                 deadline: this.deadlineInput.current.value,
                 notes: this.notesInput.current.value,
                 checked: false,
+                // uuid = unique string id
                 id: uuid()
               }
             : task;
         })
       };
 
+      // hide modal
       toggleModal();
 
+      // update database
       firestore.update({ collection: "users", doc: uid }, tasksUpd);
     }
-  }
+  };
 
   render() {
     const { title, deadline, notes } = this.props.view_item;

@@ -1,7 +1,5 @@
 // auth actions
 export const LOGIN_ERROR = "LOGIN_ERROR";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const PASSWORD_RESET_ERROR = "PASSWORD_RESET_ERROR";
 
 //  edit actions

@@ -21,19 +21,25 @@ function UserSettings({
   setViewingItem,
   toggleModal
 }) {
+  // password will be stored in state using hook
   const [password, changePassword] = useState();
 
   function editHandler() {
     setEditType(true);
+
+    // redirect to the EditSettings page
     push("/settings/edit");
   }
+
   function submitHandler(e) {
     e.preventDefault();
 
     if (!password || password.length < 7) {
+      // display warning text with warning theme
       document.getElementById("passwordInput").classList = "warning-input";
       document.querySelector(".input-warning-message").style.display = "block";
 
+      // after 3 seconds, hide the warning message
       setTimeout(() => {
         document.getElementById("passwordInput").classList = "";
         document.querySelector(".input-warning-message").style.display = "none";
@@ -42,10 +48,13 @@ function UserSettings({
       return;
     }
 
+    // store the password in redux state under 'viewing item'
     setViewingItem(password);
+
     toggleModal();
   }
 
+  // if your in an edit state, show edit-able inputs
   if (edit_type) {
     return (
       <React.Fragment>
@@ -74,6 +83,7 @@ function UserSettings({
       </React.Fragment>
     );
   } else {
+    // if user is not editing, show paragraphs
     return (
       <React.Fragment>
         <div className="settings-email-password">

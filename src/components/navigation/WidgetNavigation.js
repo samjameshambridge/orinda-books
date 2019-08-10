@@ -9,6 +9,9 @@ import Inventory from "img/widgets/inventory.png";
 import Search from "img/widgets/search.png";
 
 function WidgetNavigation({ location: { pathname } }) {
+  // the route that the user is currently on is assessed
+  // the corresponding widget for that route is not displayed
+  // for example: if user is on the orders pages, the orders widget is not displayed in the navigation
   return (
     <div className="widget-navigation-container">
       {pathname === "/orders" || (

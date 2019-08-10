@@ -10,22 +10,25 @@ import { validateFormat } from "helpers/dateFuncs";
 import { toggleModal } from "actions/modalActions";
 
 function AddEventContent({ firestore, toggleModal }) {
+  // the values for the inputs are stored in the state
   const [title, setTitle] = useState(),
     [time, setTime] = useState(),
     [notes, setNotes] = useState(),
     [dateOf, setDateOf] = useState();
 
   function submitHandler(e) {
+    // prevent default browser behavior
     e.preventDefault();
 
-    let validate = validateFormat(dateOf);
-
-    if (!validate) {
+    // check if dateOf has been entered in the correct format
+    if (!validateFormat(dateOf)) {
+      // if format is incorrect, display warning message
       document.getElementById("dateOfInput").classList = "warning-input";
       document.querySelector(".input-warning-message").style.display = "block";
 
       return;
     } else {
+      // if dateOf format is correct, assmeble newEvent object from the state
       const newEvent = {
         title,
         time,
@@ -33,8 +36,10 @@ function AddEventContent({ firestore, toggleModal }) {
         notes: notes ? notes : ""
       };
 
+      // add to the firebase NoSql events collection, passing in assembled event
       firestore.add({ collection: "events" }, newEvent);
 
+      // hide the modal
       toggleModal();
     }
   }

@@ -5,16 +5,19 @@ class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
 
+    // whether or not there is an error is stored in the state
     this.state = {
       error: null
     };
   }
 
   static getDerivedStateFromError(error) {
+    // if there is an error passed in, then getDerivedStateFromError will update the state {error: error}
     return { error };
   }
 
   render() {
+    // extract error and child component
     const { error } = this.state,
       { children } = this.props;
 

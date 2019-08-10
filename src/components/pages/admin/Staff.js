@@ -12,9 +12,11 @@ import Modal from "components/modal/Modal";
 import WidgetNavigation from "components/navigation/WidgetNavigation";
 
 function Staff({ modal_open, permissions, uid }) {
+  // if the user is not authenticated, return them to the login page
   if (!uid) return <Redirect to="/" />;
 
   let component;
+  // if the redux store says the modal should be open, display the modal
   if (modal_open) component = <Modal />;
 
   return (

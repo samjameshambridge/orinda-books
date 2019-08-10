@@ -10,10 +10,11 @@ import ProfileTitle from "components/titles/ProfileTitle";
 import UserSettings from "components/profile/settings/UserSettings";
 
 function EditSettings({ modal_open, uid }) {
+  // if the user is not authenticated, redirect them to the login page
   if (!uid) return <Redirect to="/" />;
 
   let content;
-
+  // if the redux store says that the modal should be open, display the modal
   if (modal_open) content = <LogoutModal />;
 
   return (

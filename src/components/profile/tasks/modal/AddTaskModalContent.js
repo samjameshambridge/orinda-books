@@ -11,6 +11,7 @@ import { toggleModal } from "actions/modalActions";
 import InputAddButton from "components/buttons/InputAddButton";
 
 function AddTaskModalContent({ firestore, tasks, toggleModal, uid }) {
+  // title, deadline and notes of the new event that is being added are kept in state
   const [title, setTitle] = useState(),
     [deadline, setDeadline] = useState(),
     [notes, setNotes] = useState();
@@ -18,18 +19,19 @@ function AddTaskModalContent({ firestore, tasks, toggleModal, uid }) {
   function onSubmitHandler(e) {
     e.preventDefault();
 
-    const validate = validateFormat(deadline);
-
-    if (!validate) {
+    // if date format is invalid display a warning
+    if (!validateFormat(deadline)) {
       document.getElementById("deadlineInput").classList = "warning-input";
       document.querySelector(".input-warning-message").style.display = "block";
       return;
     } else {
+      // if date is valied, push the new task to the original tasks array
       tasks.push({
         title,
         deadline,
         notes: notes ? notes : null,
         checked: false,
+        // uuid gives the 'id' property a unique string id
         id: uuid()
       });
 
@@ -37,7 +39,10 @@ function AddTaskModalContent({ firestore, tasks, toggleModal, uid }) {
         tasks
       };
 
+      // update the NoSql collection of Users, passing in the updated tasks object
       firestore.update({ collection: "users", doc: uid }, tasksUpd);
+
+      // hide the modal
       toggleModal();
     }
   }

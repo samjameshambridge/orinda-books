@@ -8,6 +8,7 @@ import { toggleModal } from "actions/modalActions";
 import { getDate } from "helpers/dateFuncs";
 
 function AddMemberModal({ firebase, firestore, toggleModal }) {
+  // values for the form are all stored in state using react hooks
   const [firstName, setFirstName] = useState(),
     [surname, setSurname] = useState(),
     [email, setEmail] = useState(),
@@ -17,15 +18,22 @@ function AddMemberModal({ firebase, firestore, toggleModal }) {
     [image, setImage] = useState();
 
   function submitHandler(e) {
+    // prevent default browser behaviour
     e.preventDefault(e);
 
+    // hide the modal
     toggleModal();
 
+    // create a reference to the image that has been uploaded
     var storageRef = firebase
       .storage()
       .ref(`images/${image.name}`)
       .put(image);
 
+    // upload the image to the firebase's cloud services
+    // save the url of the storage location
+    // create a new member object
+    // add the new member to the staff collection
     storageRef.on(
       "state_changed",
       null,
@@ -34,18 +42,22 @@ function AddMemberModal({ firebase, firestore, toggleModal }) {
       },
       () => {
         storageRef.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+          // object representing the new memner
           const newMember = {
+            // getDate is a helper function which returns a date in an appropriate format
             dateAdded: getDate(),
             dob,
             email,
             firstName,
             fullName: `${firstName} ${surname}`,
+            // downloadUrl is a reference to the cloud storage url on firebase's cloud
             imageLocation: downloadURL,
             position,
             permissions,
             surname
           };
 
+          // store the member object in staff NoSql staff collection
           firestore.add({ collection: "staff" }, newMember);
         });
       }

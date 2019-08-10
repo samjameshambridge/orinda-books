@@ -10,9 +10,11 @@ import TaskModal from "components/profile/tasks/modal/TaskModal";
 import TasksContent from "components/profile/tasks/TasksContent";
 
 function Tasks({ modal_open, uid }) {
+  // if the user is not authenticated redirect them to login page
   if (!uid) return <Redirect to="/" />;
 
   let modal;
+  // if redux store says the modal should be open, display the modal
   if (modal_open) modal = <TaskModal uid={uid} />;
 
   return (

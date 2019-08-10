@@ -9,19 +9,25 @@ import { setViewingItem, toggleModal } from "actions/modalActions";
 
 function LogoutModal({ setViewingItem, toggleModal }) {
   useEffect(() => {
+    // when component mounts add an event listern to the modal
     document.addEventListener("click", function clickFunction(e) {
+      // if you click outside the modal
       if (e.target.contains(document.querySelector(".logout-modal-overlay"))) {
+        // hide the modal
         toggleModal("");
 
+        // remove the event listener
         document.removeEventListener("click", clickFunction);
       }
 
       return function cleanUp() {
+        // when the component dismounts, remove the event listener
         document.removeEventListener("click", clickFunction);
       };
     });
 
     return () => {
+      // if the page has been navigated away from and the component dismounts, remove the event listener
       setViewingItem("");
     };
   });

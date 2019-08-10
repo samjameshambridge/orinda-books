@@ -15,6 +15,7 @@ function TaskCard({
   toggleModal
 }) {
   function clickHandler(e) {
+    // only open the view modal if white space has been clicked on the card
     if (
       e.target.classList === ".task-card" ||
       e.target.classList === ".pin-group" ||

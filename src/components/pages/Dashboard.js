@@ -9,10 +9,11 @@ import Sidebar from "components/navigation/Sidebar";
 import Widgets from "components/widgets/Widgets";
 
 function Dashboard({ auth: { uid }, modal_open }) {
+  // if the user is not authenticated, redirect them to the login page
   if (!uid) return <Redirect to="/" />;
 
   let content;
-
+  // if the redux store says the modal should be open then display the modal
   if (modal_open) content = <LogoutModal />;
 
   return (

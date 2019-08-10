@@ -10,6 +10,9 @@ import SalesModal from "components/admin/sales/modal/SalesModal";
 
 function ModalBody({ location: { pathname } }) {
   let modalBody;
+
+  // switch statement assesses what route the user is on and
+  // return appropriate modal
   switch (pathname) {
     case "/inventory":
       modalBody = <InventoryModal />;

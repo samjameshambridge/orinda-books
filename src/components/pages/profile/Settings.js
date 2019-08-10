@@ -12,10 +12,12 @@ import UserSettings from "components/profile/settings/UserSettings";
 
 function Settings({ setEditType, uid }) {
   useEffect(() => {
+    // upon component mount, if user is not authenticated, redirect them to the login page
     if (!uid) {
       return <Redirect to="/" />;
     }
 
+    // on mount, make sure edit state is set to false
     setEditType(false);
   });
 

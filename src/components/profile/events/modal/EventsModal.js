@@ -10,6 +10,7 @@ import ViewEventContent from "components/profile/events/modal/ViewEventContent";
 
 function EventsModal({ modal_type, setViewingItem, toggleModal }) {
   useEffect(() => {
+    // on mountaing listen to any clicks acting outside of the modal content
     document.addEventListener("click", function clickFunction(e) {
       if (e.target.contains(document.querySelector(".modal-overlay"))) {
         toggleModal();
@@ -23,12 +24,14 @@ function EventsModal({ modal_type, setViewingItem, toggleModal }) {
     });
 
     return () => {
+      // on dismount of the modal, reset the viewing data
       setViewingItem("");
     };
   });
 
   let modalContent;
 
+  // subscribe to redux store to check what type of modal should be displayed
   if (modal_type === "add") {
     modalContent = <AddEventContent />;
   } else if (modal_type === "view") {

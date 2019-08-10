@@ -7,12 +7,18 @@ import { setViewingItem, toggleModal } from "actions/modalActions";
 
 function LogoutModalContent({ logOut, resetPassword, toggleModal, view_item }) {
   function cancelHandler() {
+    // on cancel, hide the modal
     toggleModal("");
   }
 
   function clickHandler() {
+    // if there is a view item being used to store the password
+    // this means that the user is being logged out on attempting to reset their password
+    // else the user is logging out from the dashboard
     if (view_item) resetPassword(view_item);
+    // dispatch a logout action
     logOut();
+    // hide the modal
     toggleModal("");
   }
 

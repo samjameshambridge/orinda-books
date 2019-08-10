@@ -8,6 +8,7 @@ import EditMemberForm from "components/admin/staff/modal/EditMemberForm";
 
 function EditMemberContent({ setEditType, view_item: { firstName, surname } }) {
   useEffect(() => {
+    // when the component dismounts, reset the editType
     return () => {
       setEditType("");
     };

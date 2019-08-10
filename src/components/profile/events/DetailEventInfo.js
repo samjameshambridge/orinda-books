@@ -10,9 +10,12 @@ function DetailEventInfo({ detail_event, setViewingItem, toggleModal }) {
   let content;
 
   function clickHandler(e, event) {
+    // prevent default browser behaviour
     e.preventDefault();
 
+    // sync the data of the clicked event to the redux store
     setViewingItem(event);
+    // set the redux type as general view
     toggleModal("view");
   }
 

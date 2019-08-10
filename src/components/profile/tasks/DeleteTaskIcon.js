@@ -10,10 +10,12 @@ function DeleteTaskIcon({ firestore, modal, tasks, title, toggleModal, uid }) {
   function clickHandler() {
     if (modal) toggleModal();
 
+    // filter out the task to be deleted
     const tasksUpd = {
       tasks: tasks.filter(item => item.title !== title)
     };
 
+    // update users collection with an updated array
     firestore.update({ collection: "users", doc: uid }, tasksUpd);
   }
 

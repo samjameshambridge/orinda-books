@@ -8,6 +8,7 @@ import Spinner from "components/general/Spinner";
 function UpcomingEventsInfo({ events }) {
   let sortedEvents, content;
 
+  // get todays date in reverse
   if (events) {
     const today = getDate(),
       todayReversed = today
@@ -24,6 +25,7 @@ function UpcomingEventsInfo({ events }) {
       return eventReversed >= todayReversed;
     });
 
+    // if there are no dates then show an empty dates title
     if (!noPastDates.length) {
       content = (
         <h3 className="empty-detail-event-title font-secondary">
@@ -45,6 +47,7 @@ function UpcomingEventsInfo({ events }) {
         return aa < bb ? -1 : aa > bb ? 1 : 0;
       });
 
+      // map over the sorted dates and return a few paragraphs for each
       content = (
         <div className="upcoming-events-content">
           <p>Next 3 events:</p>

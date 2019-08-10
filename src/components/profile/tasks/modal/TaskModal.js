@@ -13,6 +13,7 @@ import ModalXButton from "components/modal/ModalXButton";
 
 function TaskModal({ modal_type, toggleModal }) {
   useEffect(() => {
+    // click outside the modal closes the modal
     document.addEventListener("click", function clickFunction(e) {
       if (e.target.contains(document.querySelector(".modal-overlay"))) {
         toggleModal("");
@@ -28,6 +29,7 @@ function TaskModal({ modal_type, toggleModal }) {
 
   let modalContent;
 
+  // check the type of modal the user is trying to access
   if (modal_type === "add") modalContent = <AddTaskModalContent />;
   else if (modal_type === "view") modalContent = <ViewTaskModalContent />;
   else if (modal_type === "edit") modalContent = <EditTaskModalContent />;

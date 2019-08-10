@@ -15,16 +15,21 @@ function SearchSettings({
   search_value,
   setSearchValue
 }) {
+  // subscribe to changes in the search_type to determine which search option was clicked
+  // i.e: is the user looking to search through staff or the inventory or the orders?
   switch (search_type) {
     case "staff":
+      // query firebase NoSql database to return where the first name is equal to the value entered into the input
       firestore.get({
         collection: "staff",
         where: ["firstName", "==", search_value],
         storeAs: "fullNameFiltered"
       });
+      // also query if the full name equals the value entered into the search input
       firestore.get({
         collection: "staff",
         where: ["fullName", "==", search_value],
+        // within the redux store, cache the returned data from this query under the name 'firstNameFiltered'
         storeAs: "firstNameFiltered"
       });
 
@@ -70,6 +75,8 @@ function SearchSettings({
           name="search"
           onChange={e => setSearchValue(e.target.value)}
           placeholder={
+            // depending on what search option the user has selected
+            // the placeholder value for the input specifies the type of data to enter
             search_type === "orders"
               ? "search orders by date..."
               : search_type === "inventory"
@@ -78,6 +85,8 @@ function SearchSettings({
               ? "search by member name..."
               : "select a search option!"
           }
+          // if the user hasn't selected a database they want to search
+          // disable the search bar
           disabled={search_type ? false : true}
         />
         <SearchIcon />

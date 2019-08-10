@@ -12,9 +12,11 @@ import SalesGraph from "components/admin/sales/SalesGraph";
 import WidgetNavigation from "components/navigation/WidgetNavigation";
 
 function Sales({ modal_open, uid }) {
+  // if the user is not authenticated, redirect them to the login page
   if (!uid) return <Redirect to="/" />;
 
   let component;
+  // if the redux store says that the modal should be open, display the modal
   if (modal_open) component = <Modal />;
 
   return (

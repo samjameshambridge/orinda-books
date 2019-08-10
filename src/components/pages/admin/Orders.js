@@ -14,9 +14,11 @@ import UnfilledTable from "components/admin/orders/table/unfilled/UnfilledTable"
 import WidgetNavigation from "components/navigation/WidgetNavigation";
 
 function Orders({ uid, location: { pathname }, modal_open }) {
+  // if the user is not authenticated, redirect them to the login page
   if (!uid) return <Redirect to="/" />;
 
   let modal;
+  // if the redux store says the the modal should be open, display the modal
   if (modal_open) modal = <Modal />;
 
   return (

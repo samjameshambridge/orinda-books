@@ -8,7 +8,9 @@ import { toggleModal } from "actions/modalActions";
 
 function DeleteMemberIcon({ firestore, member: { id }, toggleModal }) {
   function clickHandler() {
+    // hide the modal
     toggleModal();
+    // delete the member from the staff NoSql collection using his id which is available by subscription to the redux store
     firestore.delete({ collection: "staff", doc: id });
   }
 

@@ -10,9 +10,11 @@ import IconSidebar from "components/navigation/IconSidebar";
 import ProfileTitle from "components/titles/ProfileTitle";
 
 function Events({ modal_open, uid }) {
+  // if the user is not authenticated, redirect them to the login page
   if (!uid) return <Redirect to="/" />;
 
   let modal;
+  // if the redux store says the modal should be open, display the modal
   if (modal_open) modal = <EventsModal />;
 
   return (

@@ -9,6 +9,7 @@ import ProfileTitle from "components/titles/ProfileTitle";
 import ProfileInputDetails from "components/profile/profile/ProfileInputDetails";
 
 function EditProfile({ profile, uid }) {
+  // if the user is not authenticated, redirect them to the login page
   if (!uid) return <Redirect to="/" />;
 
   return (

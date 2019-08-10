@@ -15,9 +15,11 @@ import SummaryInfo from "components/admin/inventory/SummaryInfo";
 import WidgetNavigation from "components/navigation/WidgetNavigation";
 
 function Inventory({ uid, modal_open }) {
+  // if the user is not authenticated, redirect him the login page
   if (!uid) return <Redirect to="/" />;
 
   let component;
+  // if redux store says that the modal should be open, display the modal
   if (modal_open) component = <Modal />;
 
   return (

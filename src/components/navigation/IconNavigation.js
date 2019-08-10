@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import { Link, withRouter } from "react-router-dom";
 
 function IconNavigation({ location: { pathname } }) {
+  // if the user is on a particular route
+  // then the icon for the route will not be shown
+  // for example, if user is on 'tasks' page, then the option to navigate to the tasks page
+  // through the tasks icon will not be displayed
   return (
     <ul className="text-theme-blue">
       {pathname === "/profile" || pathname === "/profile/edit" || (

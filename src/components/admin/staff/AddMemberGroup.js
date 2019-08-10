@@ -8,6 +8,7 @@ import PlusIcon from "components/general/PlusIcon";
 
 function AddMemberGroup({ toggleModal }) {
   function clickHandler() {
+    // display the modal with type of 'add'
     toggleModal("add");
   }
   return (

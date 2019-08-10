@@ -7,11 +7,14 @@ import { setSearchType } from "actions/searchActions";
 function SearchOptions({ setSearchType }) {
   useEffect(() => {
     return () => {
+      // on dismounting of the search options, set the type to null
+      // this prevents premature type determination on return to the page
       setSearchType(null);
     };
   });
 
   function clickHandler(e) {
+    // sync search type to redux store to allow search results to sync into which input was clicked
     setSearchType(e.target.id);
   }
 

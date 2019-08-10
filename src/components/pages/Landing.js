@@ -7,6 +7,7 @@ import ErrorBoundary from "components/error-boundary/ErrorBoundary";
 import Login from "components/auth/Login";
 
 function Landing({ auth: { uid } }) {
+  // if the user is authenticated then redirect them to the dashboard
   if (uid) return <Redirect to="/dashboard" />;
 
   return (

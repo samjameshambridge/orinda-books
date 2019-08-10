@@ -11,6 +11,7 @@ import SearchSettings from "components/admin/search/SearchSettings";
 import WidgetNavigation from "components/navigation/WidgetNavigation";
 
 function Search({ uid }) {
+  // if the user is not authenticaed, redirect them to the login page
   if (!uid) return <Redirect to="/" />;
 
   return (

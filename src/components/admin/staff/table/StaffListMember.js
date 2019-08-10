@@ -12,7 +12,9 @@ function StaffListMember({
   setViewingItem
 }) {
   function clickHandler() {
+    // sync the data for the member into the redux store
     setViewingItem(member);
+    // toggle the modal, with the type of the modal set to view
     toggleModal("view");
   }
 

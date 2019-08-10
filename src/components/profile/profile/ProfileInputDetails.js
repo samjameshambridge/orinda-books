@@ -9,6 +9,7 @@ class ProfileInputDetails extends Component {
   constructor(props) {
     super(props);
 
+    // these properties are reference to each of the inputs in the DOM form
     this.firstNameInput = React.createRef();
     this.lastNameInput = React.createRef();
     this.emailInput = React.createRef();
@@ -17,7 +18,7 @@ class ProfileInputDetails extends Component {
     this.balanceInput = React.createRef();
   }
 
-  onSubmitHandler(e) {
+  onSubmitHandler = e => {
     e.preventDefault();
 
     const {
@@ -25,6 +26,7 @@ class ProfileInputDetails extends Component {
       history: { push }
     } = this.props;
 
+    // assemble the updated profile from the DOM references to the inputs
     const updProfile = {
       firstName: this.firstNameInput.current.value,
       lastName: this.lastNameInput.current.value,
@@ -33,10 +35,12 @@ class ProfileInputDetails extends Component {
       phone: this.phoneInput.current.value
     };
 
+    // call update profile method on firebase object by passing in the assembled profile
     firebase.updateProfile(updProfile);
 
+    // redirect the user to the original profile page
     push("/profile");
-  }
+  };
 
   render() {
     const { firstName, lastName, email, phone, position } = this.props.profile;

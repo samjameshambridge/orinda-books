@@ -9,8 +9,10 @@ import ModalBody from "components/modal/ModalBody";
 
 function Modal({ setViewingItem, toggleModal }) {
   useEffect(() => {
+    // when the modal mounts listen for clicks outside of the modal
     document.addEventListener("click", function clickFunction(e) {
       if (e.target.contains(document.querySelector(".modal-overlay"))) {
+        // upon an outside click, hide the modal
         toggleModal("");
 
         document.removeEventListener("click", clickFunction);
@@ -22,6 +24,7 @@ function Modal({ setViewingItem, toggleModal }) {
     });
 
     return () => {
+      // on component dismounts, reset the viewing item for upcoming modals
       setViewingItem("");
     };
   });

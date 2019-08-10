@@ -18,6 +18,7 @@ function CheckTaskIcon({
   function clickHandler() {
     if (modal) toggleModal();
 
+    // update the task to show it has been checked (completed) or unchecked (not completed)
     const tasksUpd = {
       tasks: tasks.map(task => {
         if (task.title === title) task.checked = !task.checked;
@@ -26,6 +27,7 @@ function CheckTaskIcon({
       })
     };
 
+    // update tasks collection with updated task aray
     firestore.update({ collection: "users", doc: uid }, tasksUpd);
   }
 

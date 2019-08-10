@@ -8,6 +8,7 @@ import ViewDetailsModal from "components/admin/staff/modal/ViewDetailsModal";
 function StaffModal({ modal_type }) {
   let staffModal;
 
+  // switch statement evaluates the modal type to determine which type of modal should be displayed
   switch (modal_type) {
     case "view":
       staffModal = <ViewDetailsModal />;

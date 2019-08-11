@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from "react-redux";
@@ -15,6 +15,10 @@ function SearchSettings({
   search_value,
   setSearchValue
 }) {
+  useEffect(() => {
+    firestore.setListener({ collection: "inventory" });
+  });
+
   // subscribe to changes in the search_type to determine which search option was clicked
   // i.e: is the user looking to search through staff or the inventory or the orders?
   switch (search_type) {
@@ -23,14 +27,15 @@ function SearchSettings({
       firestore.get({
         collection: "staff",
         where: ["firstName", "==", search_value],
-        storeAs: "fullNameFiltered"
+        storeAs: "search_data",
+        removeOnUnset: true
       });
       // also query if the full name equals the value entered into the search input
       firestore.get({
         collection: "staff",
         where: ["fullName", "==", search_value],
         // within the redux store, cache the returned data from this query under the name 'firstNameFiltered'
-        storeAs: "firstNameFiltered"
+        storeAs: "search_data"
       });
 
       break;
@@ -39,12 +44,12 @@ function SearchSettings({
       firestore.get({
         collection: "books",
         where: ["title", "==", search_value],
-        storeAs: "titleFiltered"
+        storeAs: "search_data"
       });
       firestore.get({
         collection: "books",
         where: ["author", "==", search_value],
-        storeAs: "authorFiltered"
+        storeAs: "search_data"
       });
 
       break;
@@ -53,12 +58,12 @@ function SearchSettings({
       firestore.get({
         collection: "unfilledOrders",
         where: ["date", "==", search_value],
-        storeAs: "unfilledOrdersFiltered"
+        storeAs: "search_data"
       });
       firestore.get({
         collection: "filledOrders",
         where: ["filledDate", "==", search_value],
-        storeAs: "filledOrdersFiltered"
+        storeAs: "search_data"
       });
 
       break;

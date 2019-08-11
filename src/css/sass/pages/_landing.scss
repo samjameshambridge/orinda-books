@@ -1,3 +1,6 @@
+// =========== STYLING FOR ORINDA BOOKS TITLE AND LOGIN CONTAINER =========== //
+// styling for the login form can be found in auth component
+
 .landing-container {
   position: relative;
   top: 20vh;
@@ -12,6 +15,10 @@
 
     @media screen and (max-width: $medium) {
       font-size: 3rem;
+    }
+
+    @media screen and (max-width: $small) {
+      font-size: 2rem;
     }
   }
 

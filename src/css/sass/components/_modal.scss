@@ -22,15 +22,7 @@
       top: 12vh;
 
       @media screen and (max-width: $large) {
-        left: 58vw;
-      }
-
-      @media screen and (max-width: $medium) {
-        left: 56vw;
-      }
-
-      @media screen and (max-width: $small) {
-        left: 52vw;
+        display: none;
       }
     }
   }
@@ -50,5 +42,9 @@
     left: 29vw;
     position: fixed;
     top: 29vh;
+
+    @media screen and (max-width: $large) {
+      display: none;
+    }
   }
 }

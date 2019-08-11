@@ -67,11 +67,14 @@ body {
   justify-content: flex-start; }
   .landing-input-group input {
     display: block;
-    padding: 1.15em 0.5em;
+    padding: 1.15rem 0.5rem;
     width: 25vw; }
     @media screen and (max-width: 768px) {
       .landing-input-group input {
         width: 50vw; } }
+    @media screen and (max-width: 576px) {
+      .landing-input-group input {
+        padding: 0.5rem 0.5rem; } }
   .landing-input-group input:nth-of-type(2) {
     margin-top: 4vh;
     margin-bottom: 2vh; }
@@ -88,6 +91,9 @@ body {
     padding: 0.75em 0;
     transition: opacity 0.5s ease;
     width: 12.5vw; }
+    @media screen and (max-width: 576px) {
+      .landing-input-group .login-button {
+        width: 33vw; } }
     .landing-input-group .login-button:hover {
       cursor: pointer;
       opacity: 0.75; }
@@ -272,13 +278,7 @@ body {
       top: 12vh; }
       @media screen and (max-width: 992px) {
         .modal-overlay .modal-content .X-button {
-          left: 58vw; } }
-      @media screen and (max-width: 768px) {
-        .modal-overlay .modal-content .X-button {
-          left: 56vw; } }
-      @media screen and (max-width: 576px) {
-        .modal-overlay .modal-content .X-button {
-          left: 52vw; } }
+          display: none; } }
 
 .profile-modal-content {
   background: #fff;
@@ -290,6 +290,9 @@ body {
     left: 29vw;
     position: fixed;
     top: 29vh; }
+    @media screen and (max-width: 992px) {
+      .profile-modal-content .X-button {
+        display: none; } }
 
 .dashboard-sidebar-container {
   background: #fff;
@@ -435,7 +438,7 @@ body {
       border-bottom: 20px solid white;
       height: 0;
       position: absolute;
-      left: 17.5%;
+      left: 33%;
       top: -20px;
       width: 0;
       z-index: 2; }
@@ -445,7 +448,7 @@ body {
       border-right: 22px solid transparent;
       border-bottom: 22px solid rgba(0, 0, 0, 0.07);
       height: 0;
-      left: 17.5%;
+      left: 33%;
       top: -22px;
       position: absolute;
       width: 0;
@@ -662,6 +665,9 @@ table {
     @media screen and (max-width: 768px) {
       .landing-container h1 {
         font-size: 3rem; } }
+    @media screen and (max-width: 576px) {
+      .landing-container h1 {
+        font-size: 2rem; } }
   .landing-container .auth-error-group h4 {
     color: #d9534f;
     margin-top: 0.5rem; }
@@ -811,9 +817,6 @@ table {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center; }
-  @media screen and (max-width: 768px) {
-    .add-member-group {
-      top: 12vh; } }
   .add-member-group:hover {
     cursor: pointer; }
   .add-member-group h2 {
@@ -1611,7 +1614,7 @@ table {
     margin-left: 2rem; }
     @media screen and (max-width: 768px) {
       .events-content-container .event-info-container {
-        height: 43vh;
+        min-height: 43vh;
         margin-left: 0;
         align-items: stretch;
         display: flex;
@@ -1622,13 +1625,13 @@ table {
       border: solid 1px #f5f5f5;
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
       box-sizing: border-box;
-      height: calc(50% - 1rem);
+      min-height: calc(50% - 1rem);
       padding: 1rem;
       width: calc(40vw - 3rem); }
       @media screen and (max-width: 768px) {
         .events-content-container .event-info-container .events-upcoming-container,
         .events-content-container .event-info-container .event-specific-container {
-          height: 21.5vh;
+          min-height: 21.5vh;
           margin-top: 1rem;
           width: 100%; } }
       @media screen and (min-width: 1400px) {
@@ -1698,6 +1701,7 @@ table {
       flex-flow: row nowrap;
       justify-content: space-between; }
       .events-content-container .event-info-container .event-specific-container .detail-event-container .detail-event-group {
+        background: yellow;
         cursor: pointer;
         margin-top: 1rem; }
         .events-content-container .event-info-container .event-specific-container .detail-event-container .detail-event-group .event-date-label {

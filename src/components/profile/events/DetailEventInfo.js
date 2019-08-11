@@ -21,12 +21,12 @@ function DetailEventInfo({ detail_event, setViewingItem, toggleModal }) {
 
   !detail_event
     ? (content = (
-        <React.Fragment>
+        <div className="empty-detail-event-group">
           <h3 className="empty-detail-event-title font-secondary">
             Click on a calendar event to view details or add an event!
           </h3>
           <PlusIcon onClick={() => toggleModal("add")} />
-        </React.Fragment>
+        </div>
       ))
     : detail_event.length
     ? (content = (

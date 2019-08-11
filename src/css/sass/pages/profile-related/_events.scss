@@ -95,7 +95,7 @@
     margin-left: 2rem;
 
     @media screen and (max-width: $medium) {
-      height: 43vh;
+      min-height: 43vh;
       margin-left: 0;
 
       // flex properties
@@ -108,12 +108,12 @@
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
         0 4px 10px 0 rgba(0, 0, 0, 0.19);
       box-sizing: border-box;
-      height: calc(50% - 1rem);
+      min-height: calc(50% - 1rem);
       padding: 1rem;
       width: calc(40vw - 3rem);
 
       @media screen and (max-width: $medium) {
-        height: 21.5vh;
+        min-height: 21.5vh;
         margin-top: 1rem;
         width: 100%;
       }
@@ -203,6 +203,7 @@
         @include displayFlex(center, space-between);
 
         .detail-event-group {
+          background: yellow;
           cursor: pointer;
           margin-top: 1rem;
 

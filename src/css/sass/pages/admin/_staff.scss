@@ -32,10 +32,6 @@
   // flex properties
   @include displayFlex(center, center);
 
-  @media screen and (max-width: $medium) {
-    top: 12vh;
-  }
-
   &:hover {
     cursor: pointer;
   }

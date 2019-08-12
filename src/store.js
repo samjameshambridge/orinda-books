@@ -34,7 +34,10 @@ const store = createStoreWithFirebase(
   compose(
     reactReduxFirebase(firebase),
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__
+      ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__()
+      : f => f
   )
 );
 

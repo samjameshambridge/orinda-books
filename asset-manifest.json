@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/orinda-books/static/css/main.5b51bf41.chunk.css",
+    "main.css": "/orinda-books/static/css/main.28f1ed1b.chunk.css",
     "main.js": "/orinda-books/static/js/main.bb7a1978.chunk.js",
     "main.js.map": "/orinda-books/static/js/main.bb7a1978.chunk.js.map",
     "runtime~main.js": "/orinda-books/static/js/runtime~main.c17a579d.js",
@@ -9,10 +9,10 @@
     "static/js/2.58b0fb41.chunk.js": "/orinda-books/static/js/2.58b0fb41.chunk.js",
     "static/js/2.58b0fb41.chunk.js.map": "/orinda-books/static/js/2.58b0fb41.chunk.js.map",
     "index.html": "/orinda-books/index.html",
-    "precache-manifest.952242b58bf70bc11c8514b1916d6eae.js": "/orinda-books/precache-manifest.952242b58bf70bc11c8514b1916d6eae.js",
+    "precache-manifest.519573a904807e1dcb67aa377a635428.js": "/orinda-books/precache-manifest.519573a904807e1dcb67aa377a635428.js",
     "service-worker.js": "/orinda-books/service-worker.js",
     "static/css/2.c51b6406.chunk.css.map": "/orinda-books/static/css/2.c51b6406.chunk.css.map",
-    "static/css/main.5b51bf41.chunk.css.map": "/orinda-books/static/css/main.5b51bf41.chunk.css.map",
+    "static/css/main.28f1ed1b.chunk.css.map": "/orinda-books/static/css/main.28f1ed1b.chunk.css.map",
     "static/media/App.css": "/orinda-books/static/media/mvboli.8bfeacd2.ttf",
     "static/media/inventory.png": "/orinda-books/static/media/inventory.9eec37f0.png",
     "static/media/orders.png": "/orinda-books/static/media/orders.4304f432.png",

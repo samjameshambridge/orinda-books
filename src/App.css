@@ -1701,7 +1701,6 @@ table {
       flex-flow: row nowrap;
       justify-content: space-between; }
       .events-content-container .event-info-container .event-specific-container .detail-event-container .detail-event-group {
-        background: yellow;
         cursor: pointer;
         margin-top: 1rem; }
         .events-content-container .event-info-container .event-specific-container .detail-event-container .detail-event-group .event-date-label {

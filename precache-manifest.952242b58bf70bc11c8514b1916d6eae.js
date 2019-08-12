@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "41e08efe3880f5bfd0dd2a961f8ed8c0",
+    "revision": "141cbffc948dcd8c3c5844819b601e46",
     "url": "/orinda-books/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/orinda-books/static/css/2.c51b6406.chunk.css"
   },
   {
-    "revision": "be1f6f9128c83976308c",
+    "revision": "0e6f8ec4db2f7eec5aee",
     "url": "/orinda-books/static/css/main.5b51bf41.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/orinda-books/static/js/2.58b0fb41.chunk.js"
   },
   {
-    "revision": "be1f6f9128c83976308c",
-    "url": "/orinda-books/static/js/main.ed3d9849.chunk.js"
+    "revision": "0e6f8ec4db2f7eec5aee",
+    "url": "/orinda-books/static/js/main.bb7a1978.chunk.js"
   },
   {
     "revision": "d1c993c53202d04c0bf2",

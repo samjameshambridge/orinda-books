@@ -1,4 +1,5 @@
 // auth actions
+export const LOADING = "LOADING";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 export const PASSWORD_RESET_ERROR = "PASSWORD_RESET_ERROR";
 

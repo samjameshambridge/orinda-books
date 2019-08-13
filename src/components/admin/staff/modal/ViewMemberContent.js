@@ -41,10 +41,18 @@ function ViewMemberContent({
           alt="book"
         />
         <div className="modal-view-item-info">
-          <p>{email}</p>
-          <p>{position}</p>
-          <p>DoB: {dob}</p>
-          <p>Added to Database: {dateAdded}</p>
+          <p>
+            <span>Email:</span> {email}
+          </p>
+          <p>
+            <span>Position:</span> {position}
+          </p>
+          <p>
+            <span>DoB:</span> {dob}
+          </p>
+          <p>
+            <span>Added to Database:</span> {dateAdded}
+          </p>
         </div>
       </div>
       <div className="staff-modal-view-button-group">

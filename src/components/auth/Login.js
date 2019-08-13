@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import { logIn } from "actions/authActions";
 
 import LoginButton from "components/buttons/LoginButton";
+import Spinner from "components/general/Spinner";
 
-function Login({ auth_error, logIn }) {
+function Login({ auth_error, loading, logIn }) {
   // the users details are kept in the state using react hooks
   // initial state is set to empty strings
   const [email, setEmail] = useState(""),
@@ -48,7 +49,7 @@ function Login({ auth_error, logIn }) {
         <div className="auth-error-group">
           {auth_error ? <h4>Login Error: {auth_error.message}</h4> : null}
         </div>
-        <LoginButton onClick={e => handleClick(e)} />
+        {loading ? <Spinner /> : <LoginButton onClick={e => handleClick(e)} />}
       </form>
     </React.Fragment>
   );
@@ -56,12 +57,14 @@ function Login({ auth_error, logIn }) {
 
 Login.propTypes = {
   auth_error: PropTypes.object,
+  loading: PropTypes.bool,
   logIn: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({ auth: { auth_error } }) => {
+const mapStateToProps = ({ auth: { auth_error, loading } }) => {
   return {
-    auth_error
+    auth_error,
+    loading
   };
 };
 

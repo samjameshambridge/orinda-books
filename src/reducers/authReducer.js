@@ -1,9 +1,15 @@
-import { LOGIN_ERROR, PASSWORD_RESET_ERROR } from "actions/types";
+import { LOADING, LOGIN_ERROR, PASSWORD_RESET_ERROR } from "actions/types";
 
 const initState = {};
 
 const authReducer = (state = initState, action) => {
   switch (action.type) {
+    case LOADING:
+      return {
+        ...state,
+        loading: action.payload
+      };
+
     case LOGIN_ERROR:
       return {
         ...state,

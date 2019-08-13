@@ -1,18 +1,20 @@
-import { LOGIN_ERROR, PASSWORD_RESET_ERROR } from "actions/types";
+import { LOADING, LOGIN_ERROR, PASSWORD_RESET_ERROR } from "actions/types";
 
 export const logIn = credentials => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
 
+    dispatch({ type: LOADING, payload: true });
+
     firebase
       .auth()
       .signInWithEmailAndPassword(credentials.email, credentials.password)
-      // .then(() => {
-      //   dispatch({ type: LOGIN_SUCCESS });
-      // })
+      .then(() => {
+        dispatch({ type: LOADING, payload: false });
+      })
       .catch(err => {
-        // else if error
         dispatch({ type: LOGIN_ERROR, payload: err });
+        dispatch({ type: LOADING, payload: false });
       });
   };
 };

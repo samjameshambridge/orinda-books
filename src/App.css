@@ -834,6 +834,7 @@ table {
   flex-flow: column nowrap;
   justify-content: space-between; }
   .staff-view-modal-container .staff-view-modal-title {
+    padding-left: 6rem;
     align-items: center;
     display: flex;
     flex-flow: row nowrap;
@@ -866,6 +867,9 @@ table {
       @media screen and (min-width: 1400px) {
         .staff-view-modal-container .staff-modal-view-content .modal-view-item-info p {
           font-size: 1.75rem; } }
+      .staff-view-modal-container .staff-modal-view-content .modal-view-item-info p span {
+        font-size: 0.8rem;
+        font-weight: 600; }
   .staff-view-modal-container .staff-modal-view-button-group {
     width: 100%;
     align-items: stretch;
